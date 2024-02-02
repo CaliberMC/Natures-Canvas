@@ -1,4 +1,4 @@
-# Natures Canvas Mod
+# Natures Canvas
 **The Ultimate Builders Mod**
 
 [![FORGE](https://img.shields.io/static/v1?label=modloader&message=forge&color=orange)](https://files.minecraftforge.net/net/minecraftforge/forge/)
