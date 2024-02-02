@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/arch_large_trim",
+  "textures": {
+    "bottom": "naturescanvas:block/light_limestone",
+    "side": "naturescanvas:block/light_limestone",
+    "top": "naturescanvas:block/light_limestone"
+  }
+}

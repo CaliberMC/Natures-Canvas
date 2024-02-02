@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/arch_large_half",
+  "textures": {
+    "bottom": "naturescanvas:block/pink_granite",
+    "side": "naturescanvas:block/pink_granite",
+    "top": "naturescanvas:block/pink_granite"
+  }
+}

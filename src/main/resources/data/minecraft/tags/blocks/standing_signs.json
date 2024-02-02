@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:stained_oak_sign",
+    "naturescanvas:stained_spruce_sign",
+    "naturescanvas:stained_birch_sign",
+    "naturescanvas:stained_acacia_sign",
+    "naturescanvas:stained_jungle_sign",
+    "naturescanvas:stained_dark_oak_sign"
+  ]
+}

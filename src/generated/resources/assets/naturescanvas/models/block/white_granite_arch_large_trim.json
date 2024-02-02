@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/arch_large_trim",
+  "textures": {
+    "bottom": "naturescanvas:block/white_granite",
+    "side": "naturescanvas:block/white_granite",
+    "top": "naturescanvas:block/white_granite"
+  }
+}

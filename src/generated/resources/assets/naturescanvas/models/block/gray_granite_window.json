@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/window",
+  "textures": {
+    "bottom": "naturescanvas:block/gray_granite",
+    "side": "naturescanvas:block/gray_granite",
+    "top": "naturescanvas:block/gray_granite"
+  }
+}

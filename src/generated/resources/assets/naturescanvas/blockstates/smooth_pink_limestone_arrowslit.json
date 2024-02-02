@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "naturescanvas:block/smooth_pink_limestone_arrowslit",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "naturescanvas:block/smooth_pink_limestone_arrowslit"
+    },
+    "facing=south": {
+      "model": "naturescanvas:block/smooth_pink_limestone_arrowslit",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "naturescanvas:block/smooth_pink_limestone_arrowslit",
+      "y": 270
+    }
+  }
+}

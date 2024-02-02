@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/slab_vertical_layer_7",
+  "textures": {
+    "bottom": "naturescanvas:block/tan_limestone_bricks",
+    "side": "naturescanvas:block/tan_limestone_bricks",
+    "top": "naturescanvas:block/tan_limestone_bricks"
+  }
+}

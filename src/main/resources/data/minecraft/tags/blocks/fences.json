@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:stained_oak_fence",
+    "naturescanvas:stained_acacia_fence",
+    "naturescanvas:stained_dark_oak_fence",
+    "naturescanvas:stained_spruce_fence",
+    "naturescanvas:stained_birch_fence",
+    "naturescanvas:stained_jungle_fence"
+  ]
+}

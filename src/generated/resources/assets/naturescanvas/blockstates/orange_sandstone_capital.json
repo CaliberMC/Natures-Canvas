@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "naturescanvas:block/orange_sandstone_capital"
+    },
+    "type=top": {
+      "model": "naturescanvas:block/orange_sandstone_capital_top"
+    }
+  }
+}

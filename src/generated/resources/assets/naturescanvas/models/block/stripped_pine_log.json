@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "naturescanvas:block/pine_log_top",
+    "side": "naturescanvas:block/stripped_pine_log"
+  }
+}

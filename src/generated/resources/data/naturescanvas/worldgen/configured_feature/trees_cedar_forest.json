@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "naturescanvas:cedar_tree",
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": "naturescanvas:cedar_tree_medium"
+      },
+      {
+        "chance": 0.1,
+        "feature": "naturescanvas:cedar_tree_large"
+      }
+    ]
+  }
+}

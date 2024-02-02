@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/arch_corner",
+  "textures": {
+    "bottom": "naturescanvas:block/polished_black_marble",
+    "side": "naturescanvas:block/polished_black_marble",
+    "top": "naturescanvas:block/polished_black_marble"
+  }
+}

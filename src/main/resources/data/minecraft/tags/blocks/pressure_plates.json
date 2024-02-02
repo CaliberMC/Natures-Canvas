@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:dark_limestone_pressure_plate",
+    "naturescanvas:light_limestone_pressure_plate",
+    "naturescanvas:pink_limestone_pressure_plate",
+    "naturescanvas:tan_limestone_pressure_plate",
+    "naturescanvas:stained_acacia_pressure_plate",
+    "naturescanvas:stained_birch_pressure_plate",
+    "naturescanvas:stained_dark_oak_pressure_plate",
+    "naturescanvas:stained_jungle_pressure_plate",
+    "naturescanvas:stained_oak_pressure_plate",
+    "naturescanvas:stained_spruce_pressure_plate"
+  ]
+}

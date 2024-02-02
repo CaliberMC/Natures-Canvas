@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/window_half_middle",
+  "textures": {
+    "bottom": "naturescanvas:block/cobbled_pink_limestone",
+    "side": "naturescanvas:block/cobbled_pink_limestone",
+    "top": "naturescanvas:block/cobbled_pink_limestone"
+  }
+}

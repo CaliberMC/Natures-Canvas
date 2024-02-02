@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "naturescanvas:block/woodcutter",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "naturescanvas:block/woodcutter"
+    },
+    "facing=south": {
+      "model": "naturescanvas:block/woodcutter",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "naturescanvas:block/woodcutter",
+      "y": 270
+    }
+  }
+}

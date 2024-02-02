@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/arrowslit",
+  "textures": {
+    "bottom": "naturescanvas:block/light_limestone_bricks",
+    "side": "naturescanvas:block/light_limestone_bricks",
+    "top": "naturescanvas:block/light_limestone_bricks"
+  }
+}

@@ -1,0 +1,66 @@
+{
+    "key.categories.naturescanvas": "Natures Canvas",
+
+    "itemGroup.naturescanvas": "Natures Canvas",
+    "itemGroup.stone": "Stone",
+    "itemGroup.cobble_brick": "Cobble & Brick",
+    "itemGroup.planks_beams": "Planks & Beams",
+    "itemGroup.roofing": "Roofing",
+
+    "itemGroup.plaster_stucco": "Plaster & Stucco",
+    "itemGroup.half_timbered_walls": "Half-Timbered Walls",
+    "itemGroup.tiles_flooring": "Tiles & Flooring",
+    "itemGroup.glass_windows": "Glass & Windows",
+    "itemGroup.lighting": "Lighting",
+
+    "itemGroup.decor": "Decor",
+    "itemGroup.furniture": "Furniture",
+    "itemGroup.food": "Food",
+    "itemGroup.storage": "Storage",
+    "itemGroup.redstone": "Redstone",
+
+    "itemGroup.sand_gravel": "Sand & Gravel",
+    "itemGroup.grass_dirt": "Grass & Dirt",
+    "itemGroup.metals_ores": "Metals & Ores",
+    "itemGroup.logs": "Logs",
+    "itemGroup.leaves": "Leaves",
+
+    "itemGroup.flowers_plants": "Flowers & Plants",
+    "itemGroup.crops": "Crops",
+    "itemGroup.crafting": "Crafting, Etc",
+    "itemGroup.tools_weapons": "Tools & Weapons",
+    "itemGroup.armor": "Armor",
+
+    "item.naturescanvas.tin_ingot": "Tin Ingot",
+    "item.naturescanvas.tin_nugget": "Tin Nugget",
+    "item.naturescanvas.raw_tin": "Raw Tin",
+    "item.naturescanvas.hammer": "Hammer",
+    "item.naturescanvas.nails": "Nails",
+    "item.naturescanvas.grass_stems": "Grass Stems",
+
+    "block.naturescanvas.bronze_block": "Bronze Block",
+    "item.naturescanvas.bronze_ingot": "Bronze Ingot",
+    "item.naturescanvas.bronze_helmet": "Bronze Helmet",
+    "item.naturescanvas.bronze_chestplate": "Bronze Chestplate",
+    "item.naturescanvas.bronze_leggings": "Bronze Leggings",
+    "item.naturescanvas.bronze_boots": "Bronze Boots",
+    "item.naturescanvas.bronze_sword": "Bronze Sword",
+    "item.naturescanvas.bronze_pickaxe": "Bronze Pickaxe",
+    "item.naturescanvas.bronze_axe": "Bronze Axe",
+    "item.naturescanvas.bronze_shovel": "Bronze Shovel",
+    "item.naturescanvas.bronze_hoe": "Bronze Hoe",
+
+    "block.naturescanvas.tin_block": "Tin Block",
+    "block.naturescanvas.tin_ore": "Tin Ore",
+    "block.naturescanvas.raw_tin_block": "Raw Tin Block",
+    "block.naturescanvas.deepslate_tin_ore": "Deepslate Tin Ore",
+
+    "item.naturescanvas.silver_ingot": "Silver Ingot",
+    "item.naturescanvas.silver_nugget": "Silver Nugget",
+    "item.naturescanvas.raw_silver": "Raw Silver",
+
+    "block.naturescanvas.silver_block": "Silver Block",
+    "block.naturescanvas.silver_ore": "Silver Ore",
+    "block.naturescanvas.raw_silver_block": "Raw Silver Block",
+    "block.naturescanvas.deepslate_silver_ore": "Deepslate Silver Ore"
+}

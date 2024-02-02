@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/arch",
+  "textures": {
+    "bottom": "naturescanvas:block/mossy_tan_limestone_bricks",
+    "side": "naturescanvas:block/mossy_tan_limestone_bricks",
+    "top": "naturescanvas:block/mossy_tan_limestone_bricks"
+  }
+}

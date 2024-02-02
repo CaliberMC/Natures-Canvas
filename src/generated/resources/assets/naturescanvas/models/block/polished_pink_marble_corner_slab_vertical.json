@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/corner_slab_vertical",
+  "textures": {
+    "bottom": "naturescanvas:block/polished_pink_marble",
+    "side": "naturescanvas:block/polished_pink_marble",
+    "top": "naturescanvas:block/polished_pink_marble"
+  }
+}

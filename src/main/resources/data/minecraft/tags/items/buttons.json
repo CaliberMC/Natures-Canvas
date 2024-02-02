@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:dark_limestone_button",
+    "naturescanvas:light_limestone_button",
+    "naturescanvas:pink_limestone_button",
+    "naturescanvas:tan_limestone_button",
+    "naturescanvas:stained_acacia_button",
+    "naturescanvas:stained_birch_button",
+    "naturescanvas:stained_dark_oak_button",
+    "naturescanvas:stained_jungle_button",
+    "naturescanvas:stained_oak_button",
+    "naturescanvas:stained_spruce_button"
+  ]
+}

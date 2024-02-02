@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:black_sand",
+    "naturescanvas:brown_sand",
+    "naturescanvas:orange_sand",
+    "naturescanvas:white_sand"
+  ]
+}

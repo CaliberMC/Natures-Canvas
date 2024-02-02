@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:stained_oak_door",
+    "naturescanvas:stained_spruce_door",
+    "naturescanvas:stained_birch_door",
+    "naturescanvas:stained_jungle_door",
+    "naturescanvas:stained_acacia_door",
+    "naturescanvas:stained_dark_oak_door",
+    "naturescanvas:tall_acacia_door",
+    "naturescanvas:tall_birch_door",
+    "naturescanvas:tall_dark_oak_door",
+    "naturescanvas:tall_jungle_door",
+    "naturescanvas:tall_oak_door",
+    "naturescanvas:tall_spruce_door",
+    "naturescanvas:tall_stained_acacia_door",
+    "naturescanvas:tall_stained_birch_door",
+    "naturescanvas:tall_stained_dark_oak_door",
+    "naturescanvas:tall_stained_jungle_door",
+    "naturescanvas:tall_stained_oak_door",
+    "naturescanvas:tall_stained_spruce_door"
+  ]
+}

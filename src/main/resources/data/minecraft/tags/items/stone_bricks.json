@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:dark_limestone_bricks",
+    "naturescanvas:light_limestone_bricks",
+    "naturescanvas:pink_limestone_bricks",
+    "naturescanvas:tan_limestone_bricks"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "naturescanvas:block/smooth_light_limestone_capital"
+    },
+    "type=top": {
+      "model": "naturescanvas:block/smooth_light_limestone_capital_top"
+    }
+  }
+}

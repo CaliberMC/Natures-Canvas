@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/slab_layer_5",
+  "textures": {
+    "bottom": "naturescanvas:block/brown_sandstone_top",
+    "side": "naturescanvas:block/cut_brown_sandstone",
+    "top": "naturescanvas:block/brown_sandstone_top"
+  }
+}
