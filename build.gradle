@@ -203,7 +203,7 @@ dependencies {
 //    implementation fg.deobf("maven.modrinth:caliber:0.2.0-1.20.1") // modrinth variant
     implementation fg.deobf("com.calibermc.buildify:buildify:0.2.0") // maven local
     compileOnly fg.deobf("com.calibermc.caliber:caliber:0.2.0") // maven local
-    implementation fg.deobf("com.calibermc.caliberlib:caliberlib:0.0.1")
+    implementation fg.deobf("com.calibermc.caliberlib:caliberlib:0.1.0")
 
     // jarJar
 //    implementation(fg.deobf(jarJar("com.calibermc.caliberlib:caliberlib:0.0.1") {
@@ -235,6 +235,7 @@ def replaceProperties = [
         terrablender_version_range: terrablender_version_range,
         buildify_version_range: buildify_version_range,
         caliber_version_range: caliber_version_range,
+        caliber_lib_version_range: caliber_lib_version_range,
 ]
 processResources {
     inputs.properties replaceProperties

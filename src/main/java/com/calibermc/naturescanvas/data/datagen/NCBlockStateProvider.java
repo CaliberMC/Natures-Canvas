@@ -19,10 +19,19 @@ public class NCBlockStateProvider extends ModBlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        simpleBlock(NCBlocks.BRONZE_BLOCK.get());
         terrainBlocks();
         metalBlocks();
         treeBlocks();
         super.registerStatesAndModels();
+    }
+
+    private void plasterBlocks() {
+        simpleBlock(NCBlocks.BEIGE_PLASTER_POWDER.get());
+        simpleBlock(NCBlocks.BROWN_PLASTER_POWDER.get());
+        simpleBlock(NCBlocks.OCHRE_PLASTER_POWDER.get());
+        simpleBlock(NCBlocks.TAN_PLASTER_POWDER.get());
+        simpleBlock(NCBlocks.WHITE_PLASTER_POWDER.get());
     }
 
     private void terrainBlocks() {

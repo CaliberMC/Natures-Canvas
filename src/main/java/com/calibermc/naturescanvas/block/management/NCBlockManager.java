@@ -1,7 +1,7 @@
 package com.calibermc.naturescanvas.block.management;
 
 import com.calibermc.caliberlib.block.management.BlockManager;
-import com.calibermc.caliberlib.block.management.CaliberBlockHelper;
+import com.calibermc.caliberlib.block.management.ModBlockHelper;
 import com.calibermc.caliberlib.data.ModBlockFamily;
 import com.calibermc.naturescanvas.block.NCBlocks;
 import com.calibermc.naturescanvas.block.properties.BlockProps;
@@ -20,7 +20,7 @@ public class NCBlockManager {
     }
 
     public static BlockManager registerStoneWithLoot(String name, Supplier<Block> cobblestone) {
-        Collection<ModBlockFamily.Variant> variants = CaliberBlockHelper.modifyList(CaliberBlockHelper.STONE_VARIANTS, (c) -> c.addAll(Arrays.asList(ModBlockFamily.Variant.BASE, ModBlockFamily.Variant.BUTTON, ModBlockFamily.Variant.PRESSURE_PLATE)));
+        Collection<ModBlockFamily.Variant> variants = ModBlockHelper.modifyList(ModBlockHelper.STONE_VARIANTS, (c) -> c.addAll(Arrays.asList(ModBlockFamily.Variant.BASE, ModBlockFamily.Variant.BUTTON, ModBlockFamily.Variant.PRESSURE_PLATE)));
         BlockManager.Builder builder = new BlockManager.Builder(name, NCBlocks.BLOCKS);
         Supplier<Block> baseBlock = () -> new Block(BlockProps.LIMESTONE.get());
         builder.addVariant(ModBlockFamily.Variant.BASE, baseBlock, (additional) ->

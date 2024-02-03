@@ -1,12 +1,15 @@
 package com.calibermc.naturescanvas;
 
 import com.calibermc.naturescanvas.block.NCBlocks;
+import com.calibermc.naturescanvas.block.entity.NCBlockEntities;
 import com.calibermc.naturescanvas.config.NCClientConfigs;
 import com.calibermc.naturescanvas.config.NCCommonConfigs;
+import com.calibermc.naturescanvas.crafting.NCMenuTypes;
+import com.calibermc.naturescanvas.crafting.NCRecipeSerializers;
 import com.calibermc.naturescanvas.item.NCCreativeTab;
 import com.calibermc.naturescanvas.item.NCItems;
 import com.calibermc.naturescanvas.networking.NCNetworking;
-import com.calibermc.naturescanvas.util.NCBlockFamilies;
+import com.calibermc.naturescanvas.data.NCBlockFamilies;
 import com.calibermc.naturescanvas.worldgen.NCTerrablender;
 import com.calibermc.naturescanvas.worldgen.feature.NCFeatures;
 import net.minecraft.world.inventory.RecipeBookType;
@@ -29,6 +32,7 @@ public class NaturesCanvas {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
+    public static final RecipeBookType KILN_BOOK_TYPE = RecipeBookType.create("kiln");
 
 
     public NaturesCanvas() {
@@ -37,6 +41,9 @@ public class NaturesCanvas {
         NCItems.register(eventBus);
         NCBlocks.register(eventBus);
         NCCreativeTab.register(eventBus);
+        NCMenuTypes.register(eventBus);
+        NCBlockEntities.register(eventBus);
+        NCRecipeSerializers.register(eventBus);
 
         NCFeatures.register(eventBus);
 

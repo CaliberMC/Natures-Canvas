@@ -13,8 +13,6 @@ public class ModGlobalLootSerializers {
             DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, NaturesCanvas.MOD_ID);
 
     public static final RegistryObject<Codec<? extends IGlobalLootModifier>> GRASS_STEMS_FROM_GRASS = GLOBAL_LOOT_MODIFIERS.register("grass_stems_from_grass", GrassStemsFromGrassModifier.CODEC);
-    public static final RegistryObject<Codec<? extends IGlobalLootModifier>> RESIN_FROM_SPRUCE_LEAVES = GLOBAL_LOOT_MODIFIERS.register("resin_from_spruce_leaves", ResinFromSpruceLeavesModifier.CODEC);
-
 
     public static void register(IEventBus eventBus) {
         GLOBAL_LOOT_MODIFIERS.register(eventBus);

@@ -26,7 +26,7 @@ public class NCItemModelProvider extends ModItemModelProvider {
         // Register Item Models
         NCItems.ITEMS.getEntries().stream()
                 .filter(itemRegistryObject -> {
-                    // Check if the item's registry name is in the Caliber.MOD_ID namespace
+                    // Check if the item's registry name is in the NaturesCanvas.MOD_ID namespace
                     ResourceLocation registryName = itemRegistryObject.getId();
                     return registryName != null && NaturesCanvas.MOD_ID.equals(registryName.getNamespace());
                 })

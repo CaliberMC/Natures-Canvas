@@ -1,0 +1,18 @@
+package com.calibermc.naturescanvas.item;
+
+import com.calibermc.caliber.item.ModItems;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.ForgeTier;
+
+public class NCTiers {
+    public static final ForgeTier BRONZE = new ForgeTier(2, 750, 8.0f,
+            3.0f, 18, BlockTags.NEEDS_IRON_TOOL,
+            () -> Ingredient.of(NCItems.BRONZE_INGOT.get()));
+
+//    public static final ForgeTier STEEL = new ForgeTier(3, 2500, 12.0f,
+//            4.0f, 22, BlockTags.NEEDS_DIAMOND_TOOL,
+//            () -> Ingredient.of(NCItems.BRONZE_INGOT.get()));
+}
+
+
