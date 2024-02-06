@@ -1,6 +1,5 @@
 package com.calibermc.naturescanvas.crafting;
 
-import com.calibermc.caliber.crafting.ModRecipeSerializers;
 import com.google.gson.JsonObject;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
@@ -114,7 +113,7 @@ public class NCRecipeBuilder implements RecipeBuilder {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializers.ALLOYING.get();
+            return NCRecipeSerializers.ALLOYING.get();
         }
 
         /**

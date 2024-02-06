@@ -1,6 +1,5 @@
 package com.calibermc.naturescanvas.item;
 
-import com.calibermc.caliber.Caliber;
 import com.calibermc.naturescanvas.NaturesCanvas;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

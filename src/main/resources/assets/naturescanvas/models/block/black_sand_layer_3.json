@@ -1,9 +1,9 @@
 {
-  "parent": "caliber:block/templates/slab_layer_3",
+  "parent": "caliberlib:block/templates/slab_layer_3",
   "textures": {
-    "side": "caliber:block/black_sand",
-    "bottom": "caliber:block/black_sand",
-    "top": "caliber:block/black_sand"
+    "side": "naturescanvas:block/black_sand",
+    "bottom": "naturescanvas:block/black_sand",
+    "top": "naturescanvas:block/black_sand"
   }
 }
 

@@ -1,6 +1,5 @@
 package com.calibermc.naturescanvas.item;
 
-import com.calibermc.caliber.item.ModItems;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.ForgeTier;

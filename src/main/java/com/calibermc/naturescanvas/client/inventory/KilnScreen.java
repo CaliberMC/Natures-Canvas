@@ -1,6 +1,5 @@
 package com.calibermc.naturescanvas.client.inventory;
 
-import com.calibermc.caliber.Caliber;
 import com.calibermc.naturescanvas.client.inventory.recipebook.AlloyingRecipeBookComponent;
 import com.calibermc.naturescanvas.crafting.KilnMenu;
 import com.calibermc.naturescanvas.NaturesCanvas;

@@ -1,9 +1,8 @@
 package com.calibermc.naturescanvas.block.entity;
 
-import com.calibermc.caliber.block.entity.ModBlockEntities;
-import com.calibermc.caliber.crafting.KilnRecipe;
-import com.calibermc.caliber.crafting.ModRecipeSerializers;
-import com.calibermc.caliber.world.inventory.kiln.KilnMenu;
+import com.calibermc.naturescanvas.crafting.KilnMenu;
+import com.calibermc.naturescanvas.crafting.KilnRecipe;
+import com.calibermc.naturescanvas.crafting.NCRecipeSerializers;
 import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
@@ -88,7 +87,7 @@ public class KilnBlockEntity extends BaseContainerBlockEntity implements Worldly
     LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
 
     public KilnBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        this(ModBlockEntities.KILN.get(), pPos, pBlockState, ModRecipeSerializers.ALLOYING_TYPE.get());
+        this(NCBlockEntities.KILN.get(), pPos, pBlockState, NCRecipeSerializers.ALLOYING_TYPE.get());
     }
 
     protected KilnBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState, RecipeType<? extends KilnRecipe> pRecipeType) {

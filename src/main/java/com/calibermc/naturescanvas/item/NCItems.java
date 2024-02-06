@@ -1,6 +1,5 @@
 package com.calibermc.naturescanvas.item;
 
-import com.calibermc.caliber.block.ModBlocks;
 import com.calibermc.naturescanvas.NaturesCanvas;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -70,23 +69,6 @@ public class NCItems {
     public static final RegistryObject<Item> BRONZE_BOOTS = ITEMS.register("bronze_boots",
             () -> new ArmorItem(NCArmorMaterials.BRONZE, ArmorItem.Type.BOOTS,
                     new Item.Properties()));
-
-
-    public static final RegistryObject<Item> STAINED_ACACIA_SIGN = ITEMS.register("stained_acacia_sign",
-            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.STAINED_ACACIA_SIGN.get(), ModBlocks.STAINED_ACACIA_WALL_SIGN.get()));
-    public static final RegistryObject<Item> STAINED_BIRCH_SIGN = ITEMS.register("stained_birch_sign",
-            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.STAINED_BIRCH_SIGN.get(), ModBlocks.STAINED_BIRCH_WALL_SIGN.get()));
-    public static final RegistryObject<Item> STAINED_DARK_OAK_SIGN = ITEMS.register("stained_dark_oak_sign",
-            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.STAINED_DARK_OAK_SIGN.get(), ModBlocks.STAINED_DARK_OAK_WALL_SIGN.get()));
-    public static final RegistryObject<Item> STAINED_JUNGLE_SIGN = ITEMS.register("stained_jungle_sign",
-            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.STAINED_JUNGLE_SIGN.get(), ModBlocks.STAINED_JUNGLE_WALL_SIGN.get()));
-    public static final RegistryObject<Item> STAINED_OAK_SIGN = ITEMS.register("stained_oak_sign",
-            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.STAINED_OAK_SIGN.get(), ModBlocks.STAINED_OAK_WALL_SIGN.get()));
-    public static final RegistryObject<Item> STAINED_SPRUCE_SIGN = ITEMS.register("stained_spruce_sign",
-            () -> new SignItem(new Item.Properties().stacksTo(16), ModBlocks.STAINED_SPRUCE_SIGN.get(), ModBlocks.STAINED_SPRUCE_WALL_SIGN.get()));
-
-
-
 
 
     public static void printItemCounts() {

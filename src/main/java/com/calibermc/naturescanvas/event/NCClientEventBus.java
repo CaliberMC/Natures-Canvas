@@ -1,15 +1,16 @@
 package com.calibermc.naturescanvas.event;
 
-
-import com.calibermc.caliber.Caliber;
-import com.calibermc.caliber.client.inventory.KilnScreen;
+import com.calibermc.naturescanvas.NaturesCanvas;
 import com.calibermc.naturescanvas.block.NCBlocks;
 import com.calibermc.naturescanvas.block.properties.BlockRenderLayers;
+import com.calibermc.naturescanvas.block.properties.NCWoodType;
+import com.calibermc.naturescanvas.client.inventory.KilnScreen;
 import com.calibermc.naturescanvas.crafting.NCMenuTypes;
 import com.calibermc.naturescanvas.crafting.NCRecipeSerializers;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -51,7 +52,7 @@ public class NCClientEventBus {
         // finder all categories that works with kiln
         event.registerAggregateCategory(KILN_SEARCH_CATEGORY, categories.build());
 
-        event.registerBookCategories(Caliber.KILN_BOOK_TYPE,
+        event.registerBookCategories(NaturesCanvas.KILN_BOOK_TYPE,
                 ImmutableList.<RecipeBookCategories>builder().add(KILN_SEARCH_CATEGORY, KILN_MAIN_CATEGORY).addAll(furnaceCategories).build());
 
     }
@@ -62,6 +63,11 @@ public class NCClientEventBus {
 
         // Set Block Render Types
         BlockRenderLayers.set();
+
+        // Set Wood Types
+        Sheets.addWoodType(NCWoodType.CEDAR);
+        Sheets.addWoodType(NCWoodType.FIR);
+        Sheets.addWoodType(NCWoodType.PINE);
 
     }
 

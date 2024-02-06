@@ -1,8 +1,5 @@
 package com.calibermc.naturescanvas.crafting;
 
-import com.calibermc.caliber.Caliber;
-import com.calibermc.caliber.world.inventory.kiln.KilnMenu;
-import com.calibermc.caliber.world.inventory.woodcutter.WoodcutterMenu;
 import com.calibermc.naturescanvas.NaturesCanvas;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.inventory.AbstractContainerMenu;

@@ -1,8 +1,7 @@
 package com.calibermc.naturescanvas.block.entity;
 
-import com.calibermc.caliber.block.ModBlocks;
-import com.calibermc.caliber.block.entity.KilnBlockEntity;
 import com.calibermc.naturescanvas.NaturesCanvas;
+import com.calibermc.naturescanvas.block.NCBlocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -16,7 +15,7 @@ public class NCBlockEntities {
 
     public static final RegistryObject<BlockEntityType<KilnBlockEntity>> KILN =
             BLOCK_ENTITIES.register("kiln", () ->
-                    BlockEntityType.Builder.of(KilnBlockEntity::new, ModBlocks.KILN.get()).build(null));
+                    BlockEntityType.Builder.of(KilnBlockEntity::new, NCBlocks.KILN.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

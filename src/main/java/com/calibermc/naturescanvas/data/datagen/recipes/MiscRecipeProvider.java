@@ -1,21 +1,15 @@
 package com.calibermc.naturescanvas.data.datagen.recipes;
 
-import com.calibermc.caliber.block.ModBlocks;
 import com.calibermc.naturescanvas.block.NCBlocks;
-import com.calibermc.caliber.crafting.ModRecipeBuilder;
 import com.calibermc.naturescanvas.crafting.NCRecipeBuilder;
 import com.calibermc.naturescanvas.item.NCItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Consumer;
 

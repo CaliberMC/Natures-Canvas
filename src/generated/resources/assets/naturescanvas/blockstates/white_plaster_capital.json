@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "naturescanvas:block/white_plaster_capital"
+    },
+    "type=top": {
+      "model": "naturescanvas:block/white_plaster_capital_top"
+    }
+  }
+}

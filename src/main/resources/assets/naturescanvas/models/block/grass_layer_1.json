@@ -1,5 +1,5 @@
 {
-  "parent": "caliber:block/layer_block",
+  "parent": "caliberlib:block/layer_block",
   "textures": {
     "side": "minecraft:block/grass_block_top",
     "bottom": "minecraft:block/dirt",

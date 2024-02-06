@@ -2,6 +2,8 @@ package com.calibermc.naturescanvas.data.datagen;
 
 import com.calibermc.caliberlib.data.datagen.ModLootTableProvider;
 import com.calibermc.naturescanvas.NaturesCanvas;
+import com.calibermc.naturescanvas.data.datagen.loot.NCBlockLootTables;
+import com.calibermc.naturescanvas.data.datagen.recipes.NCRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -23,9 +25,9 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         // BlockStates, Loot and Models
-        generator.addProvider(event.includeServer(), new NCBlockStateProvider(generator, existingFileHelper));
+        generator.addProvider(event.includeClient(), new NCBlockStateProvider(generator, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModLootTableProvider(generator, NCBlockLootTables::new));
-        generator.addProvider(event.includeServer(), new NCItemModelProvider(generator, existingFileHelper));
+        generator.addProvider(event.includeClient(), new NCItemModelProvider(generator, existingFileHelper));
         generator.addProvider(event.includeServer(), new NCRecipeProvider(generator));
         generator.addProvider(event.includeServer(), new NCWorldGenProvider(packOutput, lookupProvider));
     }
