@@ -11,6 +11,7 @@ import com.calibermc.naturescanvas.item.NCCreativeTab;
 import com.calibermc.naturescanvas.item.NCItems;
 import com.calibermc.naturescanvas.networking.NCNetworking;
 import com.calibermc.naturescanvas.data.NCBlockFamilies;
+import com.calibermc.naturescanvas.util.compat.BuildifyBlockPicker;
 import com.calibermc.naturescanvas.worldgen.NCTerrablender;
 import com.calibermc.naturescanvas.worldgen.feature.NCFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -71,6 +72,7 @@ public class NaturesCanvas {
         NCNetworking.registerMessages();
         NCBlocks.printBlockCounts();
         NCTerrablender.registerRegions(); //?
+//        BuildifyBlockPicker.init();
     }
 
 

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:bronze_helmet",
+    "naturescanvas:bronze_chestplate",
+    "naturescanvas:bronze_leggings",
+    "naturescanvas:bronze_boots"
+  ]
+}

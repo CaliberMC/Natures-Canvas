@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:beige_plaster",
+    "naturescanvas:brown_plaster",
+    "naturescanvas:ochre_plaster",
+    "naturescanvas:tan_plaster",
+    "naturescanvas:white_plaster",
+    "naturescanvas:beige_plaster_powder",
+    "naturescanvas:brown_plaster_powder",
+    "naturescanvas:ochre_plaster_powder",
+    "naturescanvas:tan_plaster_powder",
+    "naturescanvas:white_plaster_powder"
+  ]
+}

@@ -2,12 +2,19 @@ package com.calibermc.naturescanvas.data;
 
 import com.calibermc.caliberlib.data.ModBlockFamily;
 import com.calibermc.naturescanvas.block.NCBlocks;
+import com.google.common.collect.Maps;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.eventbus.api.IEventBus;
-import static com.calibermc.caliber.data.ModBlockFamilies.familyBuilder;
+
+import java.util.Map;
+import java.util.stream.Stream;
+
+import static com.calibermc.caliber.data.CaliberBlockFamilies.familyBuilder;
 
 @SuppressWarnings("unused")
 public class NCBlockFamilies {
+    private static final Map<Block, ModBlockFamily> MAP = Maps.newHashMap();
 
     public NCBlockFamilies() {
         /* Granite */
@@ -1029,4 +1036,8 @@ public class NCBlockFamilies {
 //    public static final ModBlockFamily TUDOR_STAINED_SPRUCE_WHITE_PLASTER_V_2 = familyBuilder(NCBlocks.TUDOR_STAINED_SPRUCE_WHITE_PLASTER_V_2.baseBlock())
 //            .fromManager(NCBlocks.TUDOR_STAINED_SPRUCE_WHITE_PLASTER_V_2)
 //            .getFamily();
+
+    public static Stream<ModBlockFamily> getAllFamilies() {
+        return MAP.values().stream();
+    }
 }

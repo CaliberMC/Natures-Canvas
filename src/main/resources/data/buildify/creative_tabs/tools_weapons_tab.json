@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:bronze_axe",
+    "naturescanvas:bronze_pickaxe",
+    "naturescanvas:bronze_shovel",
+    "naturescanvas:bronze_hoe",
+    "naturescanvas:bronze_sword"
+  ]
+}
