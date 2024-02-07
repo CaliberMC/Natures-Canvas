@@ -1,16 +1,16 @@
 package com.calibermc.naturescanvas.data;
 
+import com.calibermc.buildify.util.BlockPickerStatesJson;
 import com.calibermc.caliberlib.data.ModBlockFamily;
 import com.calibermc.naturescanvas.block.NCBlocks;
 import com.google.common.collect.Maps;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.stream.Stream;
-
-import static com.calibermc.caliber.data.CaliberBlockFamilies.familyBuilder;
 
 @SuppressWarnings("unused")
 public class NCBlockFamilies {
@@ -1037,7 +1037,26 @@ public class NCBlockFamilies {
 //            .fromManager(NCBlocks.TUDOR_STAINED_SPRUCE_WHITE_PLASTER_V_2)
 //            .getFamily();
 
+    public static ModBlockFamily.Builder familyBuilder(Block pBaseBlock) {
+        ModBlockFamily.Builder builder = new ModBlockFamily.Builder(pBaseBlock);
+        ModBlockFamily modBlockFamily = MAP.put(pBaseBlock, builder.getFamily());
+        if (modBlockFamily != null) {
+            throw new IllegalStateException("Duplicate family definition for " + ForgeRegistries.BLOCKS.getKey(pBaseBlock));
+        } else {
+            return builder;
+        }
+    }
+
     public static Stream<ModBlockFamily> getAllFamilies() {
         return MAP.values().stream();
+    }
+
+    public void register() {
+        for (ModBlockFamily modBlockFamily : getAllFamilies().toList()) {
+            BlockPickerStatesJson.registerBlockFamily(modBlockFamily.getBaseBlock(), () ->
+                    new ArrayList<>(modBlockFamily.getVariants().entrySet().stream()
+                            .filter(p -> !p.getKey().equals(ModBlockFamily.Variant.WALL_SIGN))
+                            .map(p -> p.getValue().asItem().getDefaultInstance()).toList()));
+        }
     }
 }

@@ -77,9 +77,9 @@ public class NaturesCanvas {
 
 
     private void interModProcess(final InterModProcessEvent event) {
-        if (ModList.get().isLoaded("caliber")) {
+        if (ModList.get().isLoaded("buildify")) {
             event.enqueueWork(() -> {
-                new NCBlockFamilies();
+                new NCBlockFamilies().register();
             });
         }
     }

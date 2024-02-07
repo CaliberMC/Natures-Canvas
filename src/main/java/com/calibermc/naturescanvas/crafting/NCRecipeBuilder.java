@@ -26,7 +26,7 @@ public class NCRecipeBuilder implements RecipeBuilder {
     private final float experience;
     private final int cookingTime;
     private final Advancement.Builder advancement = Advancement.Builder.advancement();
-    @javax.annotation.Nullable
+    @Nullable
     private String group;
 
     private NCRecipeBuilder(ItemLike pResult, Ingredient pIngredient, Ingredient pSecondIngredient, float pExperience, int pCookingTime) {
@@ -49,7 +49,7 @@ public class NCRecipeBuilder implements RecipeBuilder {
     }
 
     @Override
-    public NCRecipeBuilder group(@javax.annotation.Nullable String pGroupName) {
+    public NCRecipeBuilder group(@Nullable String pGroupName) {
         this.group = pGroupName;
         return this;
     }
@@ -63,7 +63,7 @@ public class NCRecipeBuilder implements RecipeBuilder {
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         this.ensureValid(pRecipeId);
         this.advancement.parent(new ResourceLocation("recipes/root")).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
-        pFinishedRecipeConsumer.accept(new NCRecipeBuilder.Result(pRecipeId, this.group == null ? "" : this.group, this.ingredient, this.secondIngredient, this.result, this.experience, this.cookingTime, this.advancement, new ResourceLocation(pRecipeId.getNamespace(), "recipes/" + RecipeCategory.MISC.getFolderName() + "/" + pRecipeId.getPath())));
+        pFinishedRecipeConsumer.accept(new Result(pRecipeId, this.group == null ? "" : this.group, this.ingredient, this.secondIngredient, this.result, this.experience, this.cookingTime, this.advancement, new ResourceLocation(pRecipeId.getNamespace(), "recipes/" + RecipeCategory.MISC.getFolderName() + "/" + pRecipeId.getPath())));
     }
 
     /**
@@ -128,7 +128,7 @@ public class NCRecipeBuilder implements RecipeBuilder {
          * Gets the JSON for the advancement that unlocks this recipe. Null if there is no advancement.
          */
         @Override
-        @javax.annotation.Nullable
+        @Nullable
         public JsonObject serializeAdvancement() {
             return this.advancement.serializeToJson();
         }
