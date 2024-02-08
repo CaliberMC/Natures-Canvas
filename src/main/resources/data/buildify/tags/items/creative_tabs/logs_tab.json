@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "naturescanvas:cedar_log",
+    "naturescanvas:fir_log",
+    "naturescanvas:pine_log",
+    "naturescanvas:stripped_cedar_log",
+    "naturescanvas:stripped_fir_log",
+    "naturescanvas:stripped_pine_log"
+  ]
+}
