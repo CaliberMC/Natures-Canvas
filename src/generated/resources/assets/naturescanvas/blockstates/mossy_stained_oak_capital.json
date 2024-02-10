@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "naturescanvas:block/mossy_stained_oak_capital"
+    },
+    "type=top": {
+      "model": "naturescanvas:block/mossy_stained_oak_capital_top"
+    }
+  }
+}

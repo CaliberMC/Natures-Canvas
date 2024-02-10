@@ -1,7 +1,9 @@
 package com.calibermc.naturescanvas.event;
 
+import com.calibermc.caliber.block.custom.entity.CaliberBlockEntities;
 import com.calibermc.naturescanvas.NaturesCanvas;
 import com.calibermc.naturescanvas.block.NCBlocks;
+import com.calibermc.naturescanvas.block.entity.NCBlockEntities;
 import com.calibermc.naturescanvas.block.properties.BlockRenderLayers;
 import com.calibermc.naturescanvas.block.properties.NCWoodType;
 import com.calibermc.naturescanvas.client.inventory.KilnScreen;
@@ -11,6 +13,9 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -60,6 +65,9 @@ public class NCClientEventBus {
     @SubscribeEvent
     public static void clientSetup(final FMLClientSetupEvent event) {
         MenuScreens.register(NCMenuTypes.KILN.get(), KilnScreen::new);
+
+        BlockEntityRenderers.register(NCBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer::new);
+        BlockEntityRenderers.register(NCBlockEntities.HANGING_SIGN_BLOCK_ENTITIES.get(), HangingSignRenderer::new);
 
         // Set Block Render Types
         BlockRenderLayers.set();

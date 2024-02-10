@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "naturescanvas:block/mossy_oak_planks"
+  }
+}

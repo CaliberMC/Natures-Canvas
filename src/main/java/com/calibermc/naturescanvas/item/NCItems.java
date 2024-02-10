@@ -1,6 +1,8 @@
 package com.calibermc.naturescanvas.item;
 
+import com.calibermc.caliber.block.CaliberBlocks;
 import com.calibermc.naturescanvas.NaturesCanvas;
+import com.calibermc.naturescanvas.block.NCBlocks;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,6 +16,9 @@ public class NCItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, NaturesCanvas.MOD_ID);
 
     public static final RegistryObject<Item> GRASS_STEMS = ITEMS.register("grass_stems",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> RESIN = ITEMS.register("resin",
             () -> new Item(new Item.Properties()));
 
 //    public static final RegistryObject<Item> SAP = ITEMS.register("sap",
@@ -70,6 +75,30 @@ public class NCItems {
             () -> new ArmorItem(NCArmorMaterials.BRONZE, ArmorItem.Type.BOOTS,
                     new Item.Properties()));
 
+    public static final RegistryObject<Item> STAINED_ACACIA_SIGN = ITEMS.register("stained_acacia_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), NCBlocks.STAINED_ACACIA_SIGN.get(), NCBlocks.STAINED_ACACIA_WALL_SIGN.get()));
+    public static final RegistryObject<Item> STAINED_ACACIA_HANGING_SIGN = ITEMS.register("stained_acacia_hanging_sign",
+            () -> new HangingSignItem(NCBlocks.STAINED_ACACIA_HANGING_SIGN.get(), NCBlocks.STAINED_ACACIA_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> STAINED_BIRCH_SIGN = ITEMS.register("stained_birch_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), NCBlocks.STAINED_BIRCH_SIGN.get(), NCBlocks.STAINED_BIRCH_WALL_SIGN.get()));
+    public static final RegistryObject<Item> STAINED_BIRCH_HANGING_SIGN = ITEMS.register("stained_birch_hanging_sign",
+            () -> new HangingSignItem(NCBlocks.STAINED_BIRCH_HANGING_SIGN.get(), NCBlocks.STAINED_BIRCH_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> STAINED_DARK_OAK_SIGN = ITEMS.register("stained_dark_oak_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), NCBlocks.STAINED_DARK_OAK_SIGN.get(), NCBlocks.STAINED_DARK_OAK_WALL_SIGN.get()));
+    public static final RegistryObject<Item> STAINED_DARK_OAK_HANGING_SIGN = ITEMS.register("stained_dark_oak_hanging_sign",
+            () -> new HangingSignItem(NCBlocks.STAINED_DARK_OAK_HANGING_SIGN.get(), NCBlocks.STAINED_DARK_OAK_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> STAINED_JUNGLE_SIGN = ITEMS.register("stained_jungle_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), NCBlocks.STAINED_JUNGLE_SIGN.get(), NCBlocks.STAINED_JUNGLE_WALL_SIGN.get()));
+    public static final RegistryObject<Item> STAINED_JUNGLE_HANGING_SIGN = ITEMS.register("stained_jungle_hanging_sign",
+            () -> new HangingSignItem(NCBlocks.STAINED_JUNGLE_HANGING_SIGN.get(), NCBlocks.STAINED_JUNGLE_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> STAINED_OAK_SIGN = ITEMS.register("stained_oak_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), NCBlocks.STAINED_OAK_SIGN.get(), NCBlocks.STAINED_OAK_WALL_SIGN.get()));
+    public static final RegistryObject<Item> STAINED_OAK_HANGING_SIGN = ITEMS.register("stained_oak_hanging_sign",
+            () -> new HangingSignItem(NCBlocks.STAINED_OAK_HANGING_SIGN.get(), NCBlocks.STAINED_OAK_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> STAINED_SPRUCE_SIGN = ITEMS.register("stained_spruce_sign",
+            () -> new SignItem(new Item.Properties().stacksTo(16), NCBlocks.STAINED_SPRUCE_SIGN.get(), NCBlocks.STAINED_SPRUCE_WALL_SIGN.get()));
+    public static final RegistryObject<Item> STAINED_SPRUCE_HANGING_SIGN = ITEMS.register("stained_spruce_hanging_sign",
+            () -> new HangingSignItem(NCBlocks.STAINED_SPRUCE_HANGING_SIGN.get(), NCBlocks.STAINED_SPRUCE_WALL_HANGING_SIGN.get(), new Item.Properties().stacksTo(16)));
 
     public static void printItemCounts() {
         System.out.println("NaturesCanvas Items Registered: " + itemCount);

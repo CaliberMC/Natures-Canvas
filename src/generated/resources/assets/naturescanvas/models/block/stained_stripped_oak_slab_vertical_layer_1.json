@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/slab_vertical_layer_1",
+  "textures": {
+    "bottom": "naturescanvas:block/stained_stripped_oak_wood",
+    "side": "naturescanvas:block/stained_stripped_oak_wood",
+    "top": "naturescanvas:block/stained_stripped_oak_wood"
+  }
+}

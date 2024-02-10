@@ -1,169 +1,354 @@
 package com.calibermc.naturescanvas.data.datagen.recipes;
 
-import com.calibermc.naturescanvas.block.NCBlocks;
+import com.calibermc.caliber.crafting.CaliberRecipeBuilder;
+import com.calibermc.caliberlib.block.management.BlockManager;
+import com.calibermc.caliberlib.data.ModBlockFamily;
+import com.calibermc.naturescanvas.NaturesCanvas;
+import com.calibermc.naturescanvas.block.properties.NCBlockSetType;
 import com.calibermc.naturescanvas.item.NCItems;
+import com.mojang.datafixers.util.Function3;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
+import java.util.Map;
+import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class NCRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
     public NCRecipeProvider(DataGenerator pGenerator) {
         super(pGenerator.getPackOutput());
     }
-    
+
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
-        tinRecipes(pFinishedRecipeConsumer);
-        silverRecipes(pFinishedRecipeConsumer);
-        graniteRecipes(pFinishedRecipeConsumer);
-        limestoneRecipes(pFinishedRecipeConsumer);
-        sandstoneRecipes(pFinishedRecipeConsumer);
+    protected void buildRecipes(Consumer<FinishedRecipe> recipeConsumer) {
+        for (BlockManager blockManager : BlockManager.BLOCK_MANAGERS.get(NaturesCanvas.MOD_ID)) {
+            try {
+                if (blockManager.baseBlock() != null) {
+                    boolean wood = WoodType.values().anyMatch(p -> p.name().equals(blockManager.blockType().name()));
+                    generateRecipes(blockManager, wood || blockManager.blockType() == NCBlockSetType.TUDOR_1 || blockManager.blockType() == NCBlockSetType.TUDOR_2 , recipeConsumer);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    private void tinRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, NCBlocks.TIN_BLOCK.get(), 1).define('T', NCItems.TIN_INGOT.get()).pattern("TTT").pattern("TTT").pattern("TTT").unlockedBy("has_tin_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.TIN_INGOT.get()).build())).save(pFinishedRecipeConsumer, "tin_block_from_shaped_ingots");
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NCItems.TIN_INGOT.get(), 9).requires(NCBlocks.TIN_ORE.get()).unlockedBy("has_tin_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.TIN_ORE.get()).build())).save(pFinishedRecipeConsumer, "tin_ingot_from_tin_block");
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, NCItems.TIN_INGOT.get(), 1).define('T', NCItems.TIN_NUGGET.get()).pattern("TTT").pattern("TTT").pattern("TTT").unlockedBy("has_tin_nugget",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.TIN_NUGGET.get()).build())).save(pFinishedRecipeConsumer, "tin_ingot_from_shaped_nuggets");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.TIN_ORE.get()), RecipeCategory.MISC, NCItems.TIN_INGOT.get(), 1.0F, 200).unlockedBy("has_tin_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.TIN_ORE.get()).build())).save(pFinishedRecipeConsumer, "tin_ingot_from_smelting_tin_ore");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.DEEPSLATE_TIN_ORE.get()), RecipeCategory.MISC, NCItems.TIN_INGOT.get(), 1.0F, 200).unlockedBy("has_tin_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.TIN_ORE.get()).build())).save(pFinishedRecipeConsumer, "tin_ingot_from_smelting_deeplate_tin_ore");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCItems.RAW_TIN.get()), RecipeCategory.MISC, NCItems.TIN_INGOT.get(), 1.0F, 200).unlockedBy("has_tin_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.TIN_ORE.get()).build())).save(pFinishedRecipeConsumer, "tin_nugget_from_smelting_raw_tin");
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(NCBlocks.TIN_ORE.get()), RecipeCategory.MISC, NCItems.TIN_INGOT.get(), 1.0F, 100).unlockedBy("has_tin_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.TIN_ORE.get()).build())).save(pFinishedRecipeConsumer, "tin_ingot_from_blasting_tin_ore");
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(NCBlocks.DEEPSLATE_TIN_ORE.get()), RecipeCategory.MISC, NCItems.TIN_INGOT.get(), 1.0F, 100).unlockedBy("has_tin_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.TIN_ORE.get()).build())).save(pFinishedRecipeConsumer, "tin_ingot_from_blasting_deeplate_tin_ore");
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(NCItems.RAW_TIN.get()), RecipeCategory.MISC, NCItems.TIN_INGOT.get(), 1.0F, 100).unlockedBy("has_tin_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.TIN_ORE.get()).build())).save(pFinishedRecipeConsumer, "tin_nugget_from_blasting_raw_tin");
+    private void generateRecipes(BlockManager manager, boolean wood, Consumer<FinishedRecipe> finished) {
+        String name = manager.getName();
+        Block baseBlock = manager.baseBlock();
+        String criterionBy = "has_%s".formatted(name);
+        String woodOrStone = wood ? "wood" : "stone";
+        String fromCraftingMethod = "_from_%s_%scutting".formatted(name, woodOrStone);
+
+        Function3<Ingredient, ItemLike, Integer, SingleItemRecipeBuilder> stoneOrWoodcutting = (a, b, c) -> {
+            if (wood) {
+                return CaliberRecipeBuilder.woodcutting(a, b, c);
+            }
+            return SingleItemRecipeBuilder.stonecutting(a, RecipeCategory.BUILDING_BLOCKS, b, c);
+        };
+
+        for (Map.Entry<BlockManager.BlockAdditional, Pair<ResourceLocation, Supplier<Block>>> e : manager.getBlocks().entrySet()) {
+            String path = e.getValue().getFirst().getPath();
+            Block block = e.getValue().getSecond().get();
+//            String n = name + "_" + e.getKey().variant.getName() + fromCraftingMethod;
+            String n = path + fromCraftingMethod;
+            switch (e.getKey().variant) {
+                case ARCH, ARCH_LARGE, ARCH_HALF, ARCH_LARGE_HALF, ARROWSLIT -> {
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 2).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+
+                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+                }
+
+                case BALUSTRADE, CAPITAL, WINDOW, WINDOW_HALF, ROOF_22, ROOF_45, ROOF_67, ROOF_PEAK -> {
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 2).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+
+                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+                }
+
+                case CORNER, QUARTER, QUARTER_VERTICAL, PILLAR -> {
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 5).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+
+                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+                }
+
+                case CORNER_SLAB, CORNER_SLAB_VERTICAL -> {
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 4).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+
+                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+                }
+
+                case EIGHTH -> {
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 8).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+
+                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+                }
+
+                case BEAM_HORIZONTAL, BEAM_VERTICAL -> {
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 9).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+                }
+
+                case BEAM_LINTEL, BEAM_POSTS, DOOR_FRAME, DOOR_FRAME_LINTEL -> {
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 16).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+                }
+
+                case BUTTON -> {
+                    ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, block).requires(baseBlock).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_shaped".formatted(path, name));
+
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 1).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+                }
+
+                case FENCE -> {
+                    ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, block, 3).define('#', baseBlock).define('X', Items.STICK).pattern("#X#").pattern("#X#").unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_and_sticks_shaped".formatted(path, name));
+
+                    SingleItemRecipeBuilder.stonecutting(Ingredient.of(baseBlock), RecipeCategory.REDSTONE, block, 1).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_%scutting".formatted(path, name, woodOrStone));
+
+                }
+
+                case PRESSURE_PLATE -> {
+                    ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, block).define('#', baseBlock).pattern("##").unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_shaped".formatted(path, name));
+
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 1).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+                }
+
+                case SLAB -> {
+                    ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, block, 24).define('#', baseBlock).pattern("###").unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_shaped".formatted(path, name));
+
+                    stoneOrWoodcutting.apply(Ingredient.of(manager.get(ModBlockFamily.Variant.SLAB_VERTICAL)), (block), 1).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_slab_vertical_%scutting".formatted(path, name, woodOrStone));
+
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 8).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+
+                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+                }
+
+                case SLAB_VERTICAL -> {
+                    ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, block, 24).define('#', baseBlock).pattern(" # ").pattern(" # ").pattern(" # ").unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_shaped".formatted(path, name));
+
+                    stoneOrWoodcutting.apply(Ingredient.of(manager.get(ModBlockFamily.Variant.SLAB)), (block), 1).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_slab_%scutting".formatted(path, name, woodOrStone));
+
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 8).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+
+                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+                }
+
+                case STAIRS -> {
+                    ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, manager.get(ModBlockFamily.Variant.STAIRS), 4).define('#', baseBlock).pattern("#  ").pattern("## ").pattern("###").unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_shaped".formatted(path, name));
+
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 1).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+
+                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                }
+
+                case WALL -> {
+                    if (!wood) {
+                        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, manager.get(ModBlockFamily.Variant.WALL), 6).define('#', baseBlock).pattern("###").pattern("###").unlockedBy(criterionBy,
+                                inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_shaped".formatted(path, name));
+                    }
+
+                    stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 1).unlockedBy(criterionBy,
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
+
+                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+                }
+
+                case BASE -> {
+
+                    tudorVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+                    smoothBaseBlockRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+
+//                    for (BlockManager blockManager : BlockManager.BLOCK_MANAGERS) {
+//                        if (blockManager.getName().equals(manager.getName().replace("board", ""))) {
+//                            CaliberRecipeBuilder.woodcutting(Ingredient.of(baseBlock), blockManager.baseBlock()).unlockedBy(criterionBy,
+//                                    inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "000%s_from_%s_%scutting".formatted(name,
+//                                    manager.getBlocks().entrySet().stream().filter(e1 -> e1.getKey().variant.equals(e.getKey().variant)).findFirst().get().getValue().getFirst().getPath(), woodOrStone));
+//                        }
+//                    }
+                }
+            }
+        }}
+
+    // TODO: CONSIDER SLAB to MOD SLAB RECIPES
+
+    private void tudorVariantRecipe(BlockManager manager, Consumer<FinishedRecipe> finished, String name, Block baseBlock, String criterionBy, Map.Entry<BlockManager.BlockAdditional, Pair<ResourceLocation, Supplier<Block>>> e, String path, Block block) {
+
+        if (name.startsWith("tudor_")) {
+            String[] parts = name.split("_");
+            if (parts.length >= 5) {
+                String woodType;
+                String plasterColor;
+                if ("stained".equals(parts[1])) {
+                    // handle the 'dark' case here
+                    if (parts[2].equals("dark") && parts.length > 3) {
+                        woodType = "stained_" + parts[2] + "_" + parts[3];
+                        plasterColor = parts[4];
+                    } else {
+                        woodType = "stained_" + parts[2];
+                        plasterColor = parts[3];
+                    }
+                } else {
+                    // handle the 'dark' case here
+                    if (parts[1].equals("dark") && parts.length > 3) {
+                        woodType = parts[1] + "_" + parts[2];
+                        plasterColor = parts[3];
+                    } else {
+                        woodType = parts[1];
+                        plasterColor = parts[2];
+                    }
+                }
+
+                Optional<BlockManager> woodBlockManager = BlockManager.BLOCK_MANAGERS.get(NaturesCanvas.MOD_ID).stream()
+                        .filter(m -> m.getName().equals(woodType + "_boards")).findFirst();
+                Optional<BlockManager> plasterBlockManager = BlockManager.BLOCK_MANAGERS.get(NaturesCanvas.MOD_ID).stream()
+                        .filter(m -> m.getName().startsWith(plasterColor + "_plaster")).findFirst();
+
+                if (woodBlockManager.isPresent() && plasterBlockManager.isPresent()) {
+                    ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block, 1)
+                            .requires(woodBlockManager.get().get(e.getKey().variant))
+                            .requires(plasterBlockManager.get().get(e.getKey().variant))
+                            .unlockedBy(criterionBy,
+                                    inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
+                            .save(finished, "%s_from_%s_and_%s_shapeless".formatted(path, woodType + "_boards", plasterColor + "_plaster"));
+                } else {
+                    if (woodBlockManager.isEmpty()) {
+                        System.err.println("Could not find block manager for " + woodType + "_boards");
+                    }
+                    if (plasterBlockManager.isEmpty()) {
+                        System.err.println("Could not find block manager starting with " + plasterColor + "_plaster");
+                    }
+                }
+            } else {
+                throw new IllegalArgumentException("Block name does not contain sufficient parts for Tudor Variant Recipe");
+            }
+        }
     }
 
-    private void silverRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, NCBlocks.SILVER_BLOCK.get(), 1).define('S', NCItems.SILVER_INGOT.get()).pattern("SSS").pattern("SSS").pattern("SSS").unlockedBy("has_silver_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.SILVER_ORE.get()).build())).save(pFinishedRecipeConsumer, "silver_block_from_shaped_ingots");
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NCItems.SILVER_INGOT.get(), 9).requires(NCBlocks.SILVER_BLOCK.get()).unlockedBy("has_silver_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.SILVER_ORE.get()).build())).save(pFinishedRecipeConsumer, "silver_ingot_from_silver_block");
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, NCItems.SILVER_INGOT.get(), 1).define('S', NCItems.SILVER_NUGGET.get()).pattern("SSS").pattern("SSS").pattern("SSS").unlockedBy("has_silver_nugget",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.SILVER_ORE.get()).build())).save(pFinishedRecipeConsumer, "silver_ingot_from_shaped_nuggets");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.SILVER_ORE.get()), RecipeCategory.MISC, NCItems.SILVER_INGOT.get(), 1.0F, 200).unlockedBy("has_silver_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.SILVER_ORE.get()).build())).save(pFinishedRecipeConsumer, "silver_ingot_from_smelting_silver_ore");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.DEEPSLATE_SILVER_ORE.get()), RecipeCategory.MISC, NCItems.SILVER_INGOT.get(), 1.0F, 200).unlockedBy("has_silver_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.SILVER_ORE.get()).build())).save(pFinishedRecipeConsumer, "silver_ingot_from_smelting_deeplate_silver_ore");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCItems.RAW_SILVER.get()), RecipeCategory.MISC, NCItems.SILVER_INGOT.get(), 1.0F, 200).unlockedBy("has_silver_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.SILVER_ORE.get()).build())).save(pFinishedRecipeConsumer, "silver_nugget_from_smelting_raw_silver");
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(NCBlocks.SILVER_ORE.get()), RecipeCategory.MISC, NCItems.SILVER_INGOT.get(), 1.0F, 100).unlockedBy("has_silver_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.SILVER_ORE.get()).build())).save(pFinishedRecipeConsumer, "silver_ingot_from_blasting_silver_ore");
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(NCBlocks.DEEPSLATE_SILVER_ORE.get()), RecipeCategory.MISC, NCItems.SILVER_INGOT.get(), 1.0F, 100).unlockedBy("has_silver_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.SILVER_ORE.get()).build())).save(pFinishedRecipeConsumer, "silver_ingot_from_blasting_deeplate_silver_ore");
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(NCItems.RAW_SILVER.get()), RecipeCategory.MISC, NCItems.SILVER_INGOT.get(), 1.0F, 100).unlockedBy("has_silver_ore",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.SILVER_ORE.get()).build())).save(pFinishedRecipeConsumer, "silver_nugget_from_blasting_raw_silver");
+    private void stainedVariantRecipe(BlockManager manager, Consumer<FinishedRecipe> finished, String name, Block baseBlock, String criterionBy, Map.Entry<BlockManager.BlockAdditional, Pair<ResourceLocation, Supplier<Block>>> e, String path, Block block) {
+        if (name.contains("stained") && !name.contains("tudor") && !name.contains("mossy")) {
+            BlockManager blockManager = BlockManager.BLOCK_MANAGERS.get(NaturesCanvas.MOD_ID).stream()
+                    .filter(m -> manager.getName().replace("stained_", "").equals(m.getName()))
+                    .findFirst()
+                    .orElseGet(() -> BlockManager.BLOCK_MANAGERS.get(NaturesCanvas.MOD_ID).stream()
+                            .filter(m -> m.getName().replace("naturescanvas:", "minecraft:").equals(manager.getName().replace("stained_", "")))
+                            .findFirst()
+                            .orElseThrow(() -> new RuntimeException("No matching BlockManager found: " + manager.getName())));
+
+            if (blockManager.getByVariant(e.getKey().variant) != null) {
+                ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block, 1)
+                        .requires(NCItems.RESIN.get())
+                        .requires(blockManager.get(e.getKey().variant))
+                        .unlockedBy(criterionBy, inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
+                        .save(finished, "%s_from_%s_and_resin_shapeless".formatted(path, name));
+            }
+        }
     }
 
-    private void graniteRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
-        /* Polished Granite from Granite Shaped */
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.POLISHED_BLACK_GRANITE.baseBlock(), 4).define('#', NCBlocks.BLACK_GRANITE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_black_granite",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.BLACK_GRANITE.baseBlock()).build())).save(pFinishedRecipeConsumer, "polished_black_granite_from_black_granite_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.POLISHED_BROWN_GRANITE.baseBlock(), 4).define('#', NCBlocks.BROWN_GRANITE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_brown_granite",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.BROWN_GRANITE.baseBlock()).build())).save(pFinishedRecipeConsumer, "polished_brown_granite_from_brown_granite_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.POLISHED_GRAY_GRANITE.baseBlock(), 4).define('#', NCBlocks.GRAY_GRANITE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_gray_granite",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.GRAY_GRANITE.baseBlock()).build())).save(pFinishedRecipeConsumer, "polished_gray_granite_from_gray_granite_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.POLISHED_PINK_GRANITE.baseBlock(), 4).define('#', NCBlocks.PINK_GRANITE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_pink_granite",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.PINK_GRANITE.baseBlock()).build())).save(pFinishedRecipeConsumer, "polished_pink_granite_from_pink_granite_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.POLISHED_WHITE_GRANITE.baseBlock(), 4).define('#', NCBlocks.WHITE_GRANITE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_white_granite",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.WHITE_GRANITE.baseBlock()).build())).save(pFinishedRecipeConsumer, "polished_white_granite_from_white_granite_shaped");
-        
+    private void mossyVariantRecipes(BlockManager manager, Consumer<FinishedRecipe> finished, String name, Block baseBlock, String criterionBy, Map.Entry<BlockManager.BlockAdditional, Pair<ResourceLocation, Supplier<Block>>> e, String path, Block block) {
+        if (name.contains("mossy") && !name.contains("tudor")) {
+            Optional<BlockManager> optionalManager = BlockManager.BLOCK_MANAGERS.get(NaturesCanvas.MOD_ID).stream()
+                    .filter(m -> manager.getName().replace("mossy_", "").equals(m.getName()))
+                    .findFirst();
+
+            if (optionalManager.isPresent()) {
+                if (optionalManager.get().getByVariant(e.getKey().variant) != null) {
+                    ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block, 1).requires(Items.VINE)
+                            .requires(optionalManager.get().get(e.getKey().variant))
+                            .unlockedBy(criterionBy, inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
+                            .save(finished, "%s_from_%s_and_vine_shapeless".formatted(path, path.replace("mossy_", "")));
+
+                    ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block, 1).requires(Blocks.MOSS_BLOCK)
+                            .requires(optionalManager.get().get(e.getKey().variant))
+                            .unlockedBy(criterionBy, inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
+                            .save(finished, "%s_from_%s_and_moss_shapeless".formatted(path, path.replace("mossy_", "")));
+                }
+            } else {
+                throw new IllegalStateException(String.format("No matching BlockManager found: %s", manager.getName()));
+            }
+        }
     }
 
-    private void limestoneRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
-        /* Limestone from Cobblestone Smelting */
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.COBBLED_DARK_LIMESTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.DARK_LIMESTONE.baseBlock(), 0.1F, 200).unlockedBy("has_cobbled_dark_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.COBBLED_DARK_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "dark_limestone_from_cobbled_dark_limestone_smelting");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.COBBLED_LIGHT_LIMESTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.LIGHT_LIMESTONE.baseBlock(), 0.1F, 200).unlockedBy("has_cobbled_light_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.COBBLED_LIGHT_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "light_limestone_from_cobbled_light_limestone_smelting");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.COBBLED_PINK_LIMESTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.PINK_LIMESTONE.baseBlock(), 0.1F, 200).unlockedBy("has_cobbled_pink_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.COBBLED_PINK_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "pink_limestone_from_cobbled_pink_limestone_smelting");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.COBBLED_TAN_LIMESTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.TAN_LIMESTONE.baseBlock(), 0.1F, 200).unlockedBy("has_cobbled_tan_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.COBBLED_TAN_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "tan_limestone_from_cobbled_tan_limestone_smelting");
+    private void smoothBaseBlockRecipe(BlockManager manager, Consumer<FinishedRecipe> finished, String name, Block baseBlock, String criterionBy, Map.Entry<BlockManager.BlockAdditional, Pair<ResourceLocation, Supplier<Block>>> e, String path, Block block) {
+        if (name.contains("smooth")) {
+            Optional<BlockManager> optionalManager = BlockManager.BLOCK_MANAGERS.get(NaturesCanvas.MOD_ID).stream()
+                    .filter(m -> manager.getName().replace("smooth_", "").equals(m.getName())).findFirst();
 
-        /* Limestone Bricks from Limestone Shaped */
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.DARK_LIMESTONE_BRICK.baseBlock(), 4).define('#', NCBlocks.DARK_LIMESTONE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_dark_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.DARK_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "dark_limestone_bricks_from_dark_limestone_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.LIGHT_LIMESTONE_BRICK.baseBlock(), 4).define('#', NCBlocks.LIGHT_LIMESTONE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_light_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.LIGHT_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "light_limestone_bricks_from_light_limestone_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.PINK_LIMESTONE_BRICK.baseBlock(), 4).define('#', NCBlocks.PINK_LIMESTONE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_pink_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.PINK_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "pink_limestone_bricks_from_pink_limestone_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.TAN_LIMESTONE_BRICK.baseBlock(), 4).define('#', NCBlocks.TAN_LIMESTONE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_tan_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.TAN_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "tan_limestone_bricks_from_tan_limestone_shaped");
-
-        /* Chiseled Limestone Bricks from Limestone Shaped */
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.CHISELED_DARK_LIMESTONE_BRICKS.baseBlock(), 1).define('#', NCBlocks.DARK_LIMESTONE.baseBlock()).pattern("#").pattern("#").unlockedBy("has_dark_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.DARK_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_dark_limestone_from_dark_limestone_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.CHISELED_LIGHT_LIMESTONE_BRICKS.baseBlock(), 1).define('#', NCBlocks.LIGHT_LIMESTONE.baseBlock()).pattern("#").pattern("#").unlockedBy("has_light_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.LIGHT_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_light_limestone_from_light_limestone_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.CHISELED_PINK_LIMESTONE_BRICKS.baseBlock(), 1).define('#', NCBlocks.PINK_LIMESTONE.baseBlock()).pattern("#").pattern("#").unlockedBy("has_pink_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.PINK_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_pink_limestone_from_pink_limestone_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.CHISELED_TAN_LIMESTONE_BRICKS.baseBlock(), 1).define('#', NCBlocks.TAN_LIMESTONE.baseBlock()).pattern("#").pattern("#").unlockedBy("has_tan_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.TAN_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_tan_limestone_from_tan_limestone_shaped");
-
-        /* Chiseled Limestone Bricks from Limestone Stonecutting */
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(NCBlocks.DARK_LIMESTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.CHISELED_DARK_LIMESTONE_BRICKS.baseBlock(), 1).unlockedBy("has_dark_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.DARK_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_dark_limestone_bricks_from_dark_limestone_stonecutting");
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(NCBlocks.LIGHT_LIMESTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.CHISELED_LIGHT_LIMESTONE_BRICKS.baseBlock(), 1).unlockedBy("has_light_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.LIGHT_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_light_limestone_bricks_from_light_limestone_stonecutting");
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(NCBlocks.PINK_LIMESTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.CHISELED_PINK_LIMESTONE_BRICKS.baseBlock(), 1).unlockedBy("has_pink_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.PINK_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_pink_limestone_bricks_from_pink_limestone_stonecutting");
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(NCBlocks.TAN_LIMESTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.CHISELED_TAN_LIMESTONE_BRICKS.baseBlock(), 1).unlockedBy("has_tan_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.TAN_LIMESTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_tan_limestone_bricks_from_tan_limestone_stonecutting");
-
-        /* Cracked Limestone Bricks from Limestone Smelting */
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.DARK_LIMESTONE_BRICK.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.CRACKED_DARK_LIMESTONE_BRICKS.baseBlock(), 0.1F, 200).unlockedBy("has_dark_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.DARK_LIMESTONE_BRICK.baseBlock()).build())).save(pFinishedRecipeConsumer, "cracked_dark_limestone_bricks_from_dark_limestone_bricks_smelting");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.LIGHT_LIMESTONE_BRICK.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.CRACKED_LIGHT_LIMESTONE_BRICKS.baseBlock(), 0.1F, 200).unlockedBy("has_light_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.DARK_LIMESTONE_BRICK.baseBlock()).build())).save(pFinishedRecipeConsumer, "cracked_light_limestone_bricks_from_light_limestone_bricks_smelting");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.PINK_LIMESTONE_BRICK.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.CRACKED_PINK_LIMESTONE_BRICKS.baseBlock(), 0.1F, 200).unlockedBy("has_pink_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.DARK_LIMESTONE_BRICK.baseBlock()).build())).save(pFinishedRecipeConsumer, "cracked_pink_limestone_bricks_from_pink_limestone_bricks_smelting");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.TAN_LIMESTONE_BRICK.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.CRACKED_TAN_LIMESTONE_BRICKS.baseBlock(), 0.1F, 200).unlockedBy("has_tan_limestone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.DARK_LIMESTONE_BRICK.baseBlock()).build())).save(pFinishedRecipeConsumer, "cracked_tan_limestone_bricks_from_tan_limestone_bricks_smelting");
+            if (optionalManager.isPresent()) {
+                if (optionalManager.get().getByVariant(e.getKey().variant) != null) {
+                    SimpleCookingRecipeBuilder.smelting(Ingredient.of(baseBlock), RecipeCategory.BUILDING_BLOCKS, block, 0.1f, 200)
+                            .unlockedBy(criterionBy, inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
+                            .save(finished, "%s_from_%s_smelting".formatted(path, path.replace("smooth_", "")));
+                }
+            } else {
+                throw new IllegalStateException(String.format("No matching BlockManager found: %s", manager.getName()));
+            }
+        }
     }
 
-    private void sandstoneRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
-        /* Sandstone from Sand Smelting */
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.BROWN_SANDSTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.BROWN_SANDSTONE.baseBlock(), 0.1F, 200).unlockedBy("has_brown_sand",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.BROWN_SAND.get()).build())).save(pFinishedRecipeConsumer, "brown_sandstone_from_brown_sand_smelting");
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(NCBlocks.ORANGE_SANDSTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.ORANGE_SANDSTONE.baseBlock(), 0.1F, 200).unlockedBy("has_orange_sand",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.ORANGE_SAND.get()).build())).save(pFinishedRecipeConsumer, "orange_sandstone_from_orange_sand_smelting");
-
-        /* Sandstone from Sand Shaped */
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.BROWN_SANDSTONE.baseBlock(), 4).define('#', Blocks.SAND).pattern("##").pattern("##").unlockedBy("has_brown_sand",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.BROWN_SAND.get()).build())).save(pFinishedRecipeConsumer, "brown_sandstone_from_brown_sand_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.ORANGE_SANDSTONE.baseBlock(), 4).define('#', Blocks.SAND).pattern("##").pattern("##").unlockedBy("has_orange_sand",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.ORANGE_SAND.get()).build())).save(pFinishedRecipeConsumer, "orange_sandstone_from_orange_sand_shaped");
-
-        /* Chiseled Sandstone from Sandstone Shaped */
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.CHISELED_BROWN_SANDSTONE.baseBlock(), 1).define('#', NCBlocks.BROWN_SANDSTONE.baseBlock()).pattern("#").pattern("#").unlockedBy("has_brown_sandstone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.BROWN_SANDSTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_brown_sandstone_from_brown_sandstone_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.CHISELED_ORANGE_SANDSTONE.baseBlock(), 1).define('#', NCBlocks.ORANGE_SANDSTONE.baseBlock()).pattern("#").pattern("#").unlockedBy("has_orange_sandstone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.ORANGE_SANDSTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_orange_sandstone_from_orange_sandstone_shaped");
-
-        /* Cut Sandstone from Sandstone Shaped */
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.CUT_BROWN_SANDSTONE.baseBlock(), 4).define('#', NCBlocks.BROWN_SANDSTONE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_brown_sandstone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.BROWN_SANDSTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "cut_brown_sandstone_from_brown_sandstone_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,  NCBlocks.CUT_ORANGE_SANDSTONE.baseBlock(), 4).define('#', NCBlocks.ORANGE_SANDSTONE.baseBlock()).pattern("##").pattern("##").unlockedBy("has_orange_sandstone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.ORANGE_SANDSTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "cut_orange_sandstone_from_orange_sandstone_shaped");
-
-        /* Cut Sandstone from Sandstone Stonecutting */
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(NCBlocks.BROWN_SANDSTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.CHISELED_BROWN_SANDSTONE.baseBlock(), 1).unlockedBy("has_brown_sandstone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.BROWN_SANDSTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_brown_sandstone_from_brown_sandstone_stonecutting");
-        SingleItemRecipeBuilder.stonecutting(Ingredient.of(NCBlocks.ORANGE_SANDSTONE.baseBlock()), RecipeCategory.BUILDING_BLOCKS, NCBlocks.CHISELED_ORANGE_SANDSTONE.baseBlock(), 1).unlockedBy("has_orange_sandstone",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.ORANGE_SANDSTONE.baseBlock()).build())).save(pFinishedRecipeConsumer, "chiseled_orange_sandstone_from_orange_sandstone_stonecutting");
-    }
+//    private void baseBlockShapedRecipe(BlockManager manager, Consumer<FinishedRecipe> finished, String name, Block baseBlock, String criterionBy, Map.Entry<BlockManager.BlockAdditional, Pair<ResourceLocation, Supplier<Block>>> e, String path, Block block) {
+//        if (name.contains("limestone") && name.contains("brick") && !name.contains("chiseled") && !name.contains("cracked")
+//                || (name.contains("cut") && name.contains("sandstone"))
+//                || name.contains("polished") && name.contains("granite")) {
+//            ShapedRecipeBuilder.shaped(block, 4).define('#', baseBlock).pattern("##").pattern("##").unlockedBy(criterionBy,
+//                    inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "000%s_from_%s_shaped".formatted(path, name));
+//        }
+//
+//        if (name.contains("limestone") && name.contains("chiseled")) {
+//            ShapedRecipeBuilder.shaped(block, 1).define('#', baseBlock).pattern("##").pattern("##").unlockedBy(criterionBy,
+//                    inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, "%s_from_%s_shaped".formatted(path, name));
+//        }
+//
+//    }
 }

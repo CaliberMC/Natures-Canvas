@@ -24,6 +24,7 @@ public class NCBlockStateProvider extends ModBlockStateProvider {
         plasterBlocks();
         terrainBlocks();
         treeBlocks();
+        stainedPlanks();
         super.registerStatesAndModels();
     }
 
@@ -90,25 +91,49 @@ public class NCBlockStateProvider extends ModBlockStateProvider {
         leavesBlock(NCBlocks.CEDAR_LEAVES);
     }
 
-    private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
-        simpleBlock(blockRegistryObject.get(),
-                models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
-    }
-
-    private void leavesBlock(RegistryObject<Block> blockRegistryObject) {
-        simpleBlockWithItem(blockRegistryObject.get(),
-                models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), new ResourceLocation("minecraft:block/leaves"),
-                        "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
-    }
-
-    public void hangingSignBlock(Block signBlock, Block wallSignBlock, ResourceLocation texture) {
-        ModelFile sign = models().sign(name(signBlock), texture);
-        hangingSignBlock(signBlock, wallSignBlock, sign);
-    }
-
-    public void hangingSignBlock(Block signBlock, Block wallSignBlock, ModelFile sign) {
-        simpleBlock(signBlock, sign);
-        simpleBlock(wallSignBlock, sign);
+    private void stainedPlanks(){
+        models().buttonInventory("stained_acacia_button_inventory", blockTexture(NCBlocks.STAINED_ACACIA.baseBlock()));
+        models().buttonInventory("stained_birch_button_inventory", blockTexture(NCBlocks.STAINED_BIRCH.baseBlock()));
+        models().buttonInventory("stained_dark_oak_button_inventory", blockTexture(NCBlocks.STAINED_DARK_OAK.baseBlock()));
+        models().buttonInventory("stained_jungle_button_inventory", blockTexture(NCBlocks.STAINED_JUNGLE.baseBlock()));
+        models().buttonInventory("stained_oak_button_inventory", blockTexture(NCBlocks.STAINED_OAK.baseBlock()));
+        models().buttonInventory("stained_spruce_button_inventory", blockTexture(NCBlocks.STAINED_SPRUCE.baseBlock()));
+        buttonBlock((ButtonBlock) NCBlocks.STAINED_ACACIA_BUTTON.get(), modLoc("block/stained_acacia_planks"));
+        buttonBlock((ButtonBlock) NCBlocks.STAINED_BIRCH_BUTTON.get(), modLoc("block/stained_birch_planks"));
+        buttonBlock((ButtonBlock) NCBlocks.STAINED_DARK_OAK_BUTTON.get(), modLoc("block/stained_dark_oak_planks"));
+        buttonBlock((ButtonBlock) NCBlocks.STAINED_JUNGLE_BUTTON.get(), modLoc("block/stained_jungle_planks"));
+        buttonBlock((ButtonBlock) NCBlocks.STAINED_OAK_BUTTON.get(), modLoc("block/stained_oak_planks"));
+        buttonBlock((ButtonBlock) NCBlocks.STAINED_SPRUCE_BUTTON.get(), modLoc("block/stained_spruce_planks"));
+        doorBlock((DoorBlock) NCBlocks.STAINED_ACACIA_DOOR.get(), modLoc("block/stained_acacia_door_bottom"), modLoc("block/stained_acacia_door_top"));
+        doorBlock((DoorBlock) NCBlocks.STAINED_BIRCH_DOOR.get(), modLoc("block/stained_birch_door_bottom"), modLoc("block/stained_birch_door_top"));
+        doorBlock((DoorBlock) NCBlocks.STAINED_DARK_OAK_DOOR.get(), modLoc("block/stained_dark_oak_door_bottom"), modLoc("block/stained_dark_oak_door_top"));
+        doorBlock((DoorBlock) NCBlocks.STAINED_JUNGLE_DOOR.get(), modLoc("block/stained_jungle_door_bottom"), modLoc("block/stained_jungle_door_top"));
+        doorBlock((DoorBlock) NCBlocks.STAINED_OAK_DOOR.get(), modLoc("block/stained_oak_door_bottom"), modLoc("block/stained_oak_door_top"));
+        doorBlock((DoorBlock) NCBlocks.STAINED_SPRUCE_DOOR.get(), modLoc("block/stained_spruce_door_bottom"), modLoc("block/stained_spruce_door_top"));
+        hangingSignBlock(NCBlocks.STAINED_ACACIA_HANGING_SIGN.get(), NCBlocks.STAINED_ACACIA_WALL_HANGING_SIGN.get(), modLoc("block/stained_acacia_planks"));
+        hangingSignBlock(NCBlocks.STAINED_BIRCH_HANGING_SIGN.get(), NCBlocks.STAINED_BIRCH_WALL_HANGING_SIGN.get(), modLoc("block/stained_birch_planks"));
+        hangingSignBlock(NCBlocks.STAINED_DARK_OAK_HANGING_SIGN.get(), NCBlocks.STAINED_DARK_OAK_WALL_HANGING_SIGN.get(), modLoc("block/stained_dark_oak_planks"));
+        hangingSignBlock(NCBlocks.STAINED_JUNGLE_HANGING_SIGN.get(), NCBlocks.STAINED_JUNGLE_WALL_HANGING_SIGN.get(), modLoc("block/stained_jungle_planks"));
+        hangingSignBlock(NCBlocks.STAINED_OAK_HANGING_SIGN.get(), NCBlocks.STAINED_OAK_WALL_HANGING_SIGN.get(), modLoc("block/stained_oak_planks"));
+        hangingSignBlock(NCBlocks.STAINED_SPRUCE_HANGING_SIGN.get(), NCBlocks.STAINED_SPRUCE_WALL_HANGING_SIGN.get(), modLoc("block/stained_spruce_planks"));
+        signBlock((StandingSignBlock) NCBlocks.STAINED_ACACIA_SIGN.get(), (WallSignBlock) NCBlocks.STAINED_ACACIA_WALL_SIGN.get(), modLoc("block/stained_acacia_planks"));
+        signBlock((StandingSignBlock) NCBlocks.STAINED_BIRCH_SIGN.get(), (WallSignBlock) NCBlocks.STAINED_BIRCH_WALL_SIGN.get(), modLoc("block/stained_birch_planks"));
+        signBlock((StandingSignBlock) NCBlocks.STAINED_DARK_OAK_SIGN.get(), (WallSignBlock) NCBlocks.STAINED_DARK_OAK_WALL_SIGN.get(), modLoc("block/stained_dark_oak_planks"));
+        signBlock((StandingSignBlock) NCBlocks.STAINED_JUNGLE_SIGN.get(), (WallSignBlock) NCBlocks.STAINED_JUNGLE_WALL_SIGN.get(), modLoc("block/stained_jungle_planks"));
+        signBlock((StandingSignBlock) NCBlocks.STAINED_OAK_SIGN.get(), (WallSignBlock) NCBlocks.STAINED_OAK_WALL_SIGN.get(), modLoc("block/stained_oak_planks"));
+        signBlock((StandingSignBlock) NCBlocks.STAINED_SPRUCE_SIGN.get(), (WallSignBlock) NCBlocks.STAINED_SPRUCE_WALL_SIGN.get(), modLoc("block/stained_spruce_planks"));
+        trapdoorBlock((TrapDoorBlock) NCBlocks.STAINED_ACACIA_TRAPDOOR.get(), modLoc("block/stained_acacia_trapdoor"), true);
+        trapdoorBlock((TrapDoorBlock) NCBlocks.STAINED_BIRCH_TRAPDOOR.get(), modLoc("block/stained_birch_trapdoor"), true);
+        trapdoorBlock((TrapDoorBlock) NCBlocks.STAINED_DARK_OAK_TRAPDOOR.get(), modLoc("block/stained_dark_oak_trapdoor"), true);
+        trapdoorBlock((TrapDoorBlock) NCBlocks.STAINED_JUNGLE_TRAPDOOR.get(), modLoc("block/stained_jungle_trapdoor"), true);
+        trapdoorBlock((TrapDoorBlock) NCBlocks.STAINED_OAK_TRAPDOOR.get(), modLoc("block/stained_oak_trapdoor"), true);
+        trapdoorBlock((TrapDoorBlock) NCBlocks.STAINED_SPRUCE_TRAPDOOR.get(), modLoc("block/stained_spruce_trapdoor"), true);
+        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_ACACIA_DOOR.get(), modLoc("block/tall_stained_acacia_door_bottom"), modLoc("block/tall_stained_acacia_door_middle"), modLoc("block/tall_stained_acacia_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_BIRCH_DOOR.get(), modLoc("block/tall_stained_birch_door_bottom"), modLoc("block/tall_stained_birch_door_middle"), modLoc("block/tall_stained_birch_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_DARK_OAK_DOOR.get(), modLoc("block/tall_stained_dark_oak_door_bottom"), modLoc("block/tall_stained_dark_oak_door_middle"), modLoc("block/tall_stained_dark_oak_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_JUNGLE_DOOR.get(), modLoc("block/tall_stained_jungle_door_bottom"), modLoc("block/tall_stained_jungle_door_middle"), modLoc("block/tall_stained_jungle_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_OAK_DOOR.get(), modLoc("block/tall_stained_oak_door_bottom"), modLoc("block/tall_stained_oak_door_middle"), modLoc("block/tall_stained_oak_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_SPRUCE_DOOR.get(), modLoc("block/tall_stained_spruce_door_bottom"), modLoc("block/tall_stained_spruce_door_middle"), modLoc("block/tall_stained_spruce_door_top"));
     }
 
     private void blockItem(RegistryObject<Block> blockRegistryObject) {

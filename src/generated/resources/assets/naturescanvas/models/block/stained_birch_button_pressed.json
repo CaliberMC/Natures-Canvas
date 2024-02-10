@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "naturescanvas:block/stained_birch_planks"
+  }
+}

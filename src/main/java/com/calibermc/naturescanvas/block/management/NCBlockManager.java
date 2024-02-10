@@ -2,9 +2,9 @@ package com.calibermc.naturescanvas.block.management;
 
 import com.calibermc.caliberlib.block.management.BlockManager;
 import com.calibermc.caliberlib.block.management.ModBlockHelper;
+import com.calibermc.caliberlib.block.properties.BlockProps;
 import com.calibermc.caliberlib.data.ModBlockFamily;
 import com.calibermc.naturescanvas.block.NCBlocks;
-import com.calibermc.naturescanvas.block.properties.BlockProps;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;

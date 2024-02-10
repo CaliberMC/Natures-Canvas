@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "naturescanvas:block/mossy_crimson_board_capital"
+    },
+    "type=top": {
+      "model": "naturescanvas:block/mossy_crimson_board_capital_top"
+    }
+  }
+}

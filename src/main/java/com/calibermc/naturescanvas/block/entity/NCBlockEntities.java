@@ -17,6 +17,38 @@ public class NCBlockEntities {
             BLOCK_ENTITIES.register("kiln", () ->
                     BlockEntityType.Builder.of(KilnBlockEntity::new, NCBlocks.KILN.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<NCSignBlockEntity>> SIGN_BLOCK_ENTITIES =
+            BLOCK_ENTITIES.register("mod_sign_block_entity", () ->
+                    BlockEntityType.Builder.of(NCSignBlockEntity::new,
+                            NCBlocks.STAINED_ACACIA_WALL_SIGN.get(),
+                            NCBlocks.STAINED_ACACIA_SIGN.get(),
+                            NCBlocks.STAINED_BIRCH_WALL_SIGN.get(),
+                            NCBlocks.STAINED_BIRCH_SIGN.get(),
+                            NCBlocks.STAINED_DARK_OAK_WALL_SIGN.get(),
+                            NCBlocks.STAINED_DARK_OAK_SIGN.get(),
+                            NCBlocks.STAINED_JUNGLE_WALL_SIGN.get(),
+                            NCBlocks.STAINED_JUNGLE_SIGN.get(),
+                            NCBlocks.STAINED_OAK_WALL_SIGN.get(),
+                            NCBlocks.STAINED_OAK_SIGN.get(),
+                            NCBlocks.STAINED_SPRUCE_WALL_SIGN.get(),
+                            NCBlocks.STAINED_SPRUCE_SIGN.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<NCHangingSignBlockEntity>> HANGING_SIGN_BLOCK_ENTITIES =
+            BLOCK_ENTITIES.register("mod_hanging_sign_block_entity", () ->
+                    BlockEntityType.Builder.of(NCHangingSignBlockEntity::new,
+                            NCBlocks.STAINED_ACACIA_WALL_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_ACACIA_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_BIRCH_WALL_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_BIRCH_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_DARK_OAK_WALL_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_DARK_OAK_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_JUNGLE_WALL_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_JUNGLE_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_OAK_WALL_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_OAK_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_SPRUCE_WALL_HANGING_SIGN.get(),
+                            NCBlocks.STAINED_SPRUCE_HANGING_SIGN.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

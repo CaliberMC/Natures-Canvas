@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/corner_slab_vertical_left",
+  "textures": {
+    "bottom": "naturescanvas:block/crimson_boards",
+    "side": "naturescanvas:block/crimson_boards",
+    "top": "naturescanvas:block/crimson_boards"
+  }
+}

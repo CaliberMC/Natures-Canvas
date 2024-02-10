@@ -30,11 +30,6 @@ public class NCBlockFamilies {
         ModBlockFamily PINK_GRANITE = familyBuilder(NCBlocks.PINK_GRANITE.baseBlock())
                 .fromManager(NCBlocks.PINK_GRANITE)
                 .getFamily();
-        ModBlockFamily RED_GRANITE = familyBuilder(Blocks.GRANITE)
-                .fromManager(NCBlocks.RED_GRANITE)
-                .stairs(Blocks.GRANITE_STAIRS)
-                .wall(Blocks.GRANITE_WALL)
-                .getFamily();
         ModBlockFamily WHITE_GRANITE = familyBuilder(NCBlocks.WHITE_GRANITE.baseBlock())
                 .fromManager(NCBlocks.WHITE_GRANITE)
                 .getFamily();
@@ -52,11 +47,6 @@ public class NCBlockFamilies {
         ModBlockFamily POLISHED_PINK_GRANITE = familyBuilder(NCBlocks.POLISHED_PINK_GRANITE.baseBlock())
                 .fromManager(NCBlocks.POLISHED_PINK_GRANITE)
                 .getFamily();
-        ModBlockFamily POLISHED_RED_GRANITE = familyBuilder(Blocks.POLISHED_GRANITE)
-                .fromManager(NCBlocks.POLISHED_RED_GRANITE)
-                .stairs(Blocks.GRANITE_STAIRS)
-                .wall(Blocks.GRANITE_WALL)
-                .getFamily();
         ModBlockFamily POLISHED_WHITE_GRANITE = familyBuilder(NCBlocks.POLISHED_WHITE_GRANITE.baseBlock())
                 .fromManager(NCBlocks.POLISHED_WHITE_GRANITE)
                 .getFamily();
@@ -67,12 +57,6 @@ public class NCBlockFamilies {
                 .getFamily();
         ModBlockFamily LIGHT_LIMESTONE = familyBuilder(NCBlocks.LIGHT_LIMESTONE.baseBlock())
                 .fromManager(NCBlocks.LIGHT_LIMESTONE)
-                .getFamily();
-        ModBlockFamily LIMESTONE = familyBuilder(Blocks.STONE)
-                .fromManager(NCBlocks.LIMESTONE)
-                .button(Blocks.STONE_BUTTON)
-                .pressurePlate(Blocks.STONE_PRESSURE_PLATE)
-                .stairs(Blocks.STONE_STAIRS)
                 .getFamily();
         ModBlockFamily PINK_LIMESTONE = familyBuilder(NCBlocks.PINK_LIMESTONE.baseBlock())
                 .fromManager(NCBlocks.PINK_LIMESTONE)
@@ -87,11 +71,6 @@ public class NCBlockFamilies {
                 .getFamily();
         ModBlockFamily COBBLED_LIGHT_LIMESTONE = familyBuilder(NCBlocks.COBBLED_LIGHT_LIMESTONE.baseBlock())
                 .fromManager(NCBlocks.COBBLED_LIGHT_LIMESTONE)
-                .getFamily();
-        ModBlockFamily COBBLED_LIMESTONE = familyBuilder(Blocks.COBBLESTONE)
-                .fromManager(NCBlocks.COBBLED_LIMESTONE)
-                .stairs(Blocks.COBBLESTONE_STAIRS)
-                .wall(Blocks.COBBLESTONE_WALL)
                 .getFamily();
         ModBlockFamily COBBLED_PINK_LIMESTONE = familyBuilder(NCBlocks.COBBLED_PINK_LIMESTONE.baseBlock())
                 .fromManager(NCBlocks.COBBLED_PINK_LIMESTONE)
@@ -108,7 +87,7 @@ public class NCBlockFamilies {
                 .fromManager(NCBlocks.MOSSY_COBBLED_LIGHT_LIMESTONE)
                 .getFamily();
         ModBlockFamily MOSSY_COBBLED_LIMESTONE = familyBuilder(Blocks.MOSSY_COBBLESTONE)
-                .fromManager(NCBlocks.MOSSY_COBBLED_LIMESTONE)
+                .fromManager(NCBlocks.MOSSY_COBBLESTONE)
                 .stairs(Blocks.MOSSY_COBBLESTONE_STAIRS)
                 .wall(Blocks.MOSSY_COBBLESTONE_WALL)
                 .getFamily();
@@ -125,11 +104,6 @@ public class NCBlockFamilies {
                 .getFamily();
         ModBlockFamily LIGHT_LIMESTONE_BRICK = familyBuilder(NCBlocks.LIGHT_LIMESTONE_BRICK.baseBlock())
                 .fromManager(NCBlocks.LIGHT_LIMESTONE_BRICK)
-                .getFamily();
-        ModBlockFamily LIMESTONE_BRICKS = familyBuilder(Blocks.STONE_BRICKS)
-                .fromManager(NCBlocks.LIMESTONE_BRICK)
-                .stairs(Blocks.STONE_BRICK_STAIRS)
-                .wall(Blocks.STONE_BRICK_WALL)
                 .getFamily();
         ModBlockFamily PINK_LIMESTONE_BRICK = familyBuilder(NCBlocks.PINK_LIMESTONE_BRICK.baseBlock())
                 .fromManager(NCBlocks.PINK_LIMESTONE_BRICK)
@@ -244,16 +218,6 @@ public class NCBlockFamilies {
         ModBlockFamily ORANGE_SANDSTONE = familyBuilder(NCBlocks.ORANGE_SANDSTONE.baseBlock())
                 .fromManager(NCBlocks.ORANGE_SANDSTONE)
                 .getFamily();
-        ModBlockFamily RED_SANDSTONE = familyBuilder(Blocks.RED_SANDSTONE)
-                .fromManager(NCBlocks.RED_SANDSTONE)
-                .stairs(Blocks.RED_SANDSTONE_STAIRS)
-                .wall(Blocks.RED_SANDSTONE_WALL)
-                .getFamily();
-        ModBlockFamily SANDSTONE = familyBuilder(Blocks.SANDSTONE)
-                .fromManager(NCBlocks.SANDSTONE)
-                .stairs(Blocks.SANDSTONE_STAIRS)
-                .wall(Blocks.SANDSTONE_WALL)
-                .getFamily();
 
         /* Chiseled Sandstone */
         ModBlockFamily CHISELED_BROWN_SANDSTONE = familyBuilder(NCBlocks.CHISELED_BROWN_SANDSTONE.baseBlock())
@@ -270,12 +234,6 @@ public class NCBlockFamilies {
         ModBlockFamily CUT_ORANGE_SANDSTONE = familyBuilder(NCBlocks.CUT_ORANGE_SANDSTONE.baseBlock())
                 .fromManager(NCBlocks.CUT_ORANGE_SANDSTONE)
                 .getFamily();
-        ModBlockFamily CUT_RED_SANDSTONE = familyBuilder(Blocks.CUT_RED_SANDSTONE)
-                .fromManager(NCBlocks.CUT_RED_SANDSTONE)
-                .getFamily();
-        ModBlockFamily CUT_SANDSTONE = familyBuilder(Blocks.CUT_SANDSTONE)
-                .fromManager(NCBlocks.CUT_SANDSTONE)
-                .getFamily();
 
         /* Smooth Sandstone */
         ModBlockFamily SMOOTH_BROWN_SANDSTONE = familyBuilder(NCBlocks.SMOOTH_BROWN_SANDSTONE.baseBlock())
@@ -283,14 +241,6 @@ public class NCBlockFamilies {
                 .getFamily();
         ModBlockFamily SMOOTH_ORANGE_SANDSTONE = familyBuilder(NCBlocks.SMOOTH_ORANGE_SANDSTONE.baseBlock())
                 .fromManager(NCBlocks.SMOOTH_ORANGE_SANDSTONE)
-                .getFamily();
-        ModBlockFamily SMOOTH_RED_SANDSTONE = familyBuilder(Blocks.SMOOTH_RED_SANDSTONE)
-                .fromManager(NCBlocks.SMOOTH_RED_SANDSTONE)
-                .stairs(Blocks.SMOOTH_RED_SANDSTONE_STAIRS)
-                .getFamily();
-        ModBlockFamily SMOOTH_SANDSTONE = familyBuilder(Blocks.SMOOTH_SANDSTONE)
-                .fromManager(NCBlocks.SMOOTH_SANDSTONE)
-                .stairs(Blocks.SMOOTH_SANDSTONE_STAIRS)
                 .getFamily();
 
         /* Sand */
@@ -354,6 +304,243 @@ public class NCBlockFamilies {
                 .layer(NCBlocks.WARPED_NYLIUM_LAYER.get())
                 .getFamily();
     }
+
+    /* Mossy Planks */
+    public static final ModBlockFamily MOSSY_ACACIA = familyBuilder(NCBlocks.MOSSY_ACACIA.baseBlock())
+            .fromManager(NCBlocks.MOSSY_ACACIA)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_BIRCH = familyBuilder(NCBlocks.MOSSY_BIRCH.baseBlock())
+            .fromManager(NCBlocks.MOSSY_BIRCH)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_DARK_OAK = familyBuilder(NCBlocks.MOSSY_DARK_OAK.baseBlock())
+            .fromManager(NCBlocks.MOSSY_DARK_OAK)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_JUNGLE = familyBuilder(NCBlocks.MOSSY_JUNGLE.baseBlock())
+            .fromManager(NCBlocks.MOSSY_JUNGLE)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_OAK = familyBuilder(NCBlocks.MOSSY_OAK.baseBlock())
+            .fromManager(NCBlocks.MOSSY_OAK)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_SPRUCE = familyBuilder(NCBlocks.MOSSY_SPRUCE.baseBlock())
+            .fromManager(NCBlocks.MOSSY_SPRUCE)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_CRIMSON = familyBuilder(NCBlocks.MOSSY_CRIMSON.baseBlock())
+            .fromManager(NCBlocks.MOSSY_CRIMSON)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_WARPED = familyBuilder(NCBlocks.MOSSY_WARPED.baseBlock())
+            .fromManager(NCBlocks.MOSSY_WARPED)
+            .getFamily();
+
+    /* Stained Wood Planks */
+    public static final ModBlockFamily STAINED_ACACIA_PLANKS = familyBuilder(NCBlocks.STAINED_ACACIA.baseBlock())
+            .fromManager(NCBlocks.STAINED_ACACIA)
+            .button(NCBlocks.STAINED_ACACIA_BUTTON.get())
+            .door(NCBlocks.STAINED_ACACIA_DOOR.get())
+            .sign(NCBlocks.STAINED_ACACIA_SIGN.get(), NCBlocks.STAINED_ACACIA_WALL_SIGN.get())
+            .tallDoor(NCBlocks.TALL_STAINED_ACACIA_DOOR.get())
+            .trapdoor(NCBlocks.STAINED_ACACIA_TRAPDOOR.get())
+            .getFamily();
+    public static final ModBlockFamily STAINED_BIRCH_PLANKS = familyBuilder(NCBlocks.STAINED_BIRCH.baseBlock())
+            .fromManager(NCBlocks.STAINED_BIRCH)
+            .button(NCBlocks.STAINED_BIRCH_BUTTON.get())
+            .door(NCBlocks.STAINED_BIRCH_DOOR.get())
+            .sign(NCBlocks.STAINED_BIRCH_SIGN.get(), NCBlocks.STAINED_BIRCH_WALL_SIGN.get())
+            .tallDoor(NCBlocks.TALL_STAINED_BIRCH_DOOR.get())
+            .trapdoor(NCBlocks.STAINED_BIRCH_TRAPDOOR.get())
+            .getFamily();
+    public static final ModBlockFamily STAINED_DARK_OAK_PLANKS = familyBuilder(NCBlocks.STAINED_DARK_OAK.baseBlock())
+            .fromManager(NCBlocks.STAINED_DARK_OAK)
+            .button(NCBlocks.STAINED_DARK_OAK_BUTTON.get())
+            .door(NCBlocks.STAINED_DARK_OAK_DOOR.get())
+            .sign(NCBlocks.STAINED_DARK_OAK_SIGN.get(), NCBlocks.STAINED_DARK_OAK_WALL_SIGN.get())
+            .tallDoor(NCBlocks.TALL_STAINED_DARK_OAK_DOOR.get())
+            .trapdoor(NCBlocks.STAINED_DARK_OAK_TRAPDOOR.get())
+            .getFamily();
+    public static final ModBlockFamily STAINED_JUNGLE_PLANKS = familyBuilder(NCBlocks.STAINED_JUNGLE.baseBlock())
+            .fromManager(NCBlocks.STAINED_JUNGLE)
+            .button(NCBlocks.STAINED_JUNGLE_BUTTON.get())
+            .door(NCBlocks.STAINED_JUNGLE_DOOR.get())
+            .sign(NCBlocks.STAINED_JUNGLE_SIGN.get(), NCBlocks.STAINED_JUNGLE_WALL_SIGN.get())
+            .tallDoor(NCBlocks.TALL_STAINED_JUNGLE_DOOR.get())
+            .trapdoor(NCBlocks.STAINED_JUNGLE_TRAPDOOR.get())
+            .getFamily();
+    public static final ModBlockFamily STAINED_OAK_PLANKS = familyBuilder(NCBlocks.STAINED_OAK.baseBlock())
+            .fromManager(NCBlocks.STAINED_OAK)
+            .button(NCBlocks.STAINED_OAK_BUTTON.get())
+            .door(NCBlocks.STAINED_OAK_DOOR.get())
+            .sign(NCBlocks.STAINED_OAK_SIGN.get(), NCBlocks.STAINED_OAK_WALL_SIGN.get())
+            .tallDoor(NCBlocks.TALL_STAINED_OAK_DOOR.get())
+            .trapdoor(NCBlocks.STAINED_OAK_TRAPDOOR.get())
+            .getFamily();
+    public static final ModBlockFamily STAINED_SPRUCE_PLANKS = familyBuilder(NCBlocks.STAINED_SPRUCE.baseBlock())
+            .fromManager(NCBlocks.STAINED_SPRUCE)
+            .button(NCBlocks.STAINED_SPRUCE_BUTTON.get())
+            .door(NCBlocks.STAINED_SPRUCE_DOOR.get())
+            .sign(NCBlocks.STAINED_SPRUCE_SIGN.get(), NCBlocks.STAINED_SPRUCE_WALL_SIGN.get())
+            .tallDoor(NCBlocks.TALL_STAINED_SPRUCE_DOOR.get())
+            .trapdoor(NCBlocks.STAINED_SPRUCE_TRAPDOOR.get())
+            .getFamily();
+
+    /* Mossy Stained Planks */
+    public static final ModBlockFamily MOSSY_STAINED_ACACIA = familyBuilder(NCBlocks.MOSSY_STAINED_ACACIA.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_ACACIA)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_STAINED_BIRCH = familyBuilder(NCBlocks.MOSSY_STAINED_BIRCH.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_BIRCH)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_STAINED_DARK_OAK = familyBuilder(NCBlocks.MOSSY_STAINED_DARK_OAK.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_DARK_OAK)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_STAINED_JUNGLE = familyBuilder(NCBlocks.MOSSY_STAINED_JUNGLE.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_JUNGLE)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_STAINED_OAK = familyBuilder(NCBlocks.MOSSY_STAINED_OAK.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_OAK)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_STAINED_SPRUCE = familyBuilder(NCBlocks.MOSSY_STAINED_SPRUCE.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_SPRUCE)
+            .getFamily();
+
+    /* Stained Wood  */
+    public static final ModBlockFamily STAINED_STRIPPED_ACACIA_WOOD = familyBuilder(NCBlocks.STAINED_STRIPPED_ACACIA.baseBlock())
+            .fromManager(NCBlocks.STAINED_STRIPPED_ACACIA)
+            .getFamily();
+    public static final ModBlockFamily STAINED_STRIPPED_BIRCH_WOOD = familyBuilder(NCBlocks.STAINED_STRIPPED_BIRCH.baseBlock())
+            .fromManager(NCBlocks.STAINED_STRIPPED_BIRCH)
+            .getFamily();
+    public static final ModBlockFamily STAINED_STRIPPED_DARK_OAK_WOOD = familyBuilder(NCBlocks.STAINED_STRIPPED_DARK_OAK.baseBlock())
+            .fromManager(NCBlocks.STAINED_STRIPPED_DARK_OAK)
+            .getFamily();
+    public static final ModBlockFamily STAINED_STRIPPED_JUNGLE_WOOD = familyBuilder(NCBlocks.STAINED_STRIPPED_JUNGLE.baseBlock())
+            .fromManager(NCBlocks.STAINED_STRIPPED_JUNGLE)
+            .getFamily();
+    public static final ModBlockFamily STAINED_STRIPPED_OAK_WOOD = familyBuilder(NCBlocks.STAINED_STRIPPED_OAK.baseBlock())
+            .fromManager(NCBlocks.STAINED_STRIPPED_OAK)
+            .getFamily();
+    public static final ModBlockFamily STAINED_STRIPPED_SPRUCE_WOOD = familyBuilder(NCBlocks.STAINED_STRIPPED_SPRUCE.baseBlock())
+            .fromManager(NCBlocks.STAINED_STRIPPED_SPRUCE)
+            .getFamily();
+
+    /* Boards and Roofing Blocks */
+    public static final ModBlockFamily ACACIA_BOARDS = familyBuilder(NCBlocks.ACACIA_BOARDS.baseBlock())
+            .fromManager(NCBlocks.ACACIA_BOARDS)
+            .fromManager(NCBlocks.ACACIA_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily BIRCH_BOARDS = familyBuilder(NCBlocks.BIRCH_BOARDS.baseBlock())
+            .fromManager(NCBlocks.BIRCH_BOARDS)
+            .fromManager(NCBlocks.BIRCH_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily DARK_OAK_BOARDS = familyBuilder(NCBlocks.DARK_OAK_BOARDS.baseBlock())
+            .fromManager(NCBlocks.DARK_OAK_BOARDS)
+            .fromManager(NCBlocks.DARK_OAK_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily JUNGLE_BOARDS = familyBuilder(NCBlocks.JUNGLE_BOARDS.baseBlock())
+            .fromManager(NCBlocks.JUNGLE_BOARDS)
+            .fromManager(NCBlocks.JUNGLE_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily OAK_BOARDS = familyBuilder(NCBlocks.OAK_BOARDS.baseBlock())
+            .fromManager(NCBlocks.OAK_BOARDS)
+            .fromManager(NCBlocks.OAK_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily SPRUCE_BOARDS = familyBuilder(NCBlocks.SPRUCE_BOARDS.baseBlock())
+            .fromManager(NCBlocks.SPRUCE_BOARDS)
+            .fromManager(NCBlocks.SPRUCE_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily CRIMSON_BOARDS = familyBuilder(NCBlocks.CRIMSON_BOARDS.baseBlock())
+            .fromManager(NCBlocks.CRIMSON_BOARDS)
+            .fromManager(NCBlocks.CRIMSON_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily WARPED_BOARDS = familyBuilder(NCBlocks.WARPED_BOARDS.baseBlock())
+            .fromManager(NCBlocks.WARPED_BOARDS)
+            .fromManager(NCBlocks.WARPED_SHINGLES)
+            .getFamily();
+
+    /* Mossy Boards and Roofing Blocks */
+    public static final ModBlockFamily MOSSY_ACACIA_BOARDS = familyBuilder(NCBlocks.MOSSY_ACACIA_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_ACACIA_BOARDS)
+            .fromManager(NCBlocks.MOSSY_ACACIA_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_BIRCH_BOARDS = familyBuilder(NCBlocks.MOSSY_BIRCH_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_BIRCH_BOARDS)
+            .fromManager(NCBlocks.MOSSY_BIRCH_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_DARK_OAK_BOARDS = familyBuilder(NCBlocks.MOSSY_DARK_OAK_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_DARK_OAK_BOARDS)
+            .fromManager(NCBlocks.MOSSY_DARK_OAK_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_JUNGLE_BOARDS = familyBuilder(NCBlocks.MOSSY_JUNGLE_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_JUNGLE_BOARDS)
+            .fromManager(NCBlocks.MOSSY_JUNGLE_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_OAK_BOARDS = familyBuilder(NCBlocks.MOSSY_OAK_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_OAK_BOARDS)
+            .fromManager(NCBlocks.MOSSY_OAK_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_SPRUCE_BOARDS = familyBuilder(NCBlocks.MOSSY_SPRUCE_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_SPRUCE_BOARDS)
+            .fromManager(NCBlocks.MOSSY_SPRUCE_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_CRIMSON_BOARDS = familyBuilder(NCBlocks.MOSSY_CRIMSON_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_CRIMSON_BOARDS)
+            .fromManager(NCBlocks.MOSSY_CRIMSON_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_WARPED_BOARDS = familyBuilder(NCBlocks.MOSSY_WARPED_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_WARPED_BOARDS)
+            .fromManager(NCBlocks.MOSSY_WARPED_SHINGLES)
+            .getFamily();
+
+
+    /* Stained Boards and Roofing Blocks */
+    public static final ModBlockFamily STAINED_ACACIA_BOARDS = familyBuilder(NCBlocks.STAINED_ACACIA_BOARDS.baseBlock())
+            .fromManager(NCBlocks.STAINED_ACACIA_BOARDS)
+            .fromManager(NCBlocks.STAINED_ACACIA_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily STAINED_BIRCH_BOARDS = familyBuilder(NCBlocks.STAINED_BIRCH_BOARDS.baseBlock())
+            .fromManager(NCBlocks.STAINED_BIRCH_BOARDS)
+            .fromManager(NCBlocks.STAINED_BIRCH_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily STAINED_DARK_OAK_BOARDS = familyBuilder(NCBlocks.STAINED_DARK_OAK_BOARDS.baseBlock())
+            .fromManager(NCBlocks.STAINED_DARK_OAK_BOARDS)
+            .fromManager(NCBlocks.STAINED_DARK_OAK_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily STAINED_JUNGLE_BOARDS = familyBuilder(NCBlocks.STAINED_JUNGLE_BOARDS.baseBlock())
+            .fromManager(NCBlocks.STAINED_JUNGLE_BOARDS)
+            .fromManager(NCBlocks.STAINED_JUNGLE_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily STAINED_OAK_BOARDS = familyBuilder(NCBlocks.STAINED_OAK_BOARDS.baseBlock())
+            .fromManager(NCBlocks.STAINED_OAK_BOARDS)
+            .fromManager(NCBlocks.STAINED_OAK_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily STAINED_SPRUCE_BOARDS = familyBuilder(NCBlocks.STAINED_SPRUCE_BOARDS.baseBlock())
+            .fromManager(NCBlocks.STAINED_SPRUCE_BOARDS)
+            .fromManager(NCBlocks.STAINED_SPRUCE_SHINGLES)
+            .getFamily();
+
+    /* Mossy Boards and Roofing Blocks */
+    public static final ModBlockFamily MOSSY_STAINED_ACACIA_BOARDS = familyBuilder(NCBlocks.MOSSY_STAINED_ACACIA_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_ACACIA_BOARDS)
+            .fromManager(NCBlocks.MOSSY_STAINED_ACACIA_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_STAINED_BIRCH_BOARDS = familyBuilder(NCBlocks.MOSSY_STAINED_BIRCH_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_BIRCH_BOARDS)
+            .fromManager(NCBlocks.MOSSY_STAINED_BIRCH_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_STAINED_DARK_OAK_BOARDS = familyBuilder(NCBlocks.MOSSY_STAINED_DARK_OAK_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_DARK_OAK_BOARDS)
+            .fromManager(NCBlocks.MOSSY_STAINED_DARK_OAK_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_STAINED_JUNGLE_BOARDS = familyBuilder(NCBlocks.MOSSY_STAINED_JUNGLE_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_JUNGLE_BOARDS)
+            .fromManager(NCBlocks.MOSSY_STAINED_JUNGLE_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_STAINED_OAK_BOARDS = familyBuilder(NCBlocks.MOSSY_STAINED_OAK_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_OAK_BOARDS)
+            .fromManager(NCBlocks.MOSSY_STAINED_OAK_SHINGLES)
+            .getFamily();
+    public static final ModBlockFamily MOSSY_STAINED_SPRUCE_BOARDS = familyBuilder(NCBlocks.MOSSY_STAINED_SPRUCE_BOARDS.baseBlock())
+            .fromManager(NCBlocks.MOSSY_STAINED_SPRUCE_BOARDS)
+            .fromManager(NCBlocks.MOSSY_STAINED_SPRUCE_SHINGLES)
+            .getFamily();
 
     /* Thatch */
     public static final ModBlockFamily THATCH = familyBuilder(NCBlocks.THATCH.baseBlock())

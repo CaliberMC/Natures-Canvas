@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:polished_white_granite_slab_vertical"
+  },
+  "result": "naturescanvas:polished_white_granite_slab"
+}

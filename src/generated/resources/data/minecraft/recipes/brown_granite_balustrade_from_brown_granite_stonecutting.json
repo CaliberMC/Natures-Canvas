@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:brown_granite"
+  },
+  "result": "naturescanvas:brown_granite_balustrade"
+}

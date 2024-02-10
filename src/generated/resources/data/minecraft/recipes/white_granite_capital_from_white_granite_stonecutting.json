@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:white_granite"
+  },
+  "result": "naturescanvas:white_granite_capital"
+}
