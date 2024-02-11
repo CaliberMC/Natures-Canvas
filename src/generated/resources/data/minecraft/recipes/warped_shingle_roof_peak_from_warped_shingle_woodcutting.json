@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:warped_boards"
+  },
+  "result": "naturescanvas:warped_shingle_roof_peak"
+}

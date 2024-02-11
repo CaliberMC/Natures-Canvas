@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "naturescanvas:pink_limestone"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 24,
+    "item": "naturescanvas:pink_limestone_slab"
+  },
+  "show_notification": true
+}

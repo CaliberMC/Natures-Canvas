@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "naturescanvas:smooth_brown_sandstone"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 24,
+    "item": "naturescanvas:smooth_brown_sandstone_slab"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:ochre_plaster"
+  },
+  "result": "naturescanvas:ochre_plaster_wall"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:red_marble"
+  },
+  "result": "naturescanvas:red_marble_balustrade"
+}

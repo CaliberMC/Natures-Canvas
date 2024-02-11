@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "minecraft:birch_button"
+    },
+    {
+      "item": "naturescanvas:resin"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:stained_birch_button"
+  }
+}

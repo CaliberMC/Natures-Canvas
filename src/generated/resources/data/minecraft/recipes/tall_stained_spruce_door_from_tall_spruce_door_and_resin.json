@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "caliber:tall_spruce_door"
+    },
+    {
+      "item": "naturescanvas:resin"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:tall_stained_spruce_door"
+  }
+}

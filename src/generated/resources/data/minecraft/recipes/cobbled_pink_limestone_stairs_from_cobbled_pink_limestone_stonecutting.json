@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:cobbled_pink_limestone"
+  },
+  "result": "naturescanvas:cobbled_pink_limestone_stairs"
+}

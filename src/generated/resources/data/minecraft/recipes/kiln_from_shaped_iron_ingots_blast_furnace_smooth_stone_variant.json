@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:smooth_stone"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "minecraft:blast_furnace"
+    }
+  },
+  "pattern": [
+    "III",
+    "IXI",
+    "###"
+  ],
+  "result": {
+    "item": "naturescanvas:kiln"
+  },
+  "show_notification": true
+}

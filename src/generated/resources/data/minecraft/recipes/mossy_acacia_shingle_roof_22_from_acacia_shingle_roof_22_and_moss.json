@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:moss_block"
+    },
+    {
+      "item": "naturescanvas:acacia_shingle_roof_22"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:mossy_acacia_shingle_roof_22"
+  }
+}

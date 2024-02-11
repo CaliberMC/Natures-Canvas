@@ -210,7 +210,8 @@ dependencies {
 //    implementation fg.deobf("maven.modrinth:caliber:${caliber_version}-${minecraft_version}") // modrinth variant
 //    implementation fg.deobf("maven.modrinth:caliberlib:${caliber_lib_version}-${minecraft_version}") // modrinth variant
     implementation fg.deobf("com.calibermc.buildify:buildify:${buildify_version}-${minecraft_version}") // maven local
-    compileOnly fg.deobf("com.calibermc.caliber:caliber:${caliber_version}-${minecraft_version}") // maven local
+//    compileOnly fg.deobf("com.calibermc.caliber:caliber:${caliber_version}-${minecraft_version}") // maven local
+    implementation fg.deobf("com.calibermc.caliber:caliber:${caliber_version}-${minecraft_version}") // maven local
     implementation fg.deobf("com.calibermc.caliberlib:caliberlib:${caliber_lib_version}-${minecraft_version}") // maven local
 
     // jarJar

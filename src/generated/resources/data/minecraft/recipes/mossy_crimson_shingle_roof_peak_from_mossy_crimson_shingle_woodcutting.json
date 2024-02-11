@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:mossy_crimson_boards"
+  },
+  "result": "naturescanvas:mossy_crimson_shingle_roof_peak"
+}

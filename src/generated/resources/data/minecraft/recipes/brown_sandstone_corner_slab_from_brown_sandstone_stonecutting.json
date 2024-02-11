@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "item": "naturescanvas:brown_sandstone"
+  },
+  "result": "naturescanvas:brown_sandstone_corner_slab"
+}

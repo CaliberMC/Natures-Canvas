@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:ochre_plaster"
+  },
+  "result": "naturescanvas:ochre_plaster_arch_large_half"
+}

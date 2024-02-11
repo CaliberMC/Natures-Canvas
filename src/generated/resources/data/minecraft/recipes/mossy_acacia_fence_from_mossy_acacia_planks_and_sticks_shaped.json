@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": {
+      "item": "naturescanvas:mossy_acacia_planks"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#X#",
+    "#X#"
+  ],
+  "result": {
+    "count": 3,
+    "item": "naturescanvas:mossy_acacia_fence"
+  },
+  "show_notification": true
+}

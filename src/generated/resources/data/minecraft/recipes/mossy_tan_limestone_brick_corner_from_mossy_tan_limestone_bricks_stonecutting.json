@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 5,
+  "ingredient": {
+    "item": "naturescanvas:mossy_tan_limestone_bricks"
+  },
+  "result": "naturescanvas:mossy_tan_limestone_brick_corner"
+}

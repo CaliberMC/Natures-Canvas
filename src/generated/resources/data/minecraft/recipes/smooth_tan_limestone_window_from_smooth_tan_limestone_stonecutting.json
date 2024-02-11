@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:smooth_tan_limestone"
+  },
+  "result": "naturescanvas:smooth_tan_limestone_window"
+}

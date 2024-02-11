@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:moss_block"
+    },
+    {
+      "item": "naturescanvas:spruce_board_eighth"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:mossy_spruce_board_eighth"
+  }
+}

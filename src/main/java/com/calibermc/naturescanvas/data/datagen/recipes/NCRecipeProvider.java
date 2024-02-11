@@ -307,12 +307,12 @@ public class NCRecipeProvider extends RecipeProvider implements IConditionBuilde
                     ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block, 1).requires(Items.VINE)
                             .requires(optionalManager.get().get(e.getKey().variant))
                             .unlockedBy(criterionBy, inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
-                            .save(finished, "%s_from_%s_and_vine_shapeless".formatted(path, path.replace("mossy_", "")));
+                            .save(finished, "%s_from_%s_and_vine".formatted(path, path.replace("mossy_", "")));
 
                     ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block, 1).requires(Blocks.MOSS_BLOCK)
                             .requires(optionalManager.get().get(e.getKey().variant))
                             .unlockedBy(criterionBy, inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
-                            .save(finished, "%s_from_%s_and_moss_shapeless".formatted(path, path.replace("mossy_", "")));
+                            .save(finished, "%s_from_%s_and_moss".formatted(path, path.replace("mossy_", "")));
                 }
             } else {
                 throw new IllegalStateException(String.format("No matching BlockManager found: %s", manager.getName()));

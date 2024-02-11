@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "naturescanvas:mossy_acacia_boards"
+  },
+  "result": "naturescanvas:mossy_acacia_board_corner_slab"
+}

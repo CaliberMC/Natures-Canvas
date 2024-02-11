@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "T": {
+      "item": "naturescanvas:tin_ingot"
+    }
+  },
+  "pattern": [
+    "CTC",
+    "CTC",
+    "CTC"
+  ],
+  "result": {
+    "item": "naturescanvas:bronze_block"
+  },
+  "show_notification": true
+}

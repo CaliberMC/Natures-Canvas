@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 8,
+  "ingredient": {
+    "item": "naturescanvas:beige_plaster"
+  },
+  "result": "naturescanvas:beige_plaster_eighth"
+}

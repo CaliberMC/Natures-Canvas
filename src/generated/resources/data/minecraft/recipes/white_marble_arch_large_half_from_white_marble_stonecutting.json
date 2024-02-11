@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:white_marble"
+  },
+  "result": "naturescanvas:white_marble_arch_large_half"
+}

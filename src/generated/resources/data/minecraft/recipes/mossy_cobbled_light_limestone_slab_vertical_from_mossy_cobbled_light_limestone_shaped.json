@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "naturescanvas:mossy_cobbled_light_limestone"
+    }
+  },
+  "pattern": [
+    " # ",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "count": 24,
+    "item": "naturescanvas:mossy_cobbled_light_limestone_slab_vertical"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:spruce_board_slab_vertical"
+  },
+  "result": "naturescanvas:spruce_board_slab"
+}

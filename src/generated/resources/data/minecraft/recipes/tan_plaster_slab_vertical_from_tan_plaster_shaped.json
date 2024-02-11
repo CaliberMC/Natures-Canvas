@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "naturescanvas:tan_plaster"
+    }
+  },
+  "pattern": [
+    " # ",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "count": 24,
+    "item": "naturescanvas:tan_plaster_slab_vertical"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:birch_boards"
+  },
+  "result": "naturescanvas:birch_board_window_half"
+}

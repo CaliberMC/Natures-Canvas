@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:beige_plaster_slab_vertical"
+  },
+  "result": "naturescanvas:beige_plaster_slab"
+}

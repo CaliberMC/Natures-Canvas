@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:cobbled_light_limestone_slab_vertical"
+  },
+  "result": "naturescanvas:cobbled_light_limestone_slab"
+}

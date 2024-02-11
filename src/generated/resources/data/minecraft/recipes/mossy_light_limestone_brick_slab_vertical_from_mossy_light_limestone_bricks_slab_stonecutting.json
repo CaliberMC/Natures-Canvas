@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:mossy_light_limestone_brick_slab"
+  },
+  "result": "naturescanvas:mossy_light_limestone_brick_slab_vertical"
+}

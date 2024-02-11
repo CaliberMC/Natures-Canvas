@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 8,
+  "ingredient": {
+    "item": "naturescanvas:mossy_dark_limestone_bricks"
+  },
+  "result": "naturescanvas:mossy_dark_limestone_brick_eighth"
+}

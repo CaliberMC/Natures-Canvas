@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "naturescanvas:beige_plaster"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 24,
+    "item": "naturescanvas:beige_plaster_slab"
+  },
+  "show_notification": true
+}

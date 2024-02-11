@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 8,
+  "ingredient": {
+    "item": "naturescanvas:smooth_pink_limestone"
+  },
+  "result": "naturescanvas:smooth_pink_limestone_slab"
+}

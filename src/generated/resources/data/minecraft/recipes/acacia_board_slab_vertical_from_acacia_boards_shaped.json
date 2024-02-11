@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "naturescanvas:acacia_boards"
+    }
+  },
+  "pattern": [
+    " # ",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "count": 24,
+    "item": "naturescanvas:acacia_board_slab_vertical"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:smooth_stone"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 24,
+    "item": "naturescanvas:smooth_limestone_slab"
+  },
+  "show_notification": true
+}

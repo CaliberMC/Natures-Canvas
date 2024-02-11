@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "naturescanvas:mossy_thatch"
+    }
+  },
+  "pattern": [
+    " # ",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "count": 24,
+    "item": "naturescanvas:mossy_thatch_slab_vertical"
+  },
+  "show_notification": true
+}

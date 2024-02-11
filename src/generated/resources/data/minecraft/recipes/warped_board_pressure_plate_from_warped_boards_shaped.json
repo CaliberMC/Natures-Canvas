@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": {
+      "item": "naturescanvas:warped_boards"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "naturescanvas:warped_board_pressure_plate"
+  },
+  "show_notification": true
+}

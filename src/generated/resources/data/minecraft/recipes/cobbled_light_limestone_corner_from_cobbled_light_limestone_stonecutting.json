@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 5,
+  "ingredient": {
+    "item": "naturescanvas:cobbled_light_limestone"
+  },
+  "result": "naturescanvas:cobbled_light_limestone_corner"
+}

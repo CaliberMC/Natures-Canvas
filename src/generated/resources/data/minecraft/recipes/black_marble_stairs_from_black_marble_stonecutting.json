@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:black_marble"
+  },
+  "result": "naturescanvas:black_marble_stairs"
+}

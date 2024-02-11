@@ -1,0 +1,12 @@
+{
+  "type": "naturescanvas:alloying",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "minecraft:copper_ingot"
+  },
+  "result": "naturescanvas:bronze_ingot",
+  "second_ingredient": {
+    "item": "naturescanvas:tin_ingot"
+  }
+}

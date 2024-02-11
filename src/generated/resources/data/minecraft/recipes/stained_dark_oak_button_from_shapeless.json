@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "naturescanvas:stained_dark_oak_planks"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:stained_dark_oak_button"
+  }
+}

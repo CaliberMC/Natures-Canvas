@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 5,
+  "ingredient": {
+    "item": "naturescanvas:mossy_spruce_boards"
+  },
+  "result": "naturescanvas:mossy_spruce_board_corner"
+}

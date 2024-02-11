@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:stained_dark_oak_board_slab"
+  },
+  "result": "naturescanvas:stained_dark_oak_board_slab_vertical"
+}

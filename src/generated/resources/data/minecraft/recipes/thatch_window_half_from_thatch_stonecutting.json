@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:thatch"
+  },
+  "result": "naturescanvas:thatch_window_half"
+}

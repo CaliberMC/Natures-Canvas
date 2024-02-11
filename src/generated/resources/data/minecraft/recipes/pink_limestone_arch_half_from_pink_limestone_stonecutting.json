@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:pink_limestone"
+  },
+  "result": "naturescanvas:pink_limestone_arch_half"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:mossy_thatch"
+  },
+  "result": "naturescanvas:mossy_thatch_wall"
+}

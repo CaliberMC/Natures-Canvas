@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 5,
+  "ingredient": {
+    "item": "naturescanvas:white_marble"
+  },
+  "result": "naturescanvas:white_marble_quarter"
+}

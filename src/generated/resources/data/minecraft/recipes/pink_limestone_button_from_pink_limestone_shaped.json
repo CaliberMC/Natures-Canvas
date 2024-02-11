@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "naturescanvas:pink_limestone"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:pink_limestone_button"
+  }
+}

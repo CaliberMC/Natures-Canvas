@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:acacia_boards"
+  },
+  "result": "naturescanvas:acacia_board_window"
+}

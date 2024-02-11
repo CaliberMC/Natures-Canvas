@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:wheat"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    "XXX",
+    "###"
+  ],
+  "result": {
+    "count": 9,
+    "item": "naturescanvas:thatch"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:mossy_stained_acacia_planks"
+  },
+  "result": "naturescanvas:mossy_stained_acacia_pressure_plate"
+}

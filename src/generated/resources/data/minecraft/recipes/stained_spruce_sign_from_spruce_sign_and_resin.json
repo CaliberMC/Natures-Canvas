@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:spruce_sign"
+    },
+    {
+      "item": "naturescanvas:resin"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:stained_spruce_sign"
+  }
+}

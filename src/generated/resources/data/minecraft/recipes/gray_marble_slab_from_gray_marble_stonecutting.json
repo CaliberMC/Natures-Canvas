@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 8,
+  "ingredient": {
+    "item": "naturescanvas:gray_marble"
+  },
+  "result": "naturescanvas:gray_marble_slab"
+}

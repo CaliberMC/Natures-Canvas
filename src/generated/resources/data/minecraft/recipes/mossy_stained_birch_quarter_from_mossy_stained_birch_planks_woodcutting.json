@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 5,
+  "ingredient": {
+    "item": "naturescanvas:mossy_stained_birch_planks"
+  },
+  "result": "naturescanvas:mossy_stained_birch_quarter"
+}

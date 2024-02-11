@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 8,
+  "ingredient": {
+    "item": "naturescanvas:thatch"
+  },
+  "result": "naturescanvas:thatch_slab_vertical"
+}
