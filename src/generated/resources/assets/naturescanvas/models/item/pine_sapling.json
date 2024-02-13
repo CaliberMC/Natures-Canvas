@@ -1,3 +1,6 @@
 {
-  "parent": "naturescanvas:block/pine_sapling"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "naturescanvas:item/pine_sapling"
+  }
 }

@@ -1,8 +1,0 @@
-{
-  "type": "caliber:woodcutting",
-  "count": 8,
-  "ingredient": {
-    "item": "naturescanvas:stained_stripped_spruce_wood"
-  },
-  "result": "naturescanvas:stained_stripped_spruce_eighth"
-}

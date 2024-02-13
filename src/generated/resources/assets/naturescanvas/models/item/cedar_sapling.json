@@ -1,3 +1,6 @@
 {
-  "parent": "naturescanvas:block/cedar_sapling"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "naturescanvas:item/cedar_sapling"
+  }
 }

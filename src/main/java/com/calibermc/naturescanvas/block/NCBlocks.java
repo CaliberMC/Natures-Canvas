@@ -12,6 +12,9 @@ import com.calibermc.naturescanvas.block.custom.signs.NCHangingSignBlock;
 import com.calibermc.naturescanvas.block.custom.signs.NCStandingSignBlock;
 import com.calibermc.naturescanvas.block.custom.signs.NCWallHangingSignBlock;
 import com.calibermc.naturescanvas.block.custom.signs.NCWallSignBlock;
+import com.calibermc.naturescanvas.block.grower.CedarTreeGrower;
+import com.calibermc.naturescanvas.block.grower.FirTreeGrower;
+import com.calibermc.naturescanvas.block.grower.PineTreeGrower;
 import com.calibermc.naturescanvas.block.management.NCBlockManager;
 import com.calibermc.naturescanvas.item.NCItems;
 import net.minecraft.world.item.BlockItem;
@@ -176,21 +179,21 @@ public class NCBlocks {
     public static final RegistryObject<Block> CRIMSON_NYLIUM_LAYER = registerBlock("crimson_nylium_layer", () -> new NyliumLayerBlock(BlockProps.CRIMSON_NYLIUM.get()));
     public static final RegistryObject<Block> WARPED_NYLIUM_LAYER = registerBlock("warped_nylium_layer", () -> new NyliumLayerBlock(BlockProps.WARPED_NYLIUM.get()));
 
-    public static final RegistryObject<Block> CEDAR_SAPLING = registerBlock("cedar_sapling", () -> new Block(BlockProps.TREE_SAPLING.get()));
+    public static final RegistryObject<Block> CEDAR_SAPLING = registerBlock("cedar_sapling", () -> new SaplingBlock(new CedarTreeGrower(), BlockProps.TREE_SAPLING.get()));
     public static final RegistryObject<Block> CEDAR_LOG = registerBlock("cedar_log", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> STRIPPED_CEDAR_LOG = registerBlock("stripped_cedar_log", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> CEDAR_WOOD = registerBlock("cedar_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> STRIPPED_CEDAR_WOOD = registerBlock("stripped_cedar_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> CEDAR_LEAVES = registerBlock("cedar_leaves", () -> new LeavesBlock(BlockProps.TREE_LEAVES.get()));
 
-    public static final RegistryObject<Block> PINE_SAPLING = registerBlock("pine_sapling", () -> new Block(BlockProps.TREE_SAPLING.get()));
+    public static final RegistryObject<Block> PINE_SAPLING = registerBlock("pine_sapling", () -> new SaplingBlock(new PineTreeGrower(), BlockProps.TREE_SAPLING.get()));
     public static final RegistryObject<Block> PINE_LOG = registerBlock("pine_log", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> STRIPPED_PINE_LOG = registerBlock("stripped_pine_log", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> PINE_WOOD = registerBlock("pine_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> STRIPPED_PINE_WOOD = registerBlock("stripped_pine_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> PINE_LEAVES = registerBlock("pine_leaves", () -> new LeavesBlock(BlockProps.TREE_LEAVES.get()));
 
-    public static final RegistryObject<Block> FIR_SAPLING = registerBlock("fir_sapling", () -> new Block(BlockProps.TREE_SAPLING.get()));
+    public static final RegistryObject<Block> FIR_SAPLING = registerBlock("fir_sapling", () -> new SaplingBlock(new FirTreeGrower(), BlockProps.TREE_SAPLING.get()));
     public static final RegistryObject<Block> FIR_LOG = registerBlock("fir_log", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> STRIPPED_FIR_LOG = registerBlock("stripped_fir_log", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> FIR_WOOD = registerBlock("fir_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));

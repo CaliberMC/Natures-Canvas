@@ -1,8 +1,0 @@
-{
-  "type": "caliber:woodcutting",
-  "count": 5,
-  "ingredient": {
-    "item": "naturescanvas:mossy_acacia_planks"
-  },
-  "result": "naturescanvas:mossy_acacia_quarter"
-}

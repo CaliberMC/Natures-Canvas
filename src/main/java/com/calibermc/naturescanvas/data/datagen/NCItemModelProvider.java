@@ -7,6 +7,8 @@ import com.calibermc.naturescanvas.item.NCItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -33,6 +35,7 @@ public class NCItemModelProvider extends ModItemModelProvider {
                 .forEach(itemRegistryObject -> {
                     // Determine if the item is a tool
                     Item item = itemRegistryObject.get();
+                    Block block = Block.byItem(item);
                     boolean genItem = item instanceof Hammer ||
                             item instanceof SwordItem ||
                             item instanceof PickaxeItem ||
@@ -48,7 +51,8 @@ public class NCItemModelProvider extends ModItemModelProvider {
                     else if (item.getClass() == Item.class ||
                             item.getClass() == ArmorItem.class  ||
                             item.getClass() == SignItem.class ||
-                            item.getClass() == HangingSignItem.class) {
+                            item.getClass() == HangingSignItem.class ||
+                            block.getClass() == SaplingBlock.class)  {
                         simpleItem(itemRegistryObject);
                     }
                 });

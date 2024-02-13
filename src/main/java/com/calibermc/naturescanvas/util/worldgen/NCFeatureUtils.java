@@ -1,9 +1,9 @@
 package com.calibermc.naturescanvas.util.worldgen;
 
 import com.calibermc.naturescanvas.NaturesCanvas;
-import com.calibermc.naturescanvas.worldgen.feature.NCOreFeatures;
-import com.calibermc.naturescanvas.worldgen.feature.NCTreeFeatures;
-import com.calibermc.naturescanvas.worldgen.feature.NCVegetationFeatures;
+import com.calibermc.naturescanvas.data.worldgen.features.NCOreFeatures;
+import com.calibermc.naturescanvas.data.worldgen.features.NCTreeFeatures;
+import com.calibermc.naturescanvas.data.worldgen.features.NCVegetationFeatures;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;

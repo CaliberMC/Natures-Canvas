@@ -34,6 +34,10 @@
     "itemGroup.tools_weapons": "Tools & Weapons",
     "itemGroup.armor": "Armor",
 
+    "biome.naturescanvas.cedar_forest": "Cedar Forest",
+    "biome.naturescanvas.fir_forest": "Fir Forest",
+    "biome.naturescanvas.pine_forest": "Pine Forest",
+
     "item.naturescanvas.tin_ingot": "Tin Ingot",
     "item.naturescanvas.tin_nugget": "Tin Nugget",
     "item.naturescanvas.raw_tin": "Raw Tin",

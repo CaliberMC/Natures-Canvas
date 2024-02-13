@@ -6,7 +6,10 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "naturescanvas:cedar_sapling"
+          "Name": "naturescanvas:cedar_sapling",
+          "Properties": {
+            "stage": "0"
+          }
         }
       }
     }
