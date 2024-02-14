@@ -61,6 +61,24 @@ public abstract class NCTreeFeature<FC extends NCTreeConfiguration> extends Tree
         return false;
     }
 
+//    public boolean placeWood(LevelAccessor world, BlockPos pos, BiConsumer<BlockPos, BlockState> wood, FC config) {
+//        return this.placeLog(world, pos, null, wood, config);
+//    }
+//
+//    public boolean placeWood(LevelAccessor level, BlockPos pos, Direction.Axis axis, BiConsumer<BlockPos, BlockState> wood, FC config) {
+//        Property logAxisProperty = this.getLogAxisProperty(level, pos, config);
+//        BlockState log = config.exposedTrunkProvider.getState(level.getRandom(), pos);
+//        BlockState directedLog = (axis != null && logAxisProperty != null) ? log.setValue(logAxisProperty, axis) : log;
+//
+//        if (canReplace(level, pos)) {
+//            // Logs must be added to the "changedBlocks" so that the leaves have their distance property updated,
+//            // preventing incorrect decay
+//            wood.accept(pos, directedLog);
+//            return true;
+//        }
+//        return false;
+//    }
+
     public boolean setVine(LevelAccessor world, RandomSource rand, BlockPos pos, Direction side, int length, FC config) {
         BlockState vine = config.vineProvider.getState(rand, pos);
         BlockState directedVine = vine.getBlock() instanceof VineBlock ? vine.setValue(VineBlock.NORTH, Boolean.valueOf(side == Direction.NORTH)).setValue(VineBlock.EAST, Boolean.valueOf(side == Direction.EAST)).setValue(VineBlock.SOUTH, Boolean.valueOf(side == Direction.SOUTH)).setValue(VineBlock.WEST, Boolean.valueOf(side == Direction.WEST)) : vine;

@@ -25,6 +25,7 @@ public class NCTreeConfiguration extends TreeConfiguration
                 BlockStateProvider.CODEC.fieldOf("hanging_provider").forGetter((instance) -> instance.hangingProvider),
                 BlockStateProvider.CODEC.fieldOf("trunk_fruit_provider").forGetter((instance) -> instance.trunkFruitProvider),
                 BlockStateProvider.CODEC.fieldOf("alt_foliage_provider").forGetter((instance) -> instance.altFoliageProvider),
+                BlockStateProvider.CODEC.fieldOf("exposed_trunk_provider").forGetter((instance) -> instance.exposedTrunkProvider),
                 Codec.INT.fieldOf("min_height").forGetter((instance) -> instance.minHeight),
                 Codec.INT.fieldOf("max_height").forGetter((instance) -> instance.maxHeight),
                 TreeDecorator.CODEC.listOf().fieldOf("decorators").forGetter(instance -> instance.decorators)
@@ -35,10 +36,11 @@ public class NCTreeConfiguration extends TreeConfiguration
     public final BlockStateProvider hangingProvider;
     public final BlockStateProvider trunkFruitProvider;
     public final BlockStateProvider altFoliageProvider;
+    public final BlockStateProvider exposedTrunkProvider;
     public final int minHeight;
     public final int maxHeight;
 
-    protected NCTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators) {
+    protected NCTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, BlockStateProvider exposedTrunkProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators) {
 
         super(trunkProvider, null, foliageProvider, null, null, null, new TwoLayersFeatureSize(1, 0, 1), decorators, false, false);
 //        super(trunkProvider, new StraightTrunkPlacer(
@@ -51,6 +53,7 @@ public class NCTreeConfiguration extends TreeConfiguration
         this.hangingProvider = hangingProvider;
         this.trunkFruitProvider = trunkFruitProvider;
         this.altFoliageProvider = altFoliageProvider;
+        this.exposedTrunkProvider = exposedTrunkProvider;
         this.minHeight = minHeight;
         this.maxHeight = maxHeight;
     }
@@ -62,6 +65,7 @@ public class NCTreeConfiguration extends TreeConfiguration
         protected BlockStateProvider hangingProvider;
         protected BlockStateProvider trunkFruitProvider;
         protected BlockStateProvider altFoliageProvider;
+        protected BlockStateProvider exposedTrunkProvider;
         protected List<TreeDecorator> decorators;
         protected int minHeight;
         protected int maxHeight;
@@ -73,6 +77,7 @@ public class NCTreeConfiguration extends TreeConfiguration
             this.hangingProvider = BlockStateProvider.simple(Blocks.AIR.defaultBlockState());
             this.trunkFruitProvider = BlockStateProvider.simple(Blocks.AIR.defaultBlockState());
             this.altFoliageProvider = BlockStateProvider.simple(Blocks.AIR.defaultBlockState());
+            this.exposedTrunkProvider = BlockStateProvider.simple(Blocks.OAK_WOOD.defaultBlockState());
             this.minHeight = 4;
             this.maxHeight = 7;
             this.decorators = Lists.newArrayList();
@@ -82,6 +87,11 @@ public class NCTreeConfiguration extends TreeConfiguration
             this.trunkProvider = provider;
             return (T)this;
         }
+        public T exposedTrunk(BlockStateProvider a) {
+            this.altFoliageProvider = a;
+            return (T)this;
+        }
+
 
         public T foliage(BlockStateProvider provider) {
             this.foliageProvider = provider;
@@ -124,7 +134,7 @@ public class NCTreeConfiguration extends TreeConfiguration
         }
 
         public NCTreeConfiguration build() {
-            return new NCTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.minHeight, this.maxHeight, this.decorators);
+            return new NCTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.exposedTrunkProvider, this.minHeight, this.maxHeight, this.decorators);
         }
     }
 }

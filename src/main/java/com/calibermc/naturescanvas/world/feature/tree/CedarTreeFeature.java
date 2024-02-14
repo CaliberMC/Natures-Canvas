@@ -24,78 +24,10 @@ public class CedarTreeFeature extends NCTreeFeature<EvergreenTreeConfiguration> 
         super(codec);
     }
 
-    public boolean checkSpace(LevelAccessor world, BlockPos pos, int baseHeight, int height, EvergreenTreeConfiguration config) {
-        for (int y = 0; y <= height; y++) {
-
-            int trunkWidth = (config.trunkWidth * (height - y) / height) + 1;
-            int trunkStart = Mth.ceil(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = Mth.floor(0.25D + trunkWidth / 2.0D);
-
-            // require 3x3 for the leaves, 1x1 for the trunk
-            int start = (y <= baseHeight ? trunkStart : trunkStart - 1);
-            int end = (y <= baseHeight ? trunkEnd : trunkEnd + 1);
-
-            for (int x = start; x <= end; x++) {
-                for (int z = start; z <= end; z++) {
-                    BlockPos pos1 = pos.offset(x, y, z);
-                    // note, there may be a sapling on the first layer - make sure this.replace matches it!
-                    if (pos1.getY() >= 255 || !this.canReplace(world, pos1)) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-    // generates a layer of leafs
-    public void generateLeafLayer(LevelAccessor world, RandomSource rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, FoliagePlacer.FoliageSetter leaves, EvergreenTreeConfiguration config) {
-        int start = trunkStart - leavesRadius;
-        int end = trunkEnd + leavesRadius;
-
-        for (int x = start; x <= end; x++) {
-            for (int z = start; z <= end; z++) {
-                // skip corners
-                if ((leavesRadius > 0) && (x == start || x == end) && (z == start || z == end)) {
-                    continue;
-                }
-                int distFromTrunk = (x < 0 ? trunkStart - x : x - trunkEnd) + (z < 0 ? trunkStart - z : z - trunkEnd);
-
-                // set leaves as long as it's not too far from the trunk to survive
-                if (distFromTrunk < 4 || (distFromTrunk == 4 && rand.nextInt(2) == 0)) {
-                    this.placeLeaves(world, pos.offset(x, 0, z), leaves, config);
-                }
-            }
-        }
-    }
-
-    public void generateBranch(LevelAccessor world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, EvergreenTreeConfiguration config) {
-        Direction.Axis axis = direction.getAxis();
-        Direction sideways = direction.getClockWise();
-        for (int i = 1; i <= length; i++) {
-            BlockPos pos1 = pos.relative(direction, i);
-            int r = (i == 1 || i == length) ? 1 : 2;
-            for (int j = -r; j <= r; j++) {
-                if (i < length || rand.nextInt(2) == 0) {
-                    this.placeLeaves(world, pos1.relative(sideways, j), leaves, config);
-                }
-            }
-            if (length - i > 2) {
-                this.placeLeaves(world, pos1.above(), leaves, config);
-                this.placeLeaves(world, pos1.above().relative(sideways, -1), leaves, config);
-                this.placeLeaves(world, pos1.above().relative(sideways, 1), leaves, config);
-                this.placeLog(world, pos1, axis, logs, config);
-            }
-        }
-    }
-
+    @Override
     protected boolean doPlace(@NotNull WorldGenLevel world, RandomSource random, @NotNull BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase) {
         EvergreenTreeConfiguration config = (EvergreenTreeConfiguration) configBase;
 
-        // Move down until we reach the ground
-//        while (startPos.getY() >= world.getMinBuildHeight() + 1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES) || !isDirt(world.getBlockState(startPos)) && startPos.getY() > 0) {
-//            startPos = startPos.below();
-//        }
         while (startPos.getY() >= world.getMinBuildHeight()+1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES)) {
             startPos = startPos.below();
         }
@@ -294,4 +226,70 @@ public class CedarTreeFeature extends NCTreeFeature<EvergreenTreeConfiguration> 
         }
         return true;
     }
+
+    public boolean checkSpace(LevelAccessor world, BlockPos pos, int baseHeight, int height, EvergreenTreeConfiguration config) {
+        for (int y = 0; y <= height; y++) {
+
+            int trunkWidth = (config.trunkWidth * (height - y) / height) + 1;
+            int trunkStart = Mth.ceil(0.25D - trunkWidth / 2.0D);
+            int trunkEnd = Mth.floor(0.25D + trunkWidth / 2.0D);
+
+            // require 3x3 for the leaves, 1x1 for the trunk
+            int start = (y <= baseHeight ? trunkStart : trunkStart - 1);
+            int end = (y <= baseHeight ? trunkEnd : trunkEnd + 1);
+
+            for (int x = start; x <= end; x++) {
+                for (int z = start; z <= end; z++) {
+                    BlockPos pos1 = pos.offset(x, y, z);
+                    // note, there may be a sapling on the first layer - make sure this.replace matches it!
+                    if (pos1.getY() >= 255 || !this.canReplace(world, pos1)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    // generates a layer of leafs
+    public void generateLeafLayer(LevelAccessor world, RandomSource rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, FoliagePlacer.FoliageSetter leaves, EvergreenTreeConfiguration config) {
+        int start = trunkStart - leavesRadius;
+        int end = trunkEnd + leavesRadius;
+
+        for (int x = start; x <= end; x++) {
+            for (int z = start; z <= end; z++) {
+                // skip corners
+                if ((leavesRadius > 0) && (x == start || x == end) && (z == start || z == end)) {
+                    continue;
+                }
+                int distFromTrunk = (x < 0 ? trunkStart - x : x - trunkEnd) + (z < 0 ? trunkStart - z : z - trunkEnd);
+
+                // set leaves as long as it's not too far from the trunk to survive
+                if (distFromTrunk < 4 || (distFromTrunk == 4 && rand.nextInt(2) == 0)) {
+                    this.placeLeaves(world, pos.offset(x, 0, z), leaves, config);
+                }
+            }
+        }
+    }
+
+    public void generateBranch(LevelAccessor world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, EvergreenTreeConfiguration config) {
+        Direction.Axis axis = direction.getAxis();
+        Direction sideways = direction.getClockWise();
+        for (int i = 1; i <= length; i++) {
+            BlockPos pos1 = pos.relative(direction, i);
+            int r = (i == 1 || i == length) ? 1 : 2;
+            for (int j = -r; j <= r; j++) {
+                if (i < length || rand.nextInt(2) == 0) {
+                    this.placeLeaves(world, pos1.relative(sideways, j), leaves, config);
+                }
+            }
+            if (length - i > 2) {
+                this.placeLeaves(world, pos1.above(), leaves, config);
+                this.placeLeaves(world, pos1.above().relative(sideways, -1), leaves, config);
+                this.placeLeaves(world, pos1.above().relative(sideways, 1), leaves, config);
+                this.placeLog(world, pos1, axis, logs, config);
+            }
+        }
+    }
+
 }

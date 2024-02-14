@@ -1,8 +1,0 @@
-{
-  "type": "caliber:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "naturescanvas:stained_stripped_spruce_slab"
-  },
-  "result": "naturescanvas:stained_stripped_spruce_slab_vertical"
-}

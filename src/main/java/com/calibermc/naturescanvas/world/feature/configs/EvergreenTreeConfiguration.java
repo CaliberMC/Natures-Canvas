@@ -18,6 +18,7 @@ public class EvergreenTreeConfiguration extends NCTreeConfiguration
                 BlockStateProvider.CODEC.fieldOf("hanging_provider").forGetter((instance) -> instance.hangingProvider),
                 BlockStateProvider.CODEC.fieldOf("trunk_fruit_provider").forGetter((instance) -> instance.trunkFruitProvider),
                 BlockStateProvider.CODEC.fieldOf("alt_foliage_provider").forGetter((instance) -> instance.altFoliageProvider),
+                BlockStateProvider.CODEC.fieldOf("exposed_trunk_provider").forGetter((instance) -> instance.exposedTrunkProvider),
                 Codec.INT.fieldOf("min_height").forGetter((instance) -> instance.minHeight),
                 Codec.INT.fieldOf("max_height").forGetter((instance) -> instance.maxHeight),
                 TreeDecorator.CODEC.listOf().fieldOf("decorators").forGetter(instance -> instance.decorators),
@@ -27,9 +28,9 @@ public class EvergreenTreeConfiguration extends NCTreeConfiguration
 
     public final int trunkWidth;
 
-    protected EvergreenTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators, int trunkWidth)
+    protected EvergreenTreeConfiguration(BlockStateProvider trunkProvider, BlockStateProvider foliageProvider, BlockStateProvider vineProvider, BlockStateProvider hangingProvider, BlockStateProvider trunkFruitProvider, BlockStateProvider altFoliageProvider, BlockStateProvider exposedTrunkProvider, int minHeight, int maxHeight, List<TreeDecorator> decorators, int trunkWidth)
     {
-        super(trunkProvider, foliageProvider, vineProvider, hangingProvider, trunkFruitProvider, altFoliageProvider, minHeight, maxHeight, decorators);
+        super(trunkProvider, foliageProvider, vineProvider, hangingProvider, trunkFruitProvider, altFoliageProvider, exposedTrunkProvider, minHeight, maxHeight, decorators);
         this.trunkWidth = trunkWidth;
     }
 
@@ -44,6 +45,7 @@ public class EvergreenTreeConfiguration extends NCTreeConfiguration
             this.trunkProvider = BlockStateProvider.simple(Blocks.SPRUCE_LOG.defaultBlockState());
             this.foliageProvider = BlockStateProvider.simple(Blocks.SPRUCE_LEAVES.defaultBlockState());
             this.vineProvider = BlockStateProvider.simple(Blocks.VINE.defaultBlockState());
+            this.exposedTrunkProvider = BlockStateProvider.simple(Blocks.SPRUCE_WOOD.defaultBlockState());
             this.trunkWidth = 1;
         }
 
@@ -55,7 +57,7 @@ public class EvergreenTreeConfiguration extends NCTreeConfiguration
 
         public EvergreenTreeConfiguration build()
         {
-            return new EvergreenTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.minHeight, this.maxHeight, this.decorators,this.trunkWidth);
+            return new EvergreenTreeConfiguration(this.trunkProvider, this.foliageProvider, this.vineProvider, this.hangingProvider, this.trunkFruitProvider, this.altFoliageProvider, this.exposedTrunkProvider, this.minHeight, this.maxHeight, this.decorators,this.trunkWidth);
         }
     }
 }

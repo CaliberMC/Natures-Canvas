@@ -1,8 +1,0 @@
-{
-  "type": "caliber:woodcutting",
-  "count": 16,
-  "ingredient": {
-    "item": "naturescanvas:stained_stripped_birch_wood"
-  },
-  "result": "naturescanvas:stained_stripped_birch_beam_lintel"
-}

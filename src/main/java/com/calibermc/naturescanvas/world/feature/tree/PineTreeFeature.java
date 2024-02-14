@@ -10,13 +10,16 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacer;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.Random;
 import java.util.function.BiConsumer;
 
@@ -25,161 +28,106 @@ public class PineTreeFeature extends NCTreeFeature<EvergreenTreeConfiguration> {
         super(codec);
     }
 
-    public boolean checkSpace(LevelAccessor world, BlockPos pos, int baseHeight, int height, EvergreenTreeConfiguration config)
-    {
-        for (int y = 0; y <= height; y++)
-        {
-
-            int trunkWidth = (config.trunkWidth * (height - y) / height) + 1;
-            int trunkStart = Mth.ceil(0.25D - trunkWidth / 2.0D);
-            int trunkEnd = Mth.floor(0.25D + trunkWidth / 2.0D);
-
-            // require 3x3 for the leaves, 1x1 for the trunk
-            int start = (y <= baseHeight ? trunkStart : trunkStart - 1);
-            int end = (y <= baseHeight ? trunkEnd : trunkEnd + 1);
-
-            for (int x = start; x <= end; x++)
-            {
-                for (int z = start; z <= end; z++)
-                {
-                    BlockPos pos1 = pos.offset(x, y, z);
-                    // note, there may be a sapling on the first layer - make sure this.replace matches it!
-                    if (pos1.getY() >= 255 || !this.canReplace(world, pos1))
-                    {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
-    // generates a layer of leafs
-    public void generateLeafLayer(LevelAccessor world, RandomSource rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, FoliagePlacer.FoliageSetter leaves, EvergreenTreeConfiguration config)
-    {
-        int start = trunkStart - leavesRadius;
-        int end = trunkEnd + leavesRadius;
-
-        for (int x = start; x <= end; x++)
-        {
-            for (int z = start; z <= end; z++)
-            {
-                // skip corners
-                if ((leavesRadius > 0 ) && (x == start || x == end) && (z == start || z == end)) {continue;}
-                int distFromTrunk = (x < 0 ? trunkStart - x : x - trunkEnd) + (z < 0 ? trunkStart - z : z - trunkEnd);
-
-                // set leaves as long as it's not too far from the trunk to survive
-                if (distFromTrunk < 4 || (distFromTrunk == 4 && rand.nextInt(2) == 0))
-                {
-                    this.placeLeaves(world, pos.offset(x, 0, z), leaves, config);
-                }
-            }
-        }
-    }
-
-    public void generateBranch(LevelAccessor world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, EvergreenTreeConfiguration config)
-    {
-        Direction.Axis axis = direction.getAxis();
-        Direction sideways = direction.getClockWise();
-        for (int i = 1; i <= length; i++)
-        {
-            BlockPos pos1 = pos.relative(direction, i);
-            int r = (i == 1 || i == length) ? 1 : 2;
-            for (int j = -r; j <= r; j++)
-            {
-                if (i < length || rand.nextInt(2) == 0)
-                {
-                    this.placeLeaves(world, pos1.relative(sideways, j), leaves, config);
-                }
-            }
-            if (length - i > 2)
-            {
-                this.placeLeaves(world, pos1.above(), leaves, config);
-                this.placeLeaves(world, pos1.above().relative(sideways, -1), leaves, config);
-                this.placeLeaves(world, pos1.above().relative(sideways, 1), leaves, config);
-                this.placeLog(world, pos1, axis, logs, config);
-            }
-        }
-    }
-
-
     @Override
-    protected boolean doPlace(WorldGenLevel world, RandomSource random, BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase)
-    {
-        EvergreenTreeConfiguration config = (EvergreenTreeConfiguration)configBase;
+    protected boolean doPlace(@NotNull WorldGenLevel world, RandomSource random, @NotNull BlockPos startPos, BiConsumer<BlockPos, BlockState> roots, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, TreeConfiguration configBase) {
+        EvergreenTreeConfiguration config = (EvergreenTreeConfiguration) configBase;
+        HashMap<String, BlockPos> branchPositions = new HashMap<>();
 
-        // Move down until we reach the ground
-        while (startPos.getY() >= world.getMinBuildHeight()+1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES)) {startPos = startPos.below();}
+        while (startPos.getY() >= world.getMinBuildHeight()+1 && world.isEmptyBlock(startPos) || world.getBlockState(startPos).is(BlockTags.LEAVES)) {
+            startPos = startPos.below();
+        }
 
         // Choose heights
         int height = GeneratorUtil.nextIntBetween(random, config.minHeight, config.maxHeight);
-        int baseHeight = GeneratorUtil.nextIntBetween(random, (int)(height * 0.6F), (int)(height * 0.4F));
+        int baseHeight = GeneratorUtil.nextIntBetween(random, (int) (height * 0.40F), (int) (height * 0.70F));
         int leavesHeight = height - baseHeight;
-        if (leavesHeight < 3) {return false;}
 
-        if (!this.checkSpace(world, startPos.above(), baseHeight, height, config))
-        {
+        if (leavesHeight < 1) {
+            return false;
+        }
+        if (!this.checkSpace(world, startPos.above(), baseHeight, height, config)) {
             // Abandon if there isn't enough room
             return false;
         }
-
         // Start at the top of the tree
         BlockPos pos = startPos.above(height);
-
-        // Leaves at the top
         this.placeLeaves(world, pos, leaves, config);
         pos.below();
 
         // Add layers of leaves
-        for (int i = 0; i < leavesHeight; i++)
-        {
+        for (int i = 0; i < leavesHeight; i++) {
             int trunkWidth = (config.trunkWidth * i / height) + 1;
             int trunkStart = Mth.ceil(0.25D - trunkWidth / 2.0D);
             int trunkEnd = Mth.floor(0.25D + trunkWidth / 2.0D);
 
+            int radius = 0;
+            Random rand = new Random();
+            int taperHeight = 3;
+            int minRadius = 3;
+            int maxRadius = 4;
 
-            int radius = Math.min(Math.min((i + 2) / 4, 2 + (leavesHeight - i)), 4);
-            if (radius == 0)
-            {
+            for (int r = 0; r < height; r++) {
+                if (i < taperHeight) {
+                    // Gradually grow from 0 to 2 in the first 3 blocks
+                    radius = i;
+                } else if (height < 25) {
+                    // Randomly vary between 3 and 4 for the rest
+                    radius = rand.nextInt((3 - 2) + 1) + 2;
+                } else {
+                    radius = rand.nextInt((maxRadius - minRadius) + 1) + minRadius;
+                }
+
+            }
+
+
+            // CEDAR START
+//            Random rand = new Random();
+//            double scaleValue = height / 10.0;
+//
+//            // Add or subtract 1 to scaleValue
+//            scaleValue += rand.nextBoolean() ? 1 : -1;
+//            // limit the scaleValue to 5 to ensure max leavesTaper does not exceed 5
+//            scaleValue = Math.min(scaleValue, 5.0);
+//
+//            int minRadius = 2;
+//            int maxRadius = 4;
+//
+//            if (i < scaleValue) {
+//                leavesTaper = (double) i / scaleValue;
+//                // Calculate radius, going from max at top to min at bottom
+//                radius = maxRadius - (int)(leavesTaper * (maxRadius - minRadius));
+//            } else {
+//                leavesTaper = 1 + ((i - scaleValue) / (leavesHeight - scaleValue)) * scaleValue;
+//                // In lower part, radius is constant at minimum value
+//                radius = minRadius;
+//            }
+
+            // FIR
+//            // Add or subtract 1 to scaleValue
+//            scaleValue += rand.nextBoolean() ? 1 : -1;
+//
+//            // limit the scaleValue to 5 to ensure max leavesTaper does not exceed 5
+//            scaleValue = Math.min(scaleValue, 5.0);
+//
+//            if (i < scaleValue) {
+//                leavesTaper = (double) i / scaleValue;
+//            } else {
+//                leavesTaper = 1 + ((i - scaleValue) / (leavesHeight - scaleValue)) * scaleValue;
+//            }
+
+            if (radius == 0) {
                 this.placeLeaves(world, pos, leaves, config);
-            }
-            else if (radius < 2)
-            {
+            } else if (radius < 2) {
                 this.generateLeafLayer(world, random, pos, radius, trunkStart, trunkEnd, leaves, config);
-            }
-            else
-            {
-                if (i % 5 == 0)
-                {
-                    this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkStart), Direction.NORTH, radius / 2, logs, leaves, config);
-                    this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkStart), Direction.EAST, radius / 2, logs, leaves, config);
-                    this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius / 2, logs, leaves, config);
-                    this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkEnd), Direction.WEST, radius / 2, logs, leaves, config);
-                }
-                else
-                {
-                    this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkStart), Direction.NORTH, radius, logs, leaves, config);
-                    this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkStart), Direction.EAST, radius, logs, leaves, config);
-                    this.generateBranch(world, random, pos.offset(trunkEnd, 0, trunkEnd), Direction.SOUTH, radius, logs, leaves, config);
-                    this.generateBranch(world, random, pos.offset(trunkStart, 0, trunkEnd), Direction.WEST, radius, logs, leaves, config);
-                }
+            } else {
+                int adjustedRadius = (i % 3 == 0) ? radius / 2 : radius;
+
+                this.generateBranch(world, random, pos, Direction.NORTH, adjustedRadius, logs, leaves, config);
+                this.generateBranch(world, random, pos, Direction.EAST, adjustedRadius, logs, leaves, config);
+                this.generateBranch(world, random, pos, Direction.SOUTH, adjustedRadius, logs, leaves, config);
+                this.generateBranch(world, random, pos, Direction.WEST, adjustedRadius, logs, leaves, config);
             }
             pos = pos.below();
-        }
-
-        // Create the trunk widths scales
-        double[] scalingFactors = new double[]{
-                (0.35 + random.nextDouble() * 0.15),
-                (0.07 + random.nextDouble() * 0.1),
-                (random.nextDouble() * 0.06)
-        };
-
-        if (config.trunkWidth == 3) {
-            scalingFactors = new double[]{
-                    (0.6 + random.nextDouble() * 0.2),
-                    (0.1 + random.nextDouble() * 0.2),
-                    (0.03 + random.nextDouble() * 0.09)
-            };
         }
 
         // Generate the trunk
@@ -194,13 +142,15 @@ public class PineTreeFeature extends NCTreeFeature<EvergreenTreeConfiguration> {
                     continue;
                 }
 
-                // Scale bigger widths
-                if (dist == 1) {
-                    heightHere = (int) (height * scalingFactors[0]);
-                } else if (dist == 2) {
-                    heightHere = (int) (height * scalingFactors[1]);
-                } else if (dist == 3) {
-                    heightHere = (int) (height * scalingFactors[2]);
+                // Trunk width scaling
+                double[] trunkScaling = new double[]{
+                        (0.35 + random.nextDouble() * 0.1),
+                        (0.07 + random.nextDouble() * 0.05),
+                        (random.nextDouble() * 0.01)
+                };
+
+                if (dist >= 1 && dist <= 3) {
+                    heightHere = (int) (height * trunkScaling[dist - 1]);
                 } else if (dist > 3) {
                     continue;
                 }
@@ -208,47 +158,106 @@ public class PineTreeFeature extends NCTreeFeature<EvergreenTreeConfiguration> {
                 heightHere += random.nextInt(2);
 
                 boolean didPlace = false;
-                for (int y = 0; y < heightHere; y++)
-                {
+                int branchLength;
+
+                for (int y = 0; y < heightHere; y++) {
                     BlockPos local = startPos.offset(x, y, z);
                     didPlace |= this.placeLog(world, local, logs, config);
 
-                    if (dist > 0 && y > 6 && y < (baseHeight - 2) && random.nextInt(15) == 0) {
+//                    if (dist > 0 && y > 6 && y < (baseHeight - 2) && random.nextInt(15) == 0) { //original
+//                    if (y > 6 && y < (baseHeight - 2) && random.nextInt(2) == 0) { //more branches !!!
+//                        branchLength = (2 - dist) + 1 + random.nextInt(3); //longer branches
+//                        if (dist == 0) {
+//                            branchLength = 1 + random.nextInt(1); //shorter branches
+//                        }
+//                        double theta;
+//                        if (x == 0 && z == 0) {
+//                            // Prevents bushes originating from the center from generating too low
+//                            if (y < 10) {
+//                                continue;
+//                            }
+//
+//                            theta = Math.PI * random.nextDouble() * 2;
+//                        } else {
+//                            // Make sure the branches only go in the same direction of the current trunk position from the center
+//                            double angleFromCenter = Math.atan2(x, z);
+//
+//                            theta = angleFromCenter + (Math.PI * (random.nextDouble() * 0.5 - 0.25));
+//                        }
+//
+//
+////                        int branchLength = (3 - dist) + 1 + random.nextInt(3); //longer branches
+//
+//                        BlockPos branchPos = null;
+//                        for (int i = 0; i < branchLength; i++) {
+//                            branchPos = local.offset(Mth.floor(Math.cos(theta) * i), i / 2, Mth.floor(Math.sin(theta) * i));
+//
+//                            this.placeLog(world, branchPos, logs, config);
+//                        }
+//
+//                        this.generateBranchLeaves(logs, leaves, world, random, branchPos, config);
+//                    }
+                    if (y > 6 && y < (baseHeight - 2) && random.nextInt(2) == 0) {
+                        branchLength = (2 - dist) + 1 + random.nextInt(3);
+                        if (dist == 0) {
+                            branchLength = 1 + random.nextInt(1);
+                        }
+
                         double theta;
                         if (x == 0 && z == 0) {
-                            // Prevents bushes originating from the center from generating too low
                             if (y < 10) {
                                 continue;
                             }
-
                             theta = Math.PI * random.nextDouble() * 2;
                         } else {
-                            // Make sure the branches only go in the same direction of the current trunk position from the center
                             double angleFromCenter = Math.atan2(x, z);
-
                             theta = angleFromCenter + (Math.PI * (random.nextDouble() * 0.5 - 0.25));
                         }
 
-                        int branchLength = (3 - dist) + 1 + random.nextInt(2);
-
                         BlockPos branchPos = null;
+                        boolean isTooClose = false;
+
+                        // Calculate new branch positions without writing
                         for (int i = 0; i < branchLength; i++) {
                             branchPos = local.offset(Mth.floor(Math.cos(theta) * i), i / 2, Mth.floor(Math.sin(theta) * i));
 
-                            this.placeLog(world, branchPos, logs, config);
+                            // Checking if the new branchPos is within 2 blocks of previous branch positions
+                            for (BlockPos previousBranchPos : branchPositions.values()) {
+                                int dx = previousBranchPos.getX() - branchPos.getX();
+                                int dy = previousBranchPos.getY() - branchPos.getY();
+                                int dz = previousBranchPos.getZ() - branchPos.getZ();
+                                if ((dx*dx + dy*dy + dz*dz) < 4) { // 4 = 2^2, because we are checking in a radius of 2 blocks
+                                    isTooClose = true;
+                                    break;
+                                }
+                            }
+
+                            if (isTooClose) {
+                                break;
+                            }
                         }
 
-                        this.generateBush(logs, leaves, world, random, branchPos, config);
+                        // If new generated branch is not too close to existing branches, add the positions, logs and leaves
+                        if (!isTooClose) {
+                            for (int i = 0; i < branchLength; i++) {
+                                branchPos = local.offset(Mth.floor(Math.cos(theta) * i), i / 2, Mth.floor(Math.sin(theta) * i));
+                                this.placeLog(world, branchPos, logs, config);
+
+                                // Save every branch position to check later
+                                branchPositions.put( branchPos.toString(), branchPos );
+                            }
+                            this.generateBranchLeaves(logs, leaves, world, random, branchPos, config);
+                        }
                     }
+
                 }
 
                 if (didPlace) {
                     // Place dirt 3 blocks below the trunk if no solid block is found
-                    for (int y = 1; y < 4; y++)
-                    {
+                    for (int y = 1; y < 4; y++) {
                         BlockPos local = startPos.offset(x, -y, z);
                         BlockState state = world.getBlockState(local);
-                        if (!state.isSolid() || Feature.isDirt(state)) {
+                        if (!state.isSolid() || isDirt(state)) {
                             world.setBlock(local, Blocks.DIRT.defaultBlockState(), 3);
                         }
                     }
@@ -259,49 +268,95 @@ public class PineTreeFeature extends NCTreeFeature<EvergreenTreeConfiguration> {
         return true;
     }
 
-    protected boolean generateBush(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, RandomSource random, BlockPos pos, EvergreenTreeConfiguration config)
-    {
+    public boolean checkSpace(LevelAccessor world, BlockPos pos, int baseHeight, int height, EvergreenTreeConfiguration config) {
+        for (int y = 0; y <= height; y++) {
+            int trunkWidth = (config.trunkWidth * (height - y) / height) + 1;
+            int offset = Mth.ceil(0.25D - trunkWidth / 2.0D);
+            int range = y <= baseHeight ? trunkWidth : trunkWidth + 2;
+            BlockPos pos1;
+            for (int xz = -range / 2; xz <= range / 2; xz++) {
+                for(int coord : new int[] {xz+offset,xz-offset}) {
+                    pos1 = pos.offset(coord, y, coord);
+                    if (pos1.getY() >= 255 || !this.canReplace(world, pos1)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public void generateLeafLayer(LevelAccessor world, RandomSource rand, BlockPos pos, int leavesRadius, int trunkStart, int trunkEnd, FoliagePlacer.FoliageSetter leaves, EvergreenTreeConfiguration config) {
+        int start = trunkStart - leavesRadius;
+        int end = trunkEnd + leavesRadius;
+
+        for (int x = start; x <= end; x++) {
+            for (int z = start; z <= end; z++) {
+                // skip corners
+                if ((leavesRadius > 0 ) && (x == start || x == end) && (z == start || z == end)) {
+                    continue;
+                }
+                int distFromTrunk = (x < 0 ? trunkStart - x : x - trunkEnd) + (z < 0 ? trunkStart - z : z - trunkEnd);
+
+                // randomly skip some leaf blocks
+                if (distFromTrunk < leavesRadius || (distFromTrunk == leavesRadius && rand.nextInt(100) < 65)) {
+                    this.placeLeaves(world, pos.offset(x, 0, z), leaves, config);
+                }
+            }
+        }
+    }
+
+    public void generateBranch(LevelAccessor world, RandomSource rand, BlockPos pos, Direction direction, int length, BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, EvergreenTreeConfiguration config) {
+        Direction.Axis axis = direction.getAxis();
+        Direction sideways = direction.getClockWise();
+
+        for (int i = 1; i <= length; i++) {
+            int r = (i == 1 || i == length) ? 1 : 2;
+
+            for (int j = -r; j <= r; j++) {
+                if (i < length || rand.nextInt(2) == 0) {
+                    this.placeLeaves(world, pos.relative(direction, i).relative(sideways, j), leaves, config);
+                }
+            }
+
+            if (length - i > 2) {
+                for (int k = -1; k <= 1; k++) {
+                    this.placeLeaves(world, pos.relative(direction, i).above().relative(sideways, k), leaves, config);
+                }
+                this.placeLog(world, pos.relative(direction, i), axis, logs, config);
+            }
+        }
+    }
+
+    protected boolean generateBranchLeaves(BiConsumer<BlockPos, BlockState> logs, FoliagePlacer.FoliageSetter leaves, LevelAccessor world, RandomSource random, BlockPos pos, EvergreenTreeConfiguration config) {
         int height = 2;
 
-        //Generate a bush 3 blocks tall, with the center block set to a log
-        for (int y = 0; y < height; ++y)
-        {
+        for (int y = 0; y < height; ++y) {
             // log in the center
-            if (height - y > 1)
-            {
+            if (height - y > 1) {
                 this.placeLog(world, pos.offset(0, y, 0), logs, config);
             }
 
             //Reduces the radius closer to the top of the bush
             int leavesRadius = (height - y > 1 ? 2 : 1);
 
-            for (int x = -leavesRadius; x <= leavesRadius; ++x)
-            {
-                for (int z = -leavesRadius; z <= leavesRadius; ++z)
-                {
+            for (int x = -leavesRadius; x <= leavesRadius; ++x) {
+                for (int z = -leavesRadius; z <= leavesRadius; ++z) {
                     //Randomly prevent the generation of leaves on the corners of each layer
-                    if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius)
-                    {
-                        if (config.altFoliageProvider.getState(random, pos) != Blocks.AIR.defaultBlockState())
-                        {
-                            if (random.nextInt(4) == 0)
-                            {
+                    if (Math.abs(x) < leavesRadius || Math.abs(z) < leavesRadius) {
+                        if (config.altFoliageProvider.getState(random, pos) != Blocks.AIR.defaultBlockState()) {
+                            if (random.nextInt(4) == 0) {
                                 this.placeAltLeaves(world, pos.offset(x, y, z), leaves, config);
-                            }
-                            else
-                            {
+                            } else {
                                 this.placeLeaves(world, pos.offset(x, y, z), leaves, config);
                             }
-                        }
-                        else
-                        {
+                        } else {
                             this.placeLeaves(world, pos.offset(x, y, z), leaves, config);
                         }
                     }
                 }
             }
         }
-
         return true;
     }
 }
