@@ -5,14 +5,15 @@
 ![Mod Environment](https://img.shields.io/static/v1?label=environment&message=client%2Fserver&color=yellow)
 [![License](https://img.shields.io/static/v1?label=licence&message=MIT&color=blue)](./LICENSE)
 
-Natures Canvas is an add-on for Caliber Mod this mod.  It provides world generation and custom biomes along with numerous
-new block types to really spice up your Minecraft world!
+Natures Canvas is a Biome mod that aims to create a wide variety natural and realistic scenery.  It provides world 
+generation and custom biomes along with numerous new block types to really spice up your Minecraft world!
+
+Use Natures Canvas with Caliber Mod to get the most out of your Minecraft experience!
 
 Keep in mind, this is an Alpha build and not all features have been added to the mod. Upon release of new versions, 
-additional features will be added and I will do my best not to break any existing ones. Now that the mod is out of Alpha
-most features included in the mod will be here to stay. I look forward to providing a bug free and highly useable survival 
-friendly mod for everyone to use. If you have any ideas or feature suggestions please let me know in the comments or on 
-the issues/feature request page on github.
+additional features will be added and I will do my best not to break any existing ones. I look forward to providing a 
+bug free and highly useable survival friendly mod for everyone to use. If you have any ideas or feature suggestions 
+please let me know in the comments or on the issues/feature request page on github.
 
 Keep this mod bookmarked because it will be in development for a long time to come.
 
