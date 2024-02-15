@@ -84,19 +84,21 @@ public class NCBlockLootTables extends ModBlockLootTables {
     }
 
     private void treeBlocks() {
-        this.dropSelf(NCBlocks.FIR_SAPLING.get());
+        this.dropSelf(NCBlocks.DOUGLAS_FIR_SAPLING.get());
+        this.dropSelf(NCBlocks.SUBALPINE_FIR_SAPLING.get());
         this.dropSelf(NCBlocks.FIR_LOG.get());
         this.dropSelf(NCBlocks.STRIPPED_FIR_LOG.get());
         this.dropSelf(NCBlocks.FIR_WOOD.get());
         this.dropSelf(NCBlocks.STRIPPED_FIR_WOOD.get());
         this.dropSelf(NCBlocks.FIR_LEAVES.get());
-        this.dropSelf(NCBlocks.PINE_SAPLING.get());
+        this.dropSelf(NCBlocks.LODGEPOLE_PINE_SAPLING.get());
+        this.dropSelf(NCBlocks.PONDEROSA_PINE_SAPLING.get());
         this.dropSelf(NCBlocks.PINE_LOG.get());
         this.dropSelf(NCBlocks.STRIPPED_PINE_LOG.get());
         this.dropSelf(NCBlocks.PINE_WOOD.get());
         this.dropSelf(NCBlocks.STRIPPED_PINE_WOOD.get());
         this.dropSelf(NCBlocks.PINE_LEAVES.get());
-        this.dropSelf(NCBlocks.CEDAR_SAPLING.get());
+        this.dropSelf(NCBlocks.RED_CEDAR_SAPLING.get());
         this.dropSelf(NCBlocks.CEDAR_LOG.get());
         this.dropSelf(NCBlocks.STRIPPED_CEDAR_LOG.get());
         this.dropSelf(NCBlocks.CEDAR_WOOD.get());

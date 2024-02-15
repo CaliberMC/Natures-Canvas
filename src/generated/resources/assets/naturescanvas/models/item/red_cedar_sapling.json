@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "naturescanvas:item/red_cedar_sapling"
+  }
+}

@@ -1,12 +1,12 @@
 {
-  "feature": "naturescanvas:pine_tree",
+  "feature": "naturescanvas:ponderosa_pine_tree",
   "placement": [
     {
       "type": "minecraft:block_predicate_filter",
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "naturescanvas:pine_sapling",
+          "Name": "naturescanvas:ponderosa_pine_sapling",
           "Properties": {
             "stage": "0"
           }

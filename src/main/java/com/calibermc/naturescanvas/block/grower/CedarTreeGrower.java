@@ -13,14 +13,14 @@ public class CedarTreeGrower extends AbstractMegaTreeGrower
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredMegaFeature(RandomSource random)
     {
-        return (random.nextInt(15) == 0 ? NCTreeFeatures.CEDAR_TREE_LARGE : NCTreeFeatures.CEDAR_TREE_MEDIUM);
+        return (random.nextInt(15) == 0 ? NCTreeFeatures.RED_CEDAR_TREE_LARGE : NCTreeFeatures.RED_CEDAR_TREE_MEDIUM);
     }
 
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean flowers)
     {
-        return NCTreeFeatures.CEDAR_TREE;
+        return NCTreeFeatures.RED_CEDAR_TREE;
     }
 }
 

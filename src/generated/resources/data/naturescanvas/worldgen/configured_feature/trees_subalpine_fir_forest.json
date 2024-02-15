@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "naturescanvas:subalpine_fir_tree",
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": "naturescanvas:subalpine_fir_tree_medium"
+      }
+    ]
+  }
+}

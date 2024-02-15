@@ -85,7 +85,7 @@ public class NCSurfaceBuilder {
                                 SurfaceRules.ifTrue(
                                         isAtOrAboveWaterLevel,
                                         SurfaceRules.ifTrue(
-                                                SurfaceRules.isBiome(NCBiomes.CEDAR_FOREST, NCBiomes.FIR_FOREST, NCBiomes.PINE_FOREST),
+                                                SurfaceRules.isBiome(NCBiomes.DOUGLAS_FIR_FOREST, NCBiomes.LODGEPOLE_PINE_FOREST, NCBiomes.PONDEROSA_PINE_FOREST, NCBiomes.RED_CEDAR_FOREST,  NCBiomes.SUBALPINE_FIR_FOREST, NCBiomes.CONIFEROUS_FOREST),
                                                 SurfaceRules.sequence(
                                                         SurfaceRules.ifTrue(SurfaceRules.steep(), MOSSY_COBBLED_TAN_LIMESTONE),
                                                         SurfaceRules.ifTrue(SurfaceRules.hole(), WATER),
@@ -102,7 +102,7 @@ public class NCSurfaceBuilder {
                         SurfaceRules.UNDER_FLOOR,
                         SurfaceRules.sequence(
                                 SurfaceRules.ifTrue(
-                                        SurfaceRules.isBiome(NCBiomes.CEDAR_FOREST, NCBiomes.FIR_FOREST, NCBiomes.PINE_FOREST),
+                                        SurfaceRules.isBiome(NCBiomes.DOUGLAS_FIR_FOREST, NCBiomes.LODGEPOLE_PINE_FOREST, NCBiomes.PONDEROSA_PINE_FOREST, NCBiomes.RED_CEDAR_FOREST, NCBiomes.SUBALPINE_FIR_FOREST, NCBiomes.CONIFEROUS_FOREST),
                                         SurfaceRules.sequence(
                                                 SurfaceRules.ifTrue(SurfaceRules.steep(), COBBLED_TAN_LIMESTONE),
                                                 SurfaceRules.ifTrue(SurfaceRules.hole(), WATER),
@@ -119,7 +119,7 @@ public class NCSurfaceBuilder {
                         SurfaceRules.DEEP_UNDER_FLOOR,
                         SurfaceRules.sequence(
                                 SurfaceRules.ifTrue(
-                                        SurfaceRules.isBiome(NCBiomes.CEDAR_FOREST, NCBiomes.FIR_FOREST, NCBiomes.PINE_FOREST),
+                                        SurfaceRules.isBiome(NCBiomes.DOUGLAS_FIR_FOREST, NCBiomes.LODGEPOLE_PINE_FOREST, NCBiomes.PONDEROSA_PINE_FOREST, NCBiomes.RED_CEDAR_FOREST, NCBiomes.SUBALPINE_FIR_FOREST, NCBiomes.CONIFEROUS_FOREST),
                                         SurfaceRules.sequence(
                                                 SurfaceRules.ifTrue(surfaceNoiseAbove(1.75D),
                                                         SurfaceRules.ifTrue(SurfaceRules.noiseCondition(Noises.SWAMP, 0), COBBLED_TAN_LIMESTONE)),
@@ -133,7 +133,7 @@ public class NCSurfaceBuilder {
                         SurfaceRules.VERY_DEEP_UNDER_FLOOR,
                         SurfaceRules.sequence(
                                 SurfaceRules.ifTrue(
-                                        SurfaceRules.isBiome(NCBiomes.CEDAR_FOREST, NCBiomes.FIR_FOREST, NCBiomes.PINE_FOREST),
+                                        SurfaceRules.isBiome(NCBiomes.DOUGLAS_FIR_FOREST, NCBiomes.LODGEPOLE_PINE_FOREST, NCBiomes.PONDEROSA_PINE_FOREST, NCBiomes.RED_CEDAR_FOREST, NCBiomes.SUBALPINE_FIR_FOREST, NCBiomes.CONIFEROUS_FOREST),
                                         TAN_LIMESTONE
                                 )
                         )

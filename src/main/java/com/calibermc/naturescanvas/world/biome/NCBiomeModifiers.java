@@ -24,10 +24,10 @@ public class NCBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_PINK_GRANITE = registerKey("add_pink_granite");
     public static final ResourceKey<BiomeModifier> ADD_WHITE_GRANITE = registerKey("add_white_granite");
 
-    public static final ResourceKey<BiomeModifier> ADD_DARK_LIMESTONE = registerKey("add_dark_limestone");
-    public static final ResourceKey<BiomeModifier> ADD_LIGHT_LIMESTONE = registerKey("add_light_limestone");
-    public static final ResourceKey<BiomeModifier> ADD_PINK_LIMESTONE = registerKey("add_pink_limestone");
-    public static final ResourceKey<BiomeModifier> ADD_TAN_LIMESTONE = registerKey("add_tan_limestone");
+//    public static final ResourceKey<BiomeModifier> ADD_DARK_LIMESTONE = registerKey("add_dark_limestone");
+//    public static final ResourceKey<BiomeModifier> ADD_LIGHT_LIMESTONE = registerKey("add_light_limestone");
+//    public static final ResourceKey<BiomeModifier> ADD_PINK_LIMESTONE = registerKey("add_pink_limestone");
+//    public static final ResourceKey<BiomeModifier> ADD_TAN_LIMESTONE = registerKey("add_tan_limestone");
 
     public static final ResourceKey<BiomeModifier> ADD_BLACK_MARBLE = registerKey("add_black_marble");
     public static final ResourceKey<BiomeModifier> ADD_GRAY_MARBLE = registerKey("add_gray_marble");
@@ -74,25 +74,25 @@ public class NCBiomeModifiers {
                 HolderSet.direct(placedFeatures.getOrThrow(NCOrePlacement.WHITE_GRANITE)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
-        context.register(ADD_DARK_LIMESTONE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                HolderSet.direct(placedFeatures.getOrThrow(NCOrePlacement.DARK_LIMESTONE)),
-                GenerationStep.Decoration.UNDERGROUND_ORES));
-
-        context.register(ADD_LIGHT_LIMESTONE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                HolderSet.direct(placedFeatures.getOrThrow(NCOrePlacement.LIGHT_LIMESTONE)),
-                GenerationStep.Decoration.UNDERGROUND_ORES));
-
-        context.register(ADD_PINK_LIMESTONE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),//Biomes.BEACH
-                HolderSet.direct(placedFeatures.getOrThrow(NCOrePlacement.PINK_LIMESTONE)),
-                GenerationStep.Decoration.UNDERGROUND_ORES));
-
-        context.register(ADD_TAN_LIMESTONE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),//Biomes.BEACH
-                HolderSet.direct(placedFeatures.getOrThrow(NCOrePlacement.TAN_LIMESTONE)),
-                GenerationStep.Decoration.UNDERGROUND_ORES));
+//        context.register(ADD_DARK_LIMESTONE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+//                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+//                HolderSet.direct(placedFeatures.getOrThrow(NCOrePlacement.DARK_LIMESTONE)),
+//                GenerationStep.Decoration.UNDERGROUND_ORES));
+//
+//        context.register(ADD_LIGHT_LIMESTONE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+//                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+//                HolderSet.direct(placedFeatures.getOrThrow(NCOrePlacement.LIGHT_LIMESTONE)),
+//                GenerationStep.Decoration.UNDERGROUND_ORES));
+//
+//        context.register(ADD_PINK_LIMESTONE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+//                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),//Biomes.BEACH
+//                HolderSet.direct(placedFeatures.getOrThrow(NCOrePlacement.PINK_LIMESTONE)),
+//                GenerationStep.Decoration.UNDERGROUND_ORES));
+//
+//        context.register(ADD_TAN_LIMESTONE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+//                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),//Biomes.BEACH
+//                HolderSet.direct(placedFeatures.getOrThrow(NCOrePlacement.TAN_LIMESTONE)),
+//                GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(ADD_BLACK_MARBLE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),//Biomes.BEACH

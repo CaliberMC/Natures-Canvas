@@ -22,8 +22,11 @@ public class NCOverworldRegionCommon extends Region {
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
         this.addModifiedVanillaOverworldBiomes(mapper, modifiedVanillaOverworldBuilder -> {
 //            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, NCBiomes.CEDAR_FOREST);
-//            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, NCBiomes.FIR_FOREST);
-            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, NCBiomes.PINE_FOREST);
+//            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, NCBiomes.DOUGLAS_FIR_FOREST);
+//            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, NCBiomes.SUBALPINE_FIR_FOREST);
+//            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, NCBiomes.PONDEROSA_PINE_FOREST);
+//            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, NCBiomes.LODGEPOLE_PINE_FOREST);
+            modifiedVanillaOverworldBuilder.replaceBiome(Biomes.FOREST, NCBiomes.CONIFEROUS_FOREST);
         });
     }
 }

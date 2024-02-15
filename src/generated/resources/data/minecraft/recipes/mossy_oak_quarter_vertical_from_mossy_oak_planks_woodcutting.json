@@ -1,8 +1,0 @@
-{
-  "type": "caliber:woodcutting",
-  "count": 5,
-  "ingredient": {
-    "item": "naturescanvas:mossy_oak_planks"
-  },
-  "result": "naturescanvas:mossy_oak_quarter_vertical"
-}

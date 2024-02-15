@@ -57,7 +57,8 @@ public class NCBlockStateProvider extends ModBlockStateProvider {
     }
 
     private void treeBlocks() {
-        saplingBlock(NCBlocks.FIR_SAPLING);
+        saplingBlock(NCBlocks.DOUGLAS_FIR_SAPLING);
+        saplingBlock(NCBlocks.SUBALPINE_FIR_SAPLING);
         logBlock((RotatedPillarBlock) NCBlocks.FIR_LOG.get());
         axisBlock((RotatedPillarBlock) NCBlocks.STRIPPED_FIR_LOG.get(), blockTexture(NCBlocks.STRIPPED_FIR_LOG.get()), new ResourceLocation(NaturesCanvas.MOD_ID, "block/fir_log_top"));
         axisBlock(((RotatedPillarBlock) NCBlocks.FIR_WOOD.get()), blockTexture(NCBlocks.FIR_LOG.get()), blockTexture(NCBlocks.FIR_LOG.get()));
@@ -68,7 +69,8 @@ public class NCBlockStateProvider extends ModBlockStateProvider {
         blockItem(NCBlocks.STRIPPED_FIR_WOOD);
         leavesBlock(NCBlocks.FIR_LEAVES);
 
-        saplingBlock(NCBlocks.PINE_SAPLING);
+        saplingBlock(NCBlocks.LODGEPOLE_PINE_SAPLING);
+        saplingBlock(NCBlocks.PONDEROSA_PINE_SAPLING);
         logBlock((RotatedPillarBlock) NCBlocks.PINE_LOG.get());
         axisBlock((RotatedPillarBlock) NCBlocks.STRIPPED_PINE_LOG.get(), blockTexture(NCBlocks.STRIPPED_PINE_LOG.get()), new ResourceLocation(NaturesCanvas.MOD_ID, "block/pine_log_top"));
         axisBlock(((RotatedPillarBlock) NCBlocks.PINE_WOOD.get()), blockTexture(NCBlocks.PINE_LOG.get()), blockTexture(NCBlocks.PINE_LOG.get()));
@@ -79,7 +81,7 @@ public class NCBlockStateProvider extends ModBlockStateProvider {
         blockItem(NCBlocks.STRIPPED_PINE_WOOD);
         leavesBlock(NCBlocks.PINE_LEAVES);
 
-        saplingBlock(NCBlocks.CEDAR_SAPLING);
+        saplingBlock(NCBlocks.RED_CEDAR_SAPLING);
         logBlock((RotatedPillarBlock) NCBlocks.CEDAR_LOG.get());
         axisBlock((RotatedPillarBlock) NCBlocks.STRIPPED_CEDAR_LOG.get(), blockTexture(NCBlocks.STRIPPED_CEDAR_LOG.get()), new ResourceLocation(NaturesCanvas.MOD_ID, "block/cedar_log_top"));
         axisBlock(((RotatedPillarBlock) NCBlocks.CEDAR_WOOD.get()), blockTexture(NCBlocks.CEDAR_LOG.get()), blockTexture(NCBlocks.CEDAR_LOG.get()));

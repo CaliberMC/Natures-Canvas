@@ -1,8 +1,0 @@
-{
-  "type": "caliber:woodcutting",
-  "count": 1,
-  "ingredient": {
-    "item": "naturescanvas:stained_stripped_acacia_slab"
-  },
-  "result": "naturescanvas:stained_stripped_acacia_slab_vertical"
-}
