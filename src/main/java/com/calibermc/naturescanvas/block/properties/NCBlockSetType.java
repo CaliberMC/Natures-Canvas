@@ -8,6 +8,8 @@ public class NCBlockSetType {
 
     public static final BlockSetType CEDAR = BlockSetType.register(new BlockSetType("cedar"));
     public static final BlockSetType FIR = BlockSetType.register(new BlockSetType("fir"));
+    public static final BlockSetType MAPLE = BlockSetType.register(new BlockSetType("maple"));
     public static final BlockSetType PINE = BlockSetType.register(new BlockSetType("pine"));
+
 }
 
