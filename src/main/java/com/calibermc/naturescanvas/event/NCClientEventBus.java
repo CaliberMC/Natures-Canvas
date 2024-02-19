@@ -1,10 +1,8 @@
 package com.calibermc.naturescanvas.event;
 
-import com.calibermc.caliber.block.custom.entity.CaliberBlockEntities;
 import com.calibermc.naturescanvas.NaturesCanvas;
 import com.calibermc.naturescanvas.block.NCBlocks;
 import com.calibermc.naturescanvas.block.entity.NCBlockEntities;
-import com.calibermc.naturescanvas.block.properties.BlockRenderLayers;
 import com.calibermc.naturescanvas.block.properties.NCWoodType;
 import com.calibermc.naturescanvas.client.inventory.KilnScreen;
 import com.calibermc.naturescanvas.crafting.NCMenuTypes;
@@ -68,9 +66,6 @@ public class NCClientEventBus {
 
         BlockEntityRenderers.register(NCBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer::new);
         BlockEntityRenderers.register(NCBlockEntities.HANGING_SIGN_BLOCK_ENTITIES.get(), HangingSignRenderer::new);
-
-        // Set Block Render Types
-        BlockRenderLayers.set();
 
         // Set Wood Types
         Sheets.addWoodType(NCWoodType.CEDAR);
