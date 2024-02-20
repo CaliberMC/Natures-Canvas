@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": {
+      "item": "naturescanvas:stained_dark_oak_planks"
+    },
+    "X": {
+      "item": "naturescanvas:stained_dark_oak_door"
+    }
+  },
+  "pattern": [
+    "X",
+    "#"
+  ],
+  "result": {
+    "item": "naturescanvas:stained_dark_oak_tall_door"
+  },
+  "show_notification": true
+}

@@ -334,31 +334,31 @@ public class MiscRecipeProvider extends RecipeProvider implements IConditionBuil
                 inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "stained_spruce_sign_from_spruce_sign_and_resin");
 
         /* Tall Stained Planks Doors */
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_ACACIA_DOOR.get(), 1).define('X', NCBlocks.STAINED_ACACIA_DOOR.get()).define('#', NCBlocks.STAINED_ACACIA.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_acacia",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_ACACIA.baseBlock()).build())).save(pFinishedRecipeConsumer, "tall_stained_acacia_door_from_stained_acacia_door_and_stained_acacia_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_BIRCH_DOOR.get(), 1).define('X', NCBlocks.STAINED_BIRCH_DOOR.get()).define('#', NCBlocks.STAINED_BIRCH.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_birch",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_BIRCH.baseBlock()).build())).save(pFinishedRecipeConsumer, "tall_stained_birch_door_from_stained_birch_door_and_stained_birch_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_DARK_OAK_DOOR.get(), 1).define('X', NCBlocks.STAINED_DARK_OAK_DOOR.get()).define('#', NCBlocks.STAINED_DARK_OAK.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_dark_oak",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_DARK_OAK.baseBlock()).build())).save(pFinishedRecipeConsumer, "tall_stained_dark_oak_door_from_stained_dark_oak_door_and_stained_dark_oak_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_JUNGLE_DOOR.get(), 1).define('X', NCBlocks.STAINED_JUNGLE_DOOR.get()).define('#', NCBlocks.STAINED_JUNGLE.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_jungle",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_JUNGLE.baseBlock()).build())).save(pFinishedRecipeConsumer, "tall_stained_jungle_door_from_stained_jungle_door_and_stained_jungle_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_OAK_DOOR.get(), 1).define('X', NCBlocks.STAINED_OAK_DOOR.get()).define('#', NCBlocks.STAINED_OAK.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_oak",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_OAK.baseBlock()).build())).save(pFinishedRecipeConsumer, "tall_stained_oak_door_from_stained_oak_door_and_stained_oak_shaped");
-        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_SPRUCE_DOOR.get(), 1).define('X', NCBlocks.STAINED_SPRUCE_DOOR.get()).define('#', NCBlocks.STAINED_SPRUCE.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_spruce",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_SPRUCE.baseBlock()).build())).save(pFinishedRecipeConsumer, "tall_stained_spruce_door_from_stained_spruce_door_and_stained_spruce_shaped");
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.STAINED_ACACIA_TALL_DOOR.get(), 1).define('X', NCBlocks.STAINED_ACACIA_DOOR.get()).define('#', NCBlocks.STAINED_ACACIA.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_acacia",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_ACACIA.baseBlock()).build())).save(pFinishedRecipeConsumer, "stained_acacia_tall_door_from_stained_acacia_door_and_stained_acacia_shaped");
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.STAINED_BIRCH_TALL_DOOR.get(), 1).define('X', NCBlocks.STAINED_BIRCH_DOOR.get()).define('#', NCBlocks.STAINED_BIRCH.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_birch",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_BIRCH.baseBlock()).build())).save(pFinishedRecipeConsumer, "stained_birch_tall_door_from_stained_birch_door_and_stained_birch_shaped");
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.STAINED_DARK_OAK_TALL_DOOR.get(), 1).define('X', NCBlocks.STAINED_DARK_OAK_DOOR.get()).define('#', NCBlocks.STAINED_DARK_OAK.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_dark_oak",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_DARK_OAK.baseBlock()).build())).save(pFinishedRecipeConsumer, "stained_dark_oak_tall_door_from_stained_dark_oak_door_and_stained_dark_oak_shaped");
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.STAINED_JUNGLE_TALL_DOOR.get(), 1).define('X', NCBlocks.STAINED_JUNGLE_DOOR.get()).define('#', NCBlocks.STAINED_JUNGLE.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_jungle",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_JUNGLE.baseBlock()).build())).save(pFinishedRecipeConsumer, "stained_jungle_tall_door_from_stained_jungle_door_and_stained_jungle_shaped");
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.STAINED_OAK_TALL_DOOR.get(), 1).define('X', NCBlocks.STAINED_OAK_DOOR.get()).define('#', NCBlocks.STAINED_OAK.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_oak",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_OAK.baseBlock()).build())).save(pFinishedRecipeConsumer, "stained_oak_tall_door_from_stained_oak_door_and_stained_oak_shaped");
+        ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NCBlocks.STAINED_SPRUCE_TALL_DOOR.get(), 1).define('X', NCBlocks.STAINED_SPRUCE_DOOR.get()).define('#', NCBlocks.STAINED_SPRUCE.baseBlock()).pattern("X").pattern("#").unlockedBy("has_stained_spruce",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCBlocks.STAINED_SPRUCE.baseBlock()).build())).save(pFinishedRecipeConsumer, "stained_spruce_tall_door_from_stained_spruce_door_and_stained_spruce_shaped");
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_ACACIA_DOOR.get(), 1).requires(CaliberBlocks.TALL_ACACIA_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "tall_stained_acacia_door_from_tall_acacia_door_and_resin");
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_BIRCH_DOOR.get(), 1).requires(CaliberBlocks.TALL_BIRCH_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "tall_stained_birch_door_from_tall_birch_door_and_resin");
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_DARK_OAK_DOOR.get(), 1).requires(CaliberBlocks.TALL_DARK_OAK_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "tall_stained_dark_oak_door_from_tall_dark_oak_door_and_resin");
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_JUNGLE_DOOR.get(), 1).requires(CaliberBlocks.TALL_JUNGLE_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "tall_stained_jungle_door_from_tall_jungle_door_and_resin");
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_OAK_DOOR.get(), 1).requires(CaliberBlocks.TALL_OAK_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "tall_stained_oak_door_from_tall_oak_door_and_resin");
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.TALL_STAINED_SPRUCE_DOOR.get(), 1).requires(CaliberBlocks.TALL_SPRUCE_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
-                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "tall_stained_spruce_door_from_tall_spruce_door_and_resin");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.STAINED_ACACIA_TALL_DOOR.get(), 1).requires(CaliberBlocks.ACACIA_TALL_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "stained_acacia_tall_door_from_tall_acacia_door_and_resin");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.STAINED_BIRCH_TALL_DOOR.get(), 1).requires(CaliberBlocks.BIRCH_TALL_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "stained_birch_tall_door_from_tall_birch_door_and_resin");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.STAINED_DARK_OAK_TALL_DOOR.get(), 1).requires(CaliberBlocks.DARK_OAK_TALL_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "stained_dark_oak_tall_door_from_tall_dark_oak_door_and_resin");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.STAINED_JUNGLE_TALL_DOOR.get(), 1).requires(CaliberBlocks.JUNGLE_TALL_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "stained_jungle_tall_door_from_tall_jungle_door_and_resin");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.STAINED_OAK_TALL_DOOR.get(), 1).requires(CaliberBlocks.OAK_TALL_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "stained_oak_tall_door_from_tall_oak_door_and_resin");
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, NCBlocks.STAINED_SPRUCE_TALL_DOOR.get(), 1).requires(CaliberBlocks.SPRUCE_TALL_DOOR.get()).requires(NCItems.RESIN.get()).unlockedBy("has_resin",
+                inventoryTrigger(ItemPredicate.Builder.item().of(NCItems.RESIN.get()).build())).save(pFinishedRecipeConsumer, "stained_spruce_tall_door_from_tall_spruce_door_and_resin");
 
         /* Stained Planks Trapdoors */
         ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE,  NCBlocks.STAINED_ACACIA_TRAPDOOR.get(), 2).define('#', NCBlocks.STAINED_ACACIA.baseBlock()).pattern("###").pattern("###").unlockedBy("has_stained_acacia",

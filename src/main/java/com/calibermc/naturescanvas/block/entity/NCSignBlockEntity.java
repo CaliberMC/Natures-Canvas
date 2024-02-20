@@ -1,6 +1,5 @@
 package com.calibermc.naturescanvas.block.entity;
 
-import com.calibermc.caliber.block.custom.entity.CaliberBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.SignBlockEntity;

@@ -305,6 +305,20 @@ public class NCBlockFamilies {
                 .getFamily();
     }
 
+    /* Stripped Wood */
+    public static final ModBlockFamily STRIPPED_CEDAR = familyBuilder(NCBlocks.STRIPPED_CEDAR.baseBlock())
+            .fromManager(NCBlocks.STRIPPED_CEDAR)
+            .getFamily();
+    public static final ModBlockFamily STRIPPED_FIR = familyBuilder(NCBlocks.STRIPPED_FIR.baseBlock())
+            .fromManager(NCBlocks.STRIPPED_FIR)
+            .getFamily();
+    public static final ModBlockFamily STRIPPED_MAPLE = familyBuilder(NCBlocks.STRIPPED_MAPLE.baseBlock())
+            .fromManager(NCBlocks.STRIPPED_MAPLE)
+            .getFamily();
+    public static final ModBlockFamily STRIPPED_PINE = familyBuilder(NCBlocks.STRIPPED_PINE.baseBlock())
+            .fromManager(NCBlocks.STRIPPED_PINE)
+            .getFamily();
+
     /* Mossy Planks */
     public static final ModBlockFamily MOSSY_ACACIA = familyBuilder(NCBlocks.MOSSY_ACACIA.baseBlock())
             .fromManager(NCBlocks.MOSSY_ACACIA)
@@ -337,7 +351,7 @@ public class NCBlockFamilies {
             .button(NCBlocks.STAINED_ACACIA_BUTTON.get())
             .door(NCBlocks.STAINED_ACACIA_DOOR.get())
             .sign(NCBlocks.STAINED_ACACIA_SIGN.get(), NCBlocks.STAINED_ACACIA_WALL_SIGN.get())
-            .tallDoor(NCBlocks.TALL_STAINED_ACACIA_DOOR.get())
+            .tallDoor(NCBlocks.STAINED_ACACIA_TALL_DOOR.get())
             .trapdoor(NCBlocks.STAINED_ACACIA_TRAPDOOR.get())
             .getFamily();
     public static final ModBlockFamily STAINED_BIRCH_PLANKS = familyBuilder(NCBlocks.STAINED_BIRCH.baseBlock())
@@ -345,7 +359,7 @@ public class NCBlockFamilies {
             .button(NCBlocks.STAINED_BIRCH_BUTTON.get())
             .door(NCBlocks.STAINED_BIRCH_DOOR.get())
             .sign(NCBlocks.STAINED_BIRCH_SIGN.get(), NCBlocks.STAINED_BIRCH_WALL_SIGN.get())
-            .tallDoor(NCBlocks.TALL_STAINED_BIRCH_DOOR.get())
+            .tallDoor(NCBlocks.STAINED_BIRCH_TALL_DOOR.get())
             .trapdoor(NCBlocks.STAINED_BIRCH_TRAPDOOR.get())
             .getFamily();
     public static final ModBlockFamily STAINED_DARK_OAK_PLANKS = familyBuilder(NCBlocks.STAINED_DARK_OAK.baseBlock())
@@ -353,7 +367,7 @@ public class NCBlockFamilies {
             .button(NCBlocks.STAINED_DARK_OAK_BUTTON.get())
             .door(NCBlocks.STAINED_DARK_OAK_DOOR.get())
             .sign(NCBlocks.STAINED_DARK_OAK_SIGN.get(), NCBlocks.STAINED_DARK_OAK_WALL_SIGN.get())
-            .tallDoor(NCBlocks.TALL_STAINED_DARK_OAK_DOOR.get())
+            .tallDoor(NCBlocks.STAINED_DARK_OAK_TALL_DOOR.get())
             .trapdoor(NCBlocks.STAINED_DARK_OAK_TRAPDOOR.get())
             .getFamily();
     public static final ModBlockFamily STAINED_JUNGLE_PLANKS = familyBuilder(NCBlocks.STAINED_JUNGLE.baseBlock())
@@ -361,7 +375,7 @@ public class NCBlockFamilies {
             .button(NCBlocks.STAINED_JUNGLE_BUTTON.get())
             .door(NCBlocks.STAINED_JUNGLE_DOOR.get())
             .sign(NCBlocks.STAINED_JUNGLE_SIGN.get(), NCBlocks.STAINED_JUNGLE_WALL_SIGN.get())
-            .tallDoor(NCBlocks.TALL_STAINED_JUNGLE_DOOR.get())
+            .tallDoor(NCBlocks.STAINED_JUNGLE_TALL_DOOR.get())
             .trapdoor(NCBlocks.STAINED_JUNGLE_TRAPDOOR.get())
             .getFamily();
     public static final ModBlockFamily STAINED_OAK_PLANKS = familyBuilder(NCBlocks.STAINED_OAK.baseBlock())
@@ -369,7 +383,7 @@ public class NCBlockFamilies {
             .button(NCBlocks.STAINED_OAK_BUTTON.get())
             .door(NCBlocks.STAINED_OAK_DOOR.get())
             .sign(NCBlocks.STAINED_OAK_SIGN.get(), NCBlocks.STAINED_OAK_WALL_SIGN.get())
-            .tallDoor(NCBlocks.TALL_STAINED_OAK_DOOR.get())
+            .tallDoor(NCBlocks.STAINED_OAK_TALL_DOOR.get())
             .trapdoor(NCBlocks.STAINED_OAK_TRAPDOOR.get())
             .getFamily();
     public static final ModBlockFamily STAINED_SPRUCE_PLANKS = familyBuilder(NCBlocks.STAINED_SPRUCE.baseBlock())
@@ -377,7 +391,7 @@ public class NCBlockFamilies {
             .button(NCBlocks.STAINED_SPRUCE_BUTTON.get())
             .door(NCBlocks.STAINED_SPRUCE_DOOR.get())
             .sign(NCBlocks.STAINED_SPRUCE_SIGN.get(), NCBlocks.STAINED_SPRUCE_WALL_SIGN.get())
-            .tallDoor(NCBlocks.TALL_STAINED_SPRUCE_DOOR.get())
+            .tallDoor(NCBlocks.STAINED_SPRUCE_TALL_DOOR.get())
             .trapdoor(NCBlocks.STAINED_SPRUCE_TRAPDOOR.get())
             .getFamily();
 

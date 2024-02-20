@@ -190,26 +190,25 @@ public class NCBlocks {
     public static final RegistryObject<Block> FIR_WOOD = registerBlock("fir_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> FIR_LEAVES = registerBlock("fir_leaves", () -> new LeavesBlock(BlockProps.TREE_LEAVES.get()));
 
+    //    public static final RegistryObject<Block> RED_MAPLE_SAPLING = registerBlock("douglas_maple_sapling", () -> new SaplingBlock(new RedMapleTreeGrower(), BlockProps.TREE_SAPLING.get()));
+//    public static final RegistryObject<Block> SUGAR_MAPLE_SAPLING = registerBlock("subalpine_maple_sapling", () -> new SaplingBlock(new SugarMapleTreeGrower(), BlockProps.TREE_SAPLING.get()));
+    public static final RegistryObject<Block> MAPLE_LOG = registerBlock("maple_log", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
+    public static final RegistryObject<Block> STRIPPED_MAPLE_LOG = registerBlock("stripped_maple_log", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
+    public static final RegistryObject<Block> MAPLE_WOOD = registerBlock("maple_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
+    public static final RegistryObject<Block> MAPLE_LEAVES = registerBlock("maple_leaves", () -> new LeavesBlock(BlockProps.TREE_LEAVES.get()));
+
     public static final RegistryObject<Block> LODGEPOLE_PINE_SAPLING = registerBlock("lodgepole_pine_sapling", () -> new SaplingBlock(new LodgepolePineTreeGrower(), BlockProps.TREE_SAPLING.get()));
     public static final RegistryObject<Block> PONDEROSA_PINE_SAPLING = registerBlock("ponderosa_pine_sapling", () -> new SaplingBlock(new PonderosaPineTreeGrower(), BlockProps.TREE_SAPLING.get()));
     public static final RegistryObject<Block> PINE_LOG = registerBlock("pine_log", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> STRIPPED_PINE_LOG = registerBlock("stripped_pine_log", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
     public static final RegistryObject<Block> PINE_WOOD = registerBlock("pine_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));;
-//    public static final RegistryObject<Block> PINE_LEAVES = registerBlock("pine_leaves", () -> new LeavesBlock(BlockProps.TREE_LEAVES.get()));
-
-    public static final BlockManager PINE_LEAVES = NCBlockManager.registerOneBlock("pine_leaves", () -> new LeavesBlock(BlockProps.TREE_LEAVES.get()));
-
+    public static final RegistryObject<Block> PINE_LEAVES = registerBlock("pine_leaves", () -> new LeavesBlock(BlockProps.TREE_LEAVES.get()));
 
     /* Stripped Wood */
     public static final BlockManager STRIPPED_CEDAR = NCBlockManager.register("stripped_cedar_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
     public static final BlockManager STRIPPED_FIR = NCBlockManager.register("stripped_fir_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
     public static final BlockManager STRIPPED_MAPLE = NCBlockManager.register("stripped_maple_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
     public static final BlockManager STRIPPED_PINE = NCBlockManager.register("stripped_pine_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
-//    public static final RegistryObject<Block> STRIPPED_CEDAR_WOOD = registerBlock("stripped_cedar_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
-//    public static final RegistryObject<Block> STRIPPED_FIR_WOOD = registerBlock("stripped_fir_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
-//    public static final RegistryObject<Block> STRIPPED_MAPLE_WOOD = registerBlock("stripped_maple_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
-//    public static final RegistryObject<Block> STRIPPED_PINE_WOOD = registerBlock("stripped_pine_wood", () -> new RotatedPillarBlock(BlockProps.TREE_LOG.get()));
-
 
     /* Mossy Planks */
     public static final BlockManager MOSSY_ACACIA = NCBlockManager.register("mossy_acacia_planks", BlockProps.PLANK.get(), ModBlockHelper.modifyList(PLANK_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));

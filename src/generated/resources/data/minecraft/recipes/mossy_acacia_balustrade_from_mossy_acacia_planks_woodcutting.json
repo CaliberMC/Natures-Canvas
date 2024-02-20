@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:mossy_acacia_planks"
+  },
+  "result": "naturescanvas:mossy_acacia_balustrade"
+}

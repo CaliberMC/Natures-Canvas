@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:stained_dark_oak_planks"
+  },
+  "result": "naturescanvas:stained_dark_oak_window_half"
+}

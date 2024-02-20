@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 9,
+  "ingredient": {
+    "item": "naturescanvas:stained_stripped_dark_oak_wood"
+  },
+  "result": "naturescanvas:stained_stripped_dark_oak_beam_horizontal"
+}

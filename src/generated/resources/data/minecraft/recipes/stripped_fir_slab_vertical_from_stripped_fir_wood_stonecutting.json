@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 8,
+  "ingredient": {
+    "item": "naturescanvas:stripped_fir_wood"
+  },
+  "result": "naturescanvas:stripped_fir_slab_vertical"
+}

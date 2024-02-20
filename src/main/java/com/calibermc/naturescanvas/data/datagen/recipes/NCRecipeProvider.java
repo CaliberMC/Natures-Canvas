@@ -69,43 +69,43 @@ public class NCRecipeProvider extends RecipeProvider implements IConditionBuilde
                     stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 2).unlockedBy(criterionBy,
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
 
-                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
                 }
 
                 case BALUSTRADE, CAPITAL, WINDOW, WINDOW_HALF, ROOF_22, ROOF_45, ROOF_67, ROOF_PEAK -> {
                     stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 2).unlockedBy(criterionBy,
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
 
-                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
-
-                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//
+//                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
                 }
 
                 case CORNER, QUARTER, QUARTER_VERTICAL, PILLAR -> {
                     stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 5).unlockedBy(criterionBy,
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
 
-                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
-
-                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//
+//                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
                 }
 
                 case CORNER_SLAB, CORNER_SLAB_VERTICAL -> {
                     stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 4).unlockedBy(criterionBy,
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
 
-                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
-
-                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//
+//                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
                 }
 
                 case EIGHTH -> {
                     stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 8).unlockedBy(criterionBy,
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
 
-                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
-
-                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//
+//                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
                 }
 
                 case BEAM_HORIZONTAL, BEAM_VERTICAL -> {
@@ -153,9 +153,9 @@ public class NCRecipeProvider extends RecipeProvider implements IConditionBuilde
                     stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 8).unlockedBy(criterionBy,
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
 
-                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
-
-                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//
+//                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
                 }
 
                 case SLAB_VERTICAL -> {
@@ -168,9 +168,9 @@ public class NCRecipeProvider extends RecipeProvider implements IConditionBuilde
                     stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 8).unlockedBy(criterionBy,
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
 
-                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
-
-                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//
+//                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
                 }
 
                 case STAIRS -> {
@@ -180,9 +180,9 @@ public class NCRecipeProvider extends RecipeProvider implements IConditionBuilde
                     stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 1).unlockedBy(criterionBy,
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
 
-                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
-
-                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//
+//                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
 
                 }
 
@@ -195,18 +195,18 @@ public class NCRecipeProvider extends RecipeProvider implements IConditionBuilde
                     stoneOrWoodcutting.apply(Ingredient.of(baseBlock), block, 1).unlockedBy(criterionBy,
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build())).save(finished, n);
 
-                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
-
-                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//
+//                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
                 }
 
                 case BASE -> {
 
                     tudorVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
 
-                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
-
-                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//                    stainedVariantRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
+//
+//                    mossyVariantRecipes(manager, finished, name, baseBlock, criterionBy, e, path, block);
 
                     smoothBaseBlockRecipe(manager, finished, name, baseBlock, criterionBy, e, path, block);
 
@@ -296,29 +296,29 @@ public class NCRecipeProvider extends RecipeProvider implements IConditionBuilde
         }
     }
 
-    private void mossyVariantRecipes(BlockManager manager, Consumer<FinishedRecipe> finished, String name, Block baseBlock, String criterionBy, Map.Entry<BlockManager.BlockAdditional, Pair<ResourceLocation, Supplier<Block>>> e, String path, Block block) {
-        if (name.contains("mossy") && !name.contains("tudor")) {
-            Optional<BlockManager> optionalManager = BlockManager.BLOCK_MANAGERS.get(NaturesCanvas.MOD_ID).stream()
-                    .filter(m -> manager.getName().replace("mossy_", "").equals(m.getName()))
-                    .findFirst();
-
-            if (optionalManager.isPresent()) {
-                if (optionalManager.get().getByVariant(e.getKey().variant) != null) {
-                    ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block, 1).requires(Items.VINE)
-                            .requires(optionalManager.get().get(e.getKey().variant))
-                            .unlockedBy(criterionBy, inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
-                            .save(finished, "%s_from_%s_and_vine".formatted(path, path.replace("mossy_", "")));
-
-                    ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block, 1).requires(Blocks.MOSS_BLOCK)
-                            .requires(optionalManager.get().get(e.getKey().variant))
-                            .unlockedBy(criterionBy, inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
-                            .save(finished, "%s_from_%s_and_moss".formatted(path, path.replace("mossy_", "")));
-                }
-            } else {
-                throw new IllegalStateException(String.format("No matching BlockManager found: %s", manager.getName()));
-            }
-        }
-    }
+//    private void mossyVariantRecipes(BlockManager manager, Consumer<FinishedRecipe> finished, String name, Block baseBlock, String criterionBy, Map.Entry<BlockManager.BlockAdditional, Pair<ResourceLocation, Supplier<Block>>> e, String path, Block block) {
+//        if (name.contains("mossy") && !name.contains("tudor")) {
+//            Optional<BlockManager> optionalManager = BlockManager.BLOCK_MANAGERS.get(NaturesCanvas.MOD_ID).stream()
+//                    .filter(m -> manager.getName().replace("mossy_", "").equals(m.getName()))
+//                    .findFirst();
+//
+//            if (optionalManager.isPresent()) {
+//                if (optionalManager.get().getByVariant(e.getKey().variant) != null) {
+//                    ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block, 1).requires(Items.VINE)
+//                            .requires(optionalManager.get().get(e.getKey().variant))
+//                            .unlockedBy(criterionBy, inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
+//                            .save(finished, "%s_from_%s_and_vine".formatted(path, path.replace("mossy_", "")));
+//
+//                    ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, block, 1).requires(Blocks.MOSS_BLOCK)
+//                            .requires(optionalManager.get().get(e.getKey().variant))
+//                            .unlockedBy(criterionBy, inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock).build()))
+//                            .save(finished, "%s_from_%s_and_moss".formatted(path, path.replace("mossy_", "")));
+//                }
+//            } else {
+//                throw new IllegalStateException(String.format("No matching BlockManager found: %s", manager.getName()));
+//            }
+//        }
+//    }
 
     private void smoothBaseBlockRecipe(BlockManager manager, Consumer<FinishedRecipe> finished, String name, Block baseBlock, String criterionBy, Map.Entry<BlockManager.BlockAdditional, Pair<ResourceLocation, Supplier<Block>>> e, String path, Block block) {
         if (name.contains("smooth")) {

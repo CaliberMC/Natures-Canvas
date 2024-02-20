@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/window_bottom",
+  "textures": {
+    "bottom": "naturescanvas:block/stripped_fir_log",
+    "side": "naturescanvas:block/stripped_fir_log",
+    "top": "naturescanvas:block/stripped_fir_log"
+  }
+}

@@ -57,40 +57,46 @@ public class NCBlockStateProvider extends ModBlockStateProvider {
     }
 
     private void treeBlocks() {
+        saplingBlock(NCBlocks.RED_CEDAR_SAPLING);
+        logBlock((RotatedPillarBlock) NCBlocks.CEDAR_LOG.get());
+        axisBlock((RotatedPillarBlock) NCBlocks.STRIPPED_CEDAR_LOG.get(), blockTexture(NCBlocks.STRIPPED_CEDAR_LOG.get()), new ResourceLocation(NaturesCanvas.MOD_ID, "block/cedar_log_top"));
+        axisBlock(((RotatedPillarBlock) NCBlocks.CEDAR_WOOD.get()), blockTexture(NCBlocks.CEDAR_LOG.get()), blockTexture(NCBlocks.CEDAR_LOG.get()));
+        blockItem(NCBlocks.CEDAR_LOG);
+        blockItem(NCBlocks.STRIPPED_CEDAR_LOG);
+        blockItem(NCBlocks.CEDAR_WOOD);
+        leavesBlock(NCBlocks.CEDAR_LEAVES);
+
         saplingBlock(NCBlocks.DOUGLAS_FIR_SAPLING);
         saplingBlock(NCBlocks.SUBALPINE_FIR_SAPLING);
         logBlock((RotatedPillarBlock) NCBlocks.FIR_LOG.get());
         axisBlock((RotatedPillarBlock) NCBlocks.STRIPPED_FIR_LOG.get(), blockTexture(NCBlocks.STRIPPED_FIR_LOG.get()), new ResourceLocation(NaturesCanvas.MOD_ID, "block/fir_log_top"));
         axisBlock(((RotatedPillarBlock) NCBlocks.FIR_WOOD.get()), blockTexture(NCBlocks.FIR_LOG.get()), blockTexture(NCBlocks.FIR_LOG.get()));
-        axisBlock(((RotatedPillarBlock) NCBlocks.STRIPPED_FIR_WOOD.get()), blockTexture(NCBlocks.STRIPPED_FIR_LOG.get()), blockTexture(NCBlocks.STRIPPED_FIR_LOG.get()));
         blockItem(NCBlocks.FIR_LOG);
         blockItem(NCBlocks.STRIPPED_FIR_LOG);
         blockItem(NCBlocks.FIR_WOOD);
-        blockItem(NCBlocks.STRIPPED_FIR_WOOD);
         leavesBlock(NCBlocks.FIR_LEAVES);
+
+//        saplingBlock(NCBlocks.RED_MAPLE_SAPLING);
+//        saplingBlock(NCBlocks.SUGAR_MAPLE_SAPLING);
+        logBlock((RotatedPillarBlock) NCBlocks.MAPLE_LOG.get());
+        axisBlock((RotatedPillarBlock) NCBlocks.STRIPPED_MAPLE_LOG.get(), blockTexture(NCBlocks.STRIPPED_MAPLE_LOG.get()), new ResourceLocation(NaturesCanvas.MOD_ID, "block/maple_log_top"));
+        axisBlock(((RotatedPillarBlock) NCBlocks.MAPLE_WOOD.get()), blockTexture(NCBlocks.MAPLE_LOG.get()), blockTexture(NCBlocks.MAPLE_LOG.get()));
+        blockItem(NCBlocks.MAPLE_LOG);
+        blockItem(NCBlocks.STRIPPED_MAPLE_LOG);
+        blockItem(NCBlocks.MAPLE_WOOD);
+        leavesBlock(NCBlocks.MAPLE_LEAVES);
 
         saplingBlock(NCBlocks.LODGEPOLE_PINE_SAPLING);
         saplingBlock(NCBlocks.PONDEROSA_PINE_SAPLING);
         logBlock((RotatedPillarBlock) NCBlocks.PINE_LOG.get());
         axisBlock((RotatedPillarBlock) NCBlocks.STRIPPED_PINE_LOG.get(), blockTexture(NCBlocks.STRIPPED_PINE_LOG.get()), new ResourceLocation(NaturesCanvas.MOD_ID, "block/pine_log_top"));
         axisBlock(((RotatedPillarBlock) NCBlocks.PINE_WOOD.get()), blockTexture(NCBlocks.PINE_LOG.get()), blockTexture(NCBlocks.PINE_LOG.get()));
-        axisBlock(((RotatedPillarBlock) NCBlocks.STRIPPED_PINE_WOOD.get()), blockTexture(NCBlocks.STRIPPED_PINE_LOG.get()), blockTexture(NCBlocks.STRIPPED_PINE_LOG.get()));
         blockItem(NCBlocks.PINE_LOG);
         blockItem(NCBlocks.STRIPPED_PINE_LOG);
         blockItem(NCBlocks.PINE_WOOD);
-        blockItem(NCBlocks.STRIPPED_PINE_WOOD);
         leavesBlock(NCBlocks.PINE_LEAVES);
 
-        saplingBlock(NCBlocks.RED_CEDAR_SAPLING);
-        logBlock((RotatedPillarBlock) NCBlocks.CEDAR_LOG.get());
-        axisBlock((RotatedPillarBlock) NCBlocks.STRIPPED_CEDAR_LOG.get(), blockTexture(NCBlocks.STRIPPED_CEDAR_LOG.get()), new ResourceLocation(NaturesCanvas.MOD_ID, "block/cedar_log_top"));
-        axisBlock(((RotatedPillarBlock) NCBlocks.CEDAR_WOOD.get()), blockTexture(NCBlocks.CEDAR_LOG.get()), blockTexture(NCBlocks.CEDAR_LOG.get()));
-        axisBlock(((RotatedPillarBlock) NCBlocks.STRIPPED_CEDAR_WOOD.get()), blockTexture(NCBlocks.STRIPPED_CEDAR_LOG.get()), blockTexture(NCBlocks.STRIPPED_CEDAR_LOG.get()));
-        blockItem(NCBlocks.CEDAR_LOG);
-        blockItem(NCBlocks.STRIPPED_CEDAR_LOG);
-        blockItem(NCBlocks.CEDAR_WOOD);
-        blockItem(NCBlocks.STRIPPED_CEDAR_WOOD);
-        leavesBlock(NCBlocks.CEDAR_LEAVES);
+
     }
 
     private void stainedPlanks(){
@@ -130,12 +136,12 @@ public class NCBlockStateProvider extends ModBlockStateProvider {
         trapdoorBlock((TrapDoorBlock) NCBlocks.STAINED_JUNGLE_TRAPDOOR.get(), modLoc("block/stained_jungle_trapdoor"), true);
         trapdoorBlock((TrapDoorBlock) NCBlocks.STAINED_OAK_TRAPDOOR.get(), modLoc("block/stained_oak_trapdoor"), true);
         trapdoorBlock((TrapDoorBlock) NCBlocks.STAINED_SPRUCE_TRAPDOOR.get(), modLoc("block/stained_spruce_trapdoor"), true);
-        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_ACACIA_DOOR.get(), modLoc("block/tall_stained_acacia_door_bottom"), modLoc("block/tall_stained_acacia_door_middle"), modLoc("block/tall_stained_acacia_door_top"));
-        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_BIRCH_DOOR.get(), modLoc("block/tall_stained_birch_door_bottom"), modLoc("block/tall_stained_birch_door_middle"), modLoc("block/tall_stained_birch_door_top"));
-        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_DARK_OAK_DOOR.get(), modLoc("block/tall_stained_dark_oak_door_bottom"), modLoc("block/tall_stained_dark_oak_door_middle"), modLoc("block/tall_stained_dark_oak_door_top"));
-        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_JUNGLE_DOOR.get(), modLoc("block/tall_stained_jungle_door_bottom"), modLoc("block/tall_stained_jungle_door_middle"), modLoc("block/tall_stained_jungle_door_top"));
-        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_OAK_DOOR.get(), modLoc("block/tall_stained_oak_door_bottom"), modLoc("block/tall_stained_oak_door_middle"), modLoc("block/tall_stained_oak_door_top"));
-        tallDoorBlock((TallDoorBlock) NCBlocks.TALL_STAINED_SPRUCE_DOOR.get(), modLoc("block/tall_stained_spruce_door_bottom"), modLoc("block/tall_stained_spruce_door_middle"), modLoc("block/tall_stained_spruce_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.STAINED_ACACIA_TALL_DOOR.get(), modLoc("block/stained_acacia_tall_door_bottom"), modLoc("block/stained_acacia_tall_door_middle"), modLoc("block/stained_acacia_tall_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.STAINED_BIRCH_TALL_DOOR.get(), modLoc("block/stained_birch_tall_door_bottom"), modLoc("block/stained_birch_tall_door_middle"), modLoc("block/stained_birch_tall_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.STAINED_DARK_OAK_TALL_DOOR.get(), modLoc("block/stained_dark_oak_tall_door_bottom"), modLoc("block/stained_dark_oak_tall_door_middle"), modLoc("block/stained_dark_oak_tall_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.STAINED_JUNGLE_TALL_DOOR.get(), modLoc("block/stained_jungle_tall_door_bottom"), modLoc("block/stained_jungle_tall_door_middle"), modLoc("block/stained_jungle_tall_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.STAINED_OAK_TALL_DOOR.get(), modLoc("block/stained_oak_tall_door_bottom"), modLoc("block/stained_oak_tall_door_middle"), modLoc("block/stained_oak_tall_door_top"));
+        tallDoorBlock((TallDoorBlock) NCBlocks.STAINED_SPRUCE_TALL_DOOR.get(), modLoc("block/stained_spruce_tall_door_bottom"), modLoc("block/stained_spruce_tall_door_middle"), modLoc("block/stained_spruce_tall_door_top"));
     }
 
     private void blockItem(RegistryObject<Block> blockRegistryObject) {

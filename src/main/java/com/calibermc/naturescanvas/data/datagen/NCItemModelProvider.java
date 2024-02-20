@@ -3,6 +3,7 @@ package com.calibermc.naturescanvas.data.datagen;
 import com.calibermc.buildify.item.custom.Hammer;
 import com.calibermc.caliberlib.data.datagen.ModItemModelProvider;
 import com.calibermc.naturescanvas.NaturesCanvas;
+import com.calibermc.naturescanvas.block.custom.signs.NCWallHangingSignBlock;
 import com.calibermc.naturescanvas.item.NCItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;

@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:mossy_warped_slab"
+  },
+  "result": "naturescanvas:mossy_warped_slab_vertical"
+}

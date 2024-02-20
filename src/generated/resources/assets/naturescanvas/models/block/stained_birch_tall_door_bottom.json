@@ -1,0 +1,6 @@
+{
+  "parent": "caliberlib:block/templates/door_bottom",
+  "textures": {
+    "bottom": "naturescanvas:block/stained_birch_tall_door_bottom"
+  }
+}

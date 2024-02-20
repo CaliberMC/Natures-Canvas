@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:mossy_spruce_planks"
+  },
+  "result": "naturescanvas:mossy_spruce_fence"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 9,
+  "ingredient": {
+    "item": "naturescanvas:stripped_maple_wood"
+  },
+  "result": "naturescanvas:stripped_maple_beam_horizontal"
+}

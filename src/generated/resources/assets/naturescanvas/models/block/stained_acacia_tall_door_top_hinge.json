@@ -1,0 +1,6 @@
+{
+  "parent": "caliberlib:block/templates/door_top_rh",
+  "textures": {
+    "top": "naturescanvas:block/stained_acacia_tall_door_top"
+  }
+}

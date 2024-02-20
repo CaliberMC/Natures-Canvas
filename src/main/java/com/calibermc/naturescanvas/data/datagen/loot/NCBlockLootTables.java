@@ -84,26 +84,33 @@ public class NCBlockLootTables extends ModBlockLootTables {
     }
 
     private void treeBlocks() {
+        this.dropSelf(NCBlocks.RED_CEDAR_SAPLING.get());
+        this.dropSelf(NCBlocks.CEDAR_LOG.get());
+        this.dropSelf(NCBlocks.STRIPPED_CEDAR_LOG.get());
+        this.dropSelf(NCBlocks.CEDAR_WOOD.get());
+        this.dropSelf(NCBlocks.CEDAR_LEAVES.get());
+
         this.dropSelf(NCBlocks.DOUGLAS_FIR_SAPLING.get());
         this.dropSelf(NCBlocks.SUBALPINE_FIR_SAPLING.get());
         this.dropSelf(NCBlocks.FIR_LOG.get());
         this.dropSelf(NCBlocks.STRIPPED_FIR_LOG.get());
         this.dropSelf(NCBlocks.FIR_WOOD.get());
-        this.dropSelf(NCBlocks.STRIPPED_FIR_WOOD.get());
         this.dropSelf(NCBlocks.FIR_LEAVES.get());
+
+//        this.dropSelf(NCBlocks.RED_MAPLE_SAPLING.get());
+//        this.dropSelf(NCBlocks.SILVER_MAPLE_SAPLING.get());
+        this.dropSelf(NCBlocks.MAPLE_LOG.get());
+        this.dropSelf(NCBlocks.STRIPPED_MAPLE_LOG.get());
+        this.dropSelf(NCBlocks.MAPLE_WOOD.get());
+        this.dropSelf(NCBlocks.MAPLE_LEAVES.get());
+
         this.dropSelf(NCBlocks.LODGEPOLE_PINE_SAPLING.get());
         this.dropSelf(NCBlocks.PONDEROSA_PINE_SAPLING.get());
         this.dropSelf(NCBlocks.PINE_LOG.get());
         this.dropSelf(NCBlocks.STRIPPED_PINE_LOG.get());
         this.dropSelf(NCBlocks.PINE_WOOD.get());
-        this.dropSelf(NCBlocks.STRIPPED_PINE_WOOD.get());
         this.dropSelf(NCBlocks.PINE_LEAVES.get());
-        this.dropSelf(NCBlocks.RED_CEDAR_SAPLING.get());
-        this.dropSelf(NCBlocks.CEDAR_LOG.get());
-        this.dropSelf(NCBlocks.STRIPPED_CEDAR_LOG.get());
-        this.dropSelf(NCBlocks.CEDAR_WOOD.get());
-        this.dropSelf(NCBlocks.STRIPPED_CEDAR_WOOD.get());
-        this.dropSelf(NCBlocks.CEDAR_LEAVES.get());
+
     }
 
     private void stainedPlanks() {
@@ -115,7 +122,7 @@ public class NCBlockLootTables extends ModBlockLootTables {
         this.add(NCBlocks.STAINED_ACACIA_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(NCBlocks.STAINED_ACACIA_WALL_HANGING_SIGN.get()));
         this.add(NCBlocks.STAINED_ACACIA_WALL_SIGN.get(), (block) -> createSingleItemTable(NCBlocks.STAINED_ACACIA_WALL_SIGN.get()));
         this.dropSelf(NCBlocks.STAINED_BIRCH_BUTTON.get());
-        this.add(NCBlocks.STAINED_BIRCH_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.TALL_STAINED_ACACIA_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
+        this.add(NCBlocks.STAINED_BIRCH_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.STAINED_BIRCH_DOOR.get(), DoorBlock.HALF, DoubleBlockHalf.LOWER));
         this.add(NCBlocks.STAINED_BIRCH_HANGING_SIGN.get(), (block) -> createSingleItemTable(NCBlocks.STAINED_BIRCH_HANGING_SIGN.get()));
         this.add(NCBlocks.STAINED_BIRCH_SIGN.get(), (block) -> createSingleItemTable(NCBlocks.STAINED_BIRCH_SIGN.get()));
         this.dropSelf(NCBlocks.STAINED_BIRCH_TRAPDOOR.get());
@@ -150,12 +157,12 @@ public class NCBlockLootTables extends ModBlockLootTables {
         this.add(NCBlocks.STAINED_SPRUCE_WALL_HANGING_SIGN.get(), (block) -> createSingleItemTable(NCBlocks.STAINED_SPRUCE_WALL_HANGING_SIGN.get()));
         this.add(NCBlocks.STAINED_SPRUCE_WALL_SIGN.get(), (block) -> createSingleItemTable(NCBlocks.STAINED_SPRUCE_WALL_SIGN.get()));
 
-        this.add(NCBlocks.TALL_STAINED_ACACIA_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.TALL_STAINED_ACACIA_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
-        this.add(NCBlocks.TALL_STAINED_BIRCH_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.TALL_STAINED_BIRCH_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
-        this.add(NCBlocks.TALL_STAINED_DARK_OAK_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.TALL_STAINED_DARK_OAK_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
-        this.add(NCBlocks.TALL_STAINED_JUNGLE_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.TALL_STAINED_JUNGLE_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
-        this.add(NCBlocks.TALL_STAINED_OAK_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.TALL_STAINED_OAK_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
-        this.add(NCBlocks.TALL_STAINED_SPRUCE_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.TALL_STAINED_SPRUCE_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
+        this.add(NCBlocks.STAINED_ACACIA_TALL_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.STAINED_ACACIA_TALL_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
+        this.add(NCBlocks.STAINED_BIRCH_TALL_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.STAINED_BIRCH_TALL_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
+        this.add(NCBlocks.STAINED_DARK_OAK_TALL_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.STAINED_DARK_OAK_TALL_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
+        this.add(NCBlocks.STAINED_JUNGLE_TALL_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.STAINED_JUNGLE_TALL_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
+        this.add(NCBlocks.STAINED_OAK_TALL_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.STAINED_OAK_TALL_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
+        this.add(NCBlocks.STAINED_SPRUCE_TALL_DOOR.get(), (block) -> createSinglePropConditionTable(NCBlocks.STAINED_SPRUCE_TALL_DOOR.get(), TallDoorBlock.THIRD, TallDoorPart.BOTTOM));
     }
 
     @Override

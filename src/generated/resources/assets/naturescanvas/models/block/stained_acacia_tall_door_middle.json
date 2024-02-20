@@ -1,0 +1,6 @@
+{
+  "parent": "caliberlib:block/templates/door_middle",
+  "textures": {
+    "middle": "naturescanvas:block/stained_acacia_tall_door_middle"
+  }
+}

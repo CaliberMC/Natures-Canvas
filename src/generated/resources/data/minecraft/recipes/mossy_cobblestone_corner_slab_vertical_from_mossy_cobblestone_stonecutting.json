@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "item": "minecraft:mossy_cobblestone"
+  },
+  "result": "naturescanvas:mossy_cobblestone_corner_slab_vertical"
+}

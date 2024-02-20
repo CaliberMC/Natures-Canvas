@@ -13,14 +13,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "naturescanvas:tall_stained_acacia_door",
+              "block": "naturescanvas:stained_birch_door",
               "condition": "minecraft:block_state_property",
               "properties": {
-                "part": "bottom"
+                "half": "lower"
               }
             }
           ],
-          "name": "naturescanvas:tall_stained_acacia_door"
+          "name": "naturescanvas:stained_birch_door"
         }
       ],
       "rolls": 1.0

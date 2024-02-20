@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 5,
+  "ingredient": {
+    "item": "naturescanvas:stripped_cedar_wood"
+  },
+  "result": "naturescanvas:stripped_cedar_quarter_vertical"
+}

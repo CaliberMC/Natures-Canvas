@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "naturescanvas:block/stripped_fir_capital"
+    },
+    "type=top": {
+      "model": "naturescanvas:block/stripped_fir_capital_top"
+    }
+  }
+}
