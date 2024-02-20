@@ -1,5 +1,13 @@
 {
   "replace": false,
   "values": [
+    "naturescanvas:cedar_planks",
+    "naturescanvas:fir_planks",
+    "naturescanvas:maple_planks",
+    "naturescanvas:pine_planks",
+    "naturescanvas:stripped_cedar_wood",
+    "naturescanvas:stripped_fir_wood",
+    "naturescanvas:stripped_maple_wood",
+    "naturescanvas:stripped_pine_wood"
   ]
 }

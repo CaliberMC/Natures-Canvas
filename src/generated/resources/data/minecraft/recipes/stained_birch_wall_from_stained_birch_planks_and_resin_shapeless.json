@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "naturescanvas:resin"
+    },
+    {
+      "item": "naturescanvas:birch_wall"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:stained_birch_wall"
+  }
+}

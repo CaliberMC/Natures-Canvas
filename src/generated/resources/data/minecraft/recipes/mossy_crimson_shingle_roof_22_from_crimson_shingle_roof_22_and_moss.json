@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:moss_block"
+    },
+    {
+      "item": "naturescanvas:crimson_shingle_roof_22"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:mossy_crimson_shingle_roof_22"
+  }
+}

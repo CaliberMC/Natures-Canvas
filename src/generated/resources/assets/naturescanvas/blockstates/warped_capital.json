@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "naturescanvas:block/warped_capital"
+    },
+    "type=top": {
+      "model": "naturescanvas:block/warped_capital_top"
+    }
+  }
+}

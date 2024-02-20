@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:moss_block"
+    },
+    {
+      "item": "naturescanvas:cobbled_tan_limestone_quarter"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:mossy_cobbled_tan_limestone_quarter"
+  }
+}

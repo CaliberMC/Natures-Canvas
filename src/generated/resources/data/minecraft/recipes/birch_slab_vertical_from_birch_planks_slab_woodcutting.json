@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:birch_slab"
+  },
+  "result": "naturescanvas:birch_slab_vertical"
+}

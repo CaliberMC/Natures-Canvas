@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:vine"
+    },
+    {
+      "item": "naturescanvas:stone_brick_quarter_vertical"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:mossy_limestone_brick_quarter_vertical"
+  }
+}

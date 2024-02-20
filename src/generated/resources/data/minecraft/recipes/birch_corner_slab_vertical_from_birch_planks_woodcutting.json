@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 4,
+  "ingredient": {
+    "item": "minecraft:birch_planks"
+  },
+  "result": "naturescanvas:birch_corner_slab_vertical"
+}

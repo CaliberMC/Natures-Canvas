@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:moss_block"
+    },
+    {
+      "item": "naturescanvas:cobblestone_window_half"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:mossy_cobblestone_window_half"
+  }
+}

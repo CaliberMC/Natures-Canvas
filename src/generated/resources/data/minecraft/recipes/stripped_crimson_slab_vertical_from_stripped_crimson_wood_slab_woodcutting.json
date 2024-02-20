@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:stripped_crimson_slab"
+  },
+  "result": "naturescanvas:stripped_crimson_slab_vertical"
+}

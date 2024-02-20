@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 8,
+  "ingredient": {
+    "item": "minecraft:crimson_planks"
+  },
+  "result": "naturescanvas:crimson_slab"
+}

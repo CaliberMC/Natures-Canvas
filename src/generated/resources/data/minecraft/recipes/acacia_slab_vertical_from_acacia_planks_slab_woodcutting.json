@@ -1,0 +1,8 @@
+{
+  "type": "caliber:woodcutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:acacia_slab"
+  },
+  "result": "naturescanvas:acacia_slab_vertical"
+}

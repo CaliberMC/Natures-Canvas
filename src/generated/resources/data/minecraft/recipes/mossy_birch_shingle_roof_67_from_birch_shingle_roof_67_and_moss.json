@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:moss_block"
+    },
+    {
+      "item": "naturescanvas:birch_shingle_roof_67"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:mossy_birch_shingle_roof_67"
+  }
+}

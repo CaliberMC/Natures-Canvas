@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "naturescanvas:resin"
+    },
+    {
+      "item": "naturescanvas:oak_corner"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:stained_oak_corner"
+  }
+}

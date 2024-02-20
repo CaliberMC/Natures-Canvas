@@ -88,6 +88,11 @@ public class NCBlocks {
     public static final BlockManager MOSSY_COBBLED_TAN_LIMESTONE = NCBlockManager.register("mossy_cobbled_tan_limestone", BlockProps.COBBLESTONE.get(), ModBlockHelper.modifyList(STONE_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
     public static final BlockManager MOSSY_COBBLESTONE = NCBlockManager.register("mossy_cobblestone", BlockProps.COBBLESTONE.get(), () -> Blocks.MOSSY_COBBLESTONE, STONE_VARIANTS_WITHOUT_STAIRS_WALL);
 
+    /* Stone */
+    public static final BlockManager STONE = NCBlockManager.register("stone", BlockProps.LIMESTONE.get(), () -> Blocks.STONE, STONE_VARIANTS_WITHOUT_STAIRS);
+    public static final BlockManager COBBLESTONE = NCBlockManager.register("cobblestone", BlockProps.COBBLESTONE.get(), () -> Blocks.COBBLESTONE, STONE_VARIANTS_WITHOUT_STAIRS_WALL);
+    public static final BlockManager STONE_BRICK = NCBlockManager.register("stone_bricks", BlockProps.LIMESTONE_BRICK.get(), () -> Blocks.STONE_BRICKS, STONE_VARIANTS_WITHOUT_STAIRS_WALL);
+
     /* Limestone Bricks */
     public static final BlockManager DARK_LIMESTONE_BRICK = NCBlockManager.register("dark_limestone_bricks", BlockProps.LIMESTONE_BRICK.get(), ModBlockHelper.modifyList(STONE_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
     public static final BlockManager LIGHT_LIMESTONE_BRICK = NCBlockManager.register("light_limestone_bricks", BlockProps.LIMESTONE_BRICK.get(), ModBlockHelper.modifyList(STONE_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
@@ -205,10 +210,25 @@ public class NCBlocks {
     public static final RegistryObject<Block> PINE_LEAVES = registerBlock("pine_leaves", () -> new LeavesBlock(BlockProps.TREE_LEAVES.get()));
 
     /* Stripped Wood */
-    public static final BlockManager STRIPPED_CEDAR = NCBlockManager.register("stripped_cedar_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
-    public static final BlockManager STRIPPED_FIR = NCBlockManager.register("stripped_fir_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
-    public static final BlockManager STRIPPED_MAPLE = NCBlockManager.register("stripped_maple_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
-    public static final BlockManager STRIPPED_PINE = NCBlockManager.register("stripped_pine_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
+
+
+    /* Planks */
+    public static final BlockManager ACACIA = NCBlockManager.register("acacia_planks", BlockProps.PLANK.get(), () -> Blocks.ACACIA_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+    public static final BlockManager BAMBOO = NCBlockManager.register("bamboo_planks", BlockProps.PLANK.get(), () -> Blocks.BAMBOO_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+    public static final BlockManager BAMBOO_MOSAIC = NCBlockManager.register("bamboo_mosaic", BlockProps.PLANK.get(), () -> Blocks.BAMBOO_MOSAIC, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+    public static final BlockManager BIRCH = NCBlockManager.register("birch_planks", BlockProps.PLANK.get(), () -> Blocks.BIRCH_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+//    public static final BlockManager CEDAR = NCBlockManager.register("cedar_planks", BlockProps.PLANK.get(), ModBlockHelper.modifyList(PLANK_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
+    public static final BlockManager CHERRY = NCBlockManager.register("cherry_planks", BlockProps.PLANK.get(), () -> Blocks.CHERRY_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+    public static final BlockManager DARK_OAK = NCBlockManager.register("dark_oak_planks", BlockProps.PLANK.get(), () -> Blocks.DARK_OAK_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+//    public static final BlockManager FIR = NCBlockManager.register("fir_planks", BlockProps.PLANK.get(), ModBlockHelper.modifyList(PLANK_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
+    public static final BlockManager JUNGLE = NCBlockManager.register("jungle_planks", BlockProps.PLANK.get(), () -> Blocks.JUNGLE_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+    public static final BlockManager MANGROVE = NCBlockManager.register("mangrove_planks", BlockProps.PLANK.get(), () -> Blocks.MANGROVE_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+//    public static final BlockManager MAPLE = NCBlockManager.register("maple_planks", BlockProps.PLANK.get(), ModBlockHelper.modifyList(PLANK_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
+    public static final BlockManager OAK = NCBlockManager.register("oak_planks", BlockProps.PLANK.get(), () -> Blocks.OAK_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+//    public static final BlockManager PINE = NCBlockManager.register("pine_planks", BlockProps.PLANK.get(), ModBlockHelper.modifyList(PLANK_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
+    public static final BlockManager SPRUCE = NCBlockManager.register("spruce_planks", BlockProps.PLANK.get(), () -> Blocks.SPRUCE_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+    public static final BlockManager CRIMSON = NCBlockManager.register("crimson_planks", BlockProps.PLANK.get(), () -> Blocks.CRIMSON_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
+    public static final BlockManager WARPED = NCBlockManager.register("warped_planks", BlockProps.PLANK.get(), () -> Blocks.WARPED_PLANKS, PLANK_VARIANTS_WITHOUT_FENCES_STAIRS);
 
     /* Mossy Planks */
     public static final BlockManager MOSSY_ACACIA = NCBlockManager.register("mossy_acacia_planks", BlockProps.PLANK.get(), ModBlockHelper.modifyList(PLANK_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
@@ -289,6 +309,26 @@ public class NCBlocks {
     public static final BlockManager MOSSY_STAINED_OAK = NCBlockManager.register("mossy_stained_oak_planks", BlockProps.PLANK.get(), ModBlockHelper.modifyList(PLANK_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
     public static final BlockManager MOSSY_STAINED_SPRUCE = NCBlockManager.register("mossy_stained_spruce_planks", BlockProps.PLANK.get(), ModBlockHelper.modifyList(PLANK_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
 
+
+
+
+    /* Stripped Wood */
+    public static final BlockManager STRIPPED_ACACIA = NCBlockManager.register("stripped_acacia_wood", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_ACACIA_WOOD, STRIPPED_WOOD_VARIANTS);
+    public static final BlockManager STRIPPED_BAMBOO = NCBlockManager.register("stripped_bamboo_block", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_BAMBOO_BLOCK, STRIPPED_WOOD_VARIANTS);
+    public static final BlockManager STRIPPED_BIRCH = NCBlockManager.register("stripped_birch_wood", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_BIRCH_WOOD, STRIPPED_WOOD_VARIANTS);
+    public static final BlockManager STRIPPED_CEDAR = NCBlockManager.register("stripped_cedar_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
+    public static final BlockManager STRIPPED_CHERRY = NCBlockManager.register("stripped_cherry_wood", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_CHERRY_WOOD, STRIPPED_WOOD_VARIANTS);
+    public static final BlockManager STRIPPED_DARK_OAK = NCBlockManager.register("stripped_dark_oak_wood", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_DARK_OAK_WOOD, STRIPPED_WOOD_VARIANTS);
+    public static final BlockManager STRIPPED_FIR = NCBlockManager.register("stripped_fir_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
+    public static final BlockManager STRIPPED_JUNGLE = NCBlockManager.register("stripped_jungle_wood", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_JUNGLE_WOOD, STRIPPED_WOOD_VARIANTS);
+    public static final BlockManager STRIPPED_MANGROVE = NCBlockManager.register("stripped_mangrove_wood", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_MANGROVE_WOOD, STRIPPED_WOOD_VARIANTS);
+    public static final BlockManager STRIPPED_MAPLE = NCBlockManager.register("stripped_maple_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
+    public static final BlockManager STRIPPED_OAK = NCBlockManager.register("stripped_oak_wood", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_OAK_WOOD, STRIPPED_WOOD_VARIANTS);
+    public static final BlockManager STRIPPED_PINE = NCBlockManager.register("stripped_pine_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
+    public static final BlockManager STRIPPED_SPRUCE = NCBlockManager.register("stripped_spruce_wood", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_SPRUCE_WOOD, STRIPPED_WOOD_VARIANTS);
+    public static final BlockManager STRIPPED_CRIMSON = NCBlockManager.register("stripped_crimson_wood", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_CRIMSON_HYPHAE, STRIPPED_WOOD_VARIANTS);
+    public static final BlockManager STRIPPED_WARPED = NCBlockManager.register("stripped_warped_wood", BlockProps.PLANK.get(), () -> Blocks.STRIPPED_WARPED_HYPHAE, STRIPPED_WOOD_VARIANTS);
+
     /* Stained Stripped Wood */
     public static final BlockManager STAINED_STRIPPED_ACACIA = NCBlockManager.register("stained_stripped_acacia_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
     public static final BlockManager STAINED_STRIPPED_BIRCH = NCBlockManager.register("stained_stripped_birch_wood", BlockProps.PLANK.get(), ModBlockHelper.modifyList(STRIPPED_WOOD_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
@@ -364,11 +404,11 @@ public class NCBlocks {
     public static final BlockManager MOSSY_STAINED_JUNGLE_SHINGLES = NCBlockManager.register("mossy_stained_jungle_shingle", BlockProps.PLANK_NO_OC.get(), NCBlocks.MOSSY_STAINED_JUNGLE_BOARDS::baseBlock, ROOF_VARIANTS);
     public static final BlockManager MOSSY_STAINED_OAK_SHINGLES = NCBlockManager.register("mossy_stained_oak_shingle", BlockProps.PLANK_NO_OC.get(), NCBlocks.MOSSY_STAINED_OAK_BOARDS::baseBlock, ROOF_VARIANTS);
     public static final BlockManager MOSSY_STAINED_SPRUCE_SHINGLES = NCBlockManager.register("mossy_stained_spruce_shingle", BlockProps.PLANK_NO_OC.get(), NCBlocks.MOSSY_STAINED_SPRUCE_BOARDS::baseBlock, ROOF_VARIANTS);
-    
+
     /* Thatch */
     public static final BlockManager THATCH = NCBlockManager.register("thatch", BlockProps.GRASS.get().noOcclusion(), ModBlockHelper.modifyList(THATCH_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
     public static final BlockManager MOSSY_THATCH = NCBlockManager.register("mossy_thatch", BlockProps.GRASS.get().noOcclusion(), ModBlockHelper.modifyList(THATCH_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
-    
+
     /* Plaster */
     public static final BlockManager BEIGE_PLASTER = NCBlockManager.register("beige_plaster", BlockProps.PLASTER.get(), ModBlockHelper.modifyList(STONE_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));
     public static final BlockManager BROWN_PLASTER = NCBlockManager.register("brown_plaster", BlockProps.PLASTER.get(), ModBlockHelper.modifyList(STONE_VARIANTS, (c) -> c.add(ModBlockFamily.Variant.BASE)));

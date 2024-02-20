@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:vine"
+    },
+    {
+      "item": "naturescanvas:cobblestone_arrowslit"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:mossy_cobblestone_arrowslit"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "naturescanvas:resin"
+    },
+    {
+      "item": "naturescanvas:oak_shingle_roof_22"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:stained_oak_shingle_roof_22"
+  }
+}

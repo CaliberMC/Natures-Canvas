@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:vine"
+    },
+    {
+      "item": "naturescanvas:cobbled_light_limestone_capital"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:mossy_cobbled_light_limestone_capital"
+  }
+}

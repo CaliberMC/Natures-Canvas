@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "naturescanvas:resin"
+    },
+    {
+      "item": "naturescanvas:jungle_quarter_vertical"
+    }
+  ],
+  "result": {
+    "item": "naturescanvas:stained_jungle_quarter_vertical"
+  }
+}
