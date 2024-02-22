@@ -1,0 +1,4 @@
+// 1.20.1	2024-02-21T17:50:03.9213367	Global Loot Modifiers : naturescanvas
+ca44d89781d3afc710d849ac9a4c7ab7a63deb12 data/forge/loot_modifiers/global_loot_modifiers.json
+574f125383fb0e982d3f6b78ec234ee7e2261aa6 data/naturescanvas/loot_modifiers/grass_stems_from_grass.json
+6be638d9119e015fbedb3360e3a28d932eb1be45 data/naturescanvas/loot_modifiers/resin_from_spruce_leaves.json

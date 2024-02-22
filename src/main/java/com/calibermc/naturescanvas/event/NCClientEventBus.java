@@ -71,6 +71,7 @@ public class NCClientEventBus {
         Sheets.addWoodType(NCWoodType.CEDAR);
         Sheets.addWoodType(NCWoodType.FIR);
         Sheets.addWoodType(NCWoodType.PINE);
+        Sheets.addWoodType(NCWoodType.MAPLE);
 
     }
 

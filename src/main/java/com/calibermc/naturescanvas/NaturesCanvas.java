@@ -8,6 +8,7 @@ import com.calibermc.naturescanvas.crafting.NCMenuTypes;
 import com.calibermc.naturescanvas.crafting.NCRecipeSerializers;
 import com.calibermc.naturescanvas.item.NCCreativeTab;
 import com.calibermc.naturescanvas.item.NCItems;
+import com.calibermc.naturescanvas.loot.NCLootModifiers;
 import com.calibermc.naturescanvas.networking.NCNetworking;
 import com.calibermc.naturescanvas.data.NCBlockFamilies;
 import com.calibermc.naturescanvas.data.worldgen.NCTerrablender;
@@ -44,6 +45,7 @@ public class NaturesCanvas {
         NCCreativeTab.register(eventBus);
         NCMenuTypes.register(eventBus);
         NCBlockEntities.register(eventBus);
+        NCLootModifiers.register(eventBus);
         NCRecipeSerializers.register(eventBus);
 
         NCFeatures.register(eventBus);
