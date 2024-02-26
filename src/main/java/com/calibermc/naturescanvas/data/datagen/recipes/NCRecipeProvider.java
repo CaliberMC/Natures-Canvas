@@ -2,9 +2,9 @@ package com.calibermc.naturescanvas.data.datagen.recipes;
 
 import com.calibermc.caliber.crafting.CaliberRecipeBuilder;
 import com.calibermc.caliberlib.block.management.BlockManager;
+import com.calibermc.caliberlib.block.properties.ModBlockSetType;
 import com.calibermc.caliberlib.data.ModBlockFamily;
 import com.calibermc.naturescanvas.NaturesCanvas;
-import com.calibermc.naturescanvas.block.properties.NCBlockSetType;
 import com.calibermc.naturescanvas.item.NCItems;
 import com.mojang.datafixers.util.Function3;
 import com.mojang.datafixers.util.Pair;
@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -38,7 +37,7 @@ public class NCRecipeProvider extends RecipeProvider implements IConditionBuilde
             try {
                 if (blockManager.baseBlock() != null) {
                     boolean wood = WoodType.values().anyMatch(p -> p.name().equals(blockManager.blockType().name()));
-                    generateRecipes(blockManager, wood || blockManager.blockType() == NCBlockSetType.TUDOR_1 || blockManager.blockType() == NCBlockSetType.TUDOR_2 , recipeConsumer);
+                    generateRecipes(blockManager, wood || blockManager.blockType() == ModBlockSetType.TUDOR_1 || blockManager.blockType() == ModBlockSetType.TUDOR_2 , recipeConsumer);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

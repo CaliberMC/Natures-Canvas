@@ -1,5 +1,7 @@
 package com.calibermc.naturescanvas.loot;
 
+import com.calibermc.caliberlib.loot.AddItemModifier;
+import com.calibermc.caliberlib.loot.AddSusSandItemModifier;
 import com.calibermc.naturescanvas.NaturesCanvas;
 import com.mojang.serialization.Codec;
 import net.minecraftforge.common.loot.IGlobalLootModifier;

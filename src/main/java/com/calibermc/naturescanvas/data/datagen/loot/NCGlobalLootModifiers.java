@@ -1,8 +1,8 @@
 package com.calibermc.naturescanvas.data.datagen.loot;
 
+import com.calibermc.caliberlib.loot.AddItemModifier;
 import com.calibermc.naturescanvas.NaturesCanvas;
 import com.calibermc.naturescanvas.item.NCItems;
-import com.calibermc.naturescanvas.loot.AddItemModifier;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;

@@ -3,14 +3,12 @@ package com.calibermc.naturescanvas.event;
 import com.calibermc.naturescanvas.NaturesCanvas;
 import com.calibermc.naturescanvas.block.NCBlocks;
 import com.calibermc.naturescanvas.block.entity.NCBlockEntities;
-import com.calibermc.naturescanvas.block.properties.NCWoodType;
 import com.calibermc.naturescanvas.client.inventory.KilnScreen;
 import com.calibermc.naturescanvas.crafting.NCMenuTypes;
 import com.calibermc.naturescanvas.crafting.NCRecipeSerializers;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
@@ -66,12 +64,6 @@ public class NCClientEventBus {
 
         BlockEntityRenderers.register(NCBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer::new);
         BlockEntityRenderers.register(NCBlockEntities.HANGING_SIGN_BLOCK_ENTITIES.get(), HangingSignRenderer::new);
-
-        // Set Wood Types
-        Sheets.addWoodType(NCWoodType.CEDAR);
-        Sheets.addWoodType(NCWoodType.FIR);
-        Sheets.addWoodType(NCWoodType.PINE);
-        Sheets.addWoodType(NCWoodType.MAPLE);
 
     }
 
