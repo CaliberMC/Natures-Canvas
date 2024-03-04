@@ -1,20 +1,14 @@
 {
   "values": [
-    "naturescanvas:cedar_log",
-    "naturescanvas:cedar_wood",
-    "naturescanvas:stripped_cedar_log",
     "naturescanvas:stripped_cedar_wood",
-    "naturescanvas:fir_log",
-    "naturescanvas:fir_wood",
-    "naturescanvas:stripped_fir_log",
     "naturescanvas:stripped_fir_wood",
-    "naturescanvas:maple_log",
-    "naturescanvas:maple_wood",
-    "naturescanvas:stripped_maple_log",
     "naturescanvas:stripped_maple_wood",
-    "naturescanvas:pine_log",
-    "naturescanvas:pine_wood",
-    "naturescanvas:stripped_pine_log",
-    "naturescanvas:stripped_pine_wood"
+    "naturescanvas:stripped_pine_wood",
+    "naturescanvas:stained_stripped_acacia_wood",
+    "naturescanvas:stained_stripped_birch_wood",
+    "naturescanvas:stained_stripped_dark_oak_wood",
+    "naturescanvas:stained_stripped_jungle_wood",
+    "naturescanvas:stained_stripped_oak_wood",
+    "naturescanvas:stained_stripped_spruce_wood"
   ]
 }

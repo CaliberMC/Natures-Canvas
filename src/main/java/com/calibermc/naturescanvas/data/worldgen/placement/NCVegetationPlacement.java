@@ -19,12 +19,21 @@ import static net.minecraft.data.worldgen.placement.VegetationPlacements.treePla
 
 public class NCVegetationPlacement {
 
+    // Vegetation
     public static final ResourceKey<PlacedFeature> PATCH_FERN_2 = NCPlacementUtils.registerKey("patch_fern_2");
     public static final ResourceKey<PlacedFeature> PATCH_FERN_4 = NCPlacementUtils.registerKey("patch_fern_4");
     public static final ResourceKey<PlacedFeature> PATCH_FERN_8 = NCPlacementUtils.registerKey("patch_fern_8");
     public static final ResourceKey<PlacedFeature> PATCH_FERN_16 = NCPlacementUtils.registerKey("patch_fern_16");
-    public static final ResourceKey<PlacedFeature> TREES_RED_CEDAR_FOREST = NCPlacementUtils.registerKey("trees_red_cedar_forest");
+
+    // Old Growth Forests
+
+    public static final ResourceKey<PlacedFeature> TREES_OLD_GROWTH_DOUGLAS_FIR_FOREST = NCPlacementUtils.registerKey("trees_old_growth_douglas_fir_forest");
+    public static final ResourceKey<PlacedFeature> TREES_OLD_GROWTH_PONDEROSA_PINE_FOREST = NCPlacementUtils.registerKey("trees_old_growth_ponderosa_pine_forest");
     public static final ResourceKey<PlacedFeature> TREES_OLD_GROWTH_RED_CEDAR_FOREST = NCPlacementUtils.registerKey("trees_old_growth_red_cedar_forest");
+    public static final ResourceKey<PlacedFeature> TREES_OLD_GROWTH_NORTHERN_CONIFEROUS_FOREST = NCPlacementUtils.registerKey("trees_old_growth_northern_coniferous_forest");
+
+    // Forests
+    public static final ResourceKey<PlacedFeature> TREES_RED_CEDAR_FOREST = NCPlacementUtils.registerKey("trees_red_cedar_forest");
     public static final ResourceKey<PlacedFeature> TREES_DOUGLAS_FIR_FOREST = NCPlacementUtils.registerKey("trees_douglas_fir_forest");
     public static final ResourceKey<PlacedFeature> TREES_LODGEPOLE_PINE_FOREST = NCPlacementUtils.registerKey("trees_lodgepole_pine_forest");
     public static final ResourceKey<PlacedFeature> TREES_PONDEROSA_PINE_FOREST = NCPlacementUtils.registerKey("trees_ponderosa_pine_forest");
@@ -34,28 +43,43 @@ public class NCVegetationPlacement {
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatureGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
+        // Vegetation
         final Holder<ConfiguredFeature<?, ?>> PATCH_FERN = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.PATCH_FERN);
 
-        final Holder<ConfiguredFeature<?, ?>> TREES_RED_CEDAR_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_RED_CEDAR_FOREST);
+        // Old Growth Forests
+        final Holder<ConfiguredFeature<?, ?>> TREES_OLD_GROWTH_DOUGLAS_FIR_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_OLD_GROWTH_DOUGLAS_FIR_FOREST);
+        final Holder<ConfiguredFeature<?, ?>> TREES_OLD_GROWTH_PONDEROSA_PINE_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_OLD_GROWTH_PONDEROSA_PINE_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_OLD_GROWTH_RED_CEDAR_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_OLD_GROWTH_RED_CEDAR_FOREST);
+        final Holder<ConfiguredFeature<?, ?>> TREES_OLD_GROWTH_NORTHERN_CONIFEROUS_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_OLD_GROWTH_NORTHERN_CONIFEROUS_FOREST);
+
+        // Forests
         final Holder<ConfiguredFeature<?, ?>> TREES_DOUGLAS_FIR_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_DOUGLAS_FIR_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_LODGEPOLE_PINE_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_LODGEPOLE_PINE_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_PONDEROSA_PINE_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_PONDEROSA_PINE_FOREST);
+        final Holder<ConfiguredFeature<?, ?>> TREES_RED_CEDAR_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_RED_CEDAR_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_SUBALPINE_FIR_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_SUBALPINE_FIR_FOREST);
         final Holder<ConfiguredFeature<?, ?>> TREES_NORTHERN_CONIFEROUS_FOREST = configuredFeatureGetter.getOrThrow(NCVegetationFeatures.TREES_NORTHERN_CONIFEROUS_FOREST);
 
+        // Vegetation
         register(context, NCVegetationPlacement.PATCH_FERN_2, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(2));
         register(context, NCVegetationPlacement.PATCH_FERN_4, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(4));
         register(context, NCVegetationPlacement.PATCH_FERN_8, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(8));
         register(context, NCVegetationPlacement.PATCH_FERN_16, PATCH_FERN, VegetationPlacements.worldSurfaceSquaredWithCount(16));
 
-        register(context, NCVegetationPlacement.TREES_RED_CEDAR_FOREST, TREES_RED_CEDAR_FOREST, treePlacement(PlacementUtils.countExtra(15, 0.1F, 1))); // MODIFY FOR OLD GROWTH BIOME
-        register(context, NCVegetationPlacement.TREES_OLD_GROWTH_RED_CEDAR_FOREST, TREES_OLD_GROWTH_RED_CEDAR_FOREST, treePlacement(PlacementUtils.countExtra(8, 0.2F, 1))); // MODIFY FOR OLD GROWTH BIOME
+        // Old Growth Forests
+        register(context, NCVegetationPlacement.TREES_OLD_GROWTH_DOUGLAS_FIR_FOREST, TREES_OLD_GROWTH_DOUGLAS_FIR_FOREST, treePlacement(PlacementUtils.countExtra(12, 0.2F, 1)));
+        register(context, NCVegetationPlacement.TREES_OLD_GROWTH_PONDEROSA_PINE_FOREST, TREES_OLD_GROWTH_PONDEROSA_PINE_FOREST, treePlacement(PlacementUtils.countExtra(14, 0.2F, 1)));
+        register(context, NCVegetationPlacement.TREES_OLD_GROWTH_RED_CEDAR_FOREST, TREES_OLD_GROWTH_RED_CEDAR_FOREST, treePlacement(PlacementUtils.countExtra(8, 0.2F, 1)));
+        register(context, NCVegetationPlacement.TREES_OLD_GROWTH_NORTHERN_CONIFEROUS_FOREST, TREES_OLD_GROWTH_NORTHERN_CONIFEROUS_FOREST, treePlacement(PlacementUtils.countExtra(10, 0.2F, 1)));
+
+        // Forests
         register(context, NCVegetationPlacement.TREES_DOUGLAS_FIR_FOREST, TREES_DOUGLAS_FIR_FOREST, treePlacement(PlacementUtils.countExtra(12, 0.2F, 1)));
         register(context, NCVegetationPlacement.TREES_LODGEPOLE_PINE_FOREST, TREES_LODGEPOLE_PINE_FOREST, treePlacement(PlacementUtils.countExtra(11, 0.1F, 1)));
         register(context, NCVegetationPlacement.TREES_PONDEROSA_PINE_FOREST, TREES_PONDEROSA_PINE_FOREST, treePlacement(PlacementUtils.countExtra(14, 0.2F, 1)));
+        register(context, NCVegetationPlacement.TREES_RED_CEDAR_FOREST, TREES_RED_CEDAR_FOREST, treePlacement(PlacementUtils.countExtra(15, 0.1F, 1))); // MODIFY FOR OLD GROWTH BIOME
         register(context, NCVegetationPlacement.TREES_SUBALPINE_FIR_FOREST, TREES_SUBALPINE_FIR_FOREST, treePlacement(PlacementUtils.countExtra(10, 0.2F, 1)));
         register(context, NCVegetationPlacement.TREES_NORTHERN_CONIFEROUS_FOREST, TREES_NORTHERN_CONIFEROUS_FOREST, treePlacement(PlacementUtils.countExtra(10, 0.2F, 1)));
+
     }
     private static List<PlacementModifier> waterTreePlacement(PlacementModifier modifier)
     {

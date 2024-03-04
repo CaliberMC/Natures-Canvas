@@ -7,6 +7,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.Carvers;
 import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.Music;
 import net.minecraft.sounds.Musics;
@@ -93,9 +94,86 @@ public class NCOverworldBiomes {
         BiomeDefaultFeatures.addSurfaceFreezing(builder);
     }
 
+    public static Biome oldGrowthDouglasFirForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        // Mob spawning
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
 
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        globalOverworldGenerationNoLavaLakes(biomeBuilder);
+        BiomeDefaultFeatures.addFerns(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
 
-    public static Biome coniferousForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        Object NCVegetationPlacements;
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_OLD_GROWTH_DOUGLAS_FIR_FOREST);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_FERN_4);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH);
+
+        return biomeWithColorOverrides(true, 0.8F, 0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, FOREST_MUSIC);
+    }
+
+    public static Biome oldGrowthPonderosaPineForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        // Mob spawning
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        globalOverworldGenerationNoLavaLakes(biomeBuilder);
+        BiomeDefaultFeatures.addFerns(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        BiomeDefaultFeatures.addGiantTaigaVegetation(biomeBuilder);
+
+        Object NCVegetationPlacements;
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_OLD_GROWTH_PONDEROSA_PINE_FOREST);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_FERN_4);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH);
+
+        return biomeWithColorOverrides(true, 0.8F, 0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, FOREST_MUSIC);
+    }
+
+    public static Biome oldGrowthRedCedarForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        // Mob spawning
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        globalOverworldGenerationNoLavaLakes(biomeBuilder);
+        BiomeDefaultFeatures.addFerns(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+
+        Object NCVegetationPlacements;
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_OLD_GROWTH_RED_CEDAR_FOREST);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_FERN_4);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH);
+
+        return biomeWithColorOverrides(true, 0.8F, 0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, FOREST_MUSIC);
+    }
+
+    public static Biome oldGrowthConiferousForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         // Mob spawning
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
         BiomeDefaultFeatures.commonSpawns(spawnBuilder);
@@ -115,20 +193,13 @@ public class NCOverworldBiomes {
         Object NCVegetationPlacements;
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, NCOrePlacement.BROWN_GRANITE);
         addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, NCOrePlacement.TIN_ORE);
-        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_NORTHERN_CONIFEROUS_FOREST);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_RED_CEDAR_FOREST);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_OLD_GROWTH_RED_CEDAR_FOREST);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_DOUGLAS_FIR_FOREST);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_LODGEPOLE_PINE_FOREST);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_PONDEROSA_PINE_FOREST);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_SUBALPINE_FIR_FOREST);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_OLD_GROWTH_NORTHERN_CONIFEROUS_FOREST);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_FERN_4);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_LARGE_FERN_EXTRA);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.MOSS_SPLATTER);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH);
 
         return biomeWithColorOverrides(true, 0.8F, 0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, FOREST_MUSIC);
     }
-
 
     public static Biome douglasFirForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
         // Mob spawning
@@ -150,8 +221,8 @@ public class NCOverworldBiomes {
         Object NCVegetationPlacements;
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_DOUGLAS_FIR_FOREST);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_FERN_4);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_LARGE_FERN_EXTRA);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.MOSS_SPLATTER);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH);
 
         return biomeWithColorOverrides(true, 0.8F, 0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, FOREST_MUSIC);
     }
@@ -176,8 +247,8 @@ public class NCOverworldBiomes {
         Object NCVegetationPlacements;
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_LODGEPOLE_PINE_FOREST);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_FERN_4);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_LARGE_FERN_EXTRA);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.MOSS_SPLATTER);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH);
 
         return biomeWithColorOverrides(true, 0.8F, 0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, FOREST_MUSIC);
     }
@@ -198,12 +269,13 @@ public class NCOverworldBiomes {
         BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
         BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+        BiomeDefaultFeatures.addGiantTaigaVegetation(biomeBuilder);
 
         Object NCVegetationPlacements;
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_PONDEROSA_PINE_FOREST);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_FERN_4);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_LARGE_FERN_EXTRA);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.MOSS_SPLATTER);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH);
 
         return biomeWithColorOverrides(true, 0.8F, 0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, FOREST_MUSIC);
     }
@@ -226,12 +298,10 @@ public class NCOverworldBiomes {
         BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
 
         Object NCVegetationPlacements;
-
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_RED_CEDAR_FOREST);
-        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_OLD_GROWTH_RED_CEDAR_FOREST);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_FERN_4);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_LARGE_FERN_EXTRA);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.MOSS_SPLATTER);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH);
 
         return biomeWithColorOverrides(true, 0.8F, 0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, FOREST_MUSIC);
     }
@@ -256,11 +326,39 @@ public class NCOverworldBiomes {
         Object NCVegetationPlacements;
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_SUBALPINE_FIR_FOREST);
         addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_FERN_4);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_LARGE_FERN_EXTRA);
-//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.MOSS_SPLATTER);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH);
 
         return biomeWithColorOverrides(true, 0.8F, 0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, FOREST_MUSIC);
     }
-    
+
+    public static Biome coniferousForest(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        // Mob spawning
+        MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+        BiomeDefaultFeatures.commonSpawns(spawnBuilder);
+        BiomeDefaultFeatures.farmAnimals(spawnBuilder);
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.RABBIT, 4, 2, 3));
+        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.FOX, 8, 2, 4));
+
+        // Biome features
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        globalOverworldGenerationNoLavaLakes(biomeBuilder);
+        BiomeDefaultFeatures.addFerns(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultOres(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultSoftDisks(biomeBuilder);
+        BiomeDefaultFeatures.addDefaultMushrooms(biomeBuilder);
+
+        Object NCVegetationPlacements;
+        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, NCOrePlacement.BROWN_GRANITE);
+        addFeature(biomeBuilder, GenerationStep.Decoration.UNDERGROUND_ORES, NCOrePlacement.TIN_ORE);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.TREES_NORTHERN_CONIFEROUS_FOREST);
+        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, NCVegetationPlacement.PATCH_FERN_4);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_TAIGA);
+//        addFeature(biomeBuilder, GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_DEAD_BUSH);
+
+        return biomeWithColorOverrides(true, 0.8F, 0.6F, 0xB5D55C, 0x8EBF42, spawnBuilder, biomeBuilder, FOREST_MUSIC);
+    }
+
 }
 

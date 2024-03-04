@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "naturescanvas:douglas_fir_tree",
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": "naturescanvas:douglas_fir_tree_medium"
+      },
+      {
+        "chance": 0.1,
+        "feature": "naturescanvas:douglas_fir_tree_large"
+      },
+      {
+        "chance": 0.3,
+        "feature": "naturescanvas:pine_tree"
+      },
+      {
+        "chance": 0.2,
+        "feature": "naturescanvas:pine_tree_medium"
+      },
+      {
+        "chance": 0.1,
+        "feature": "naturescanvas:pine_tree_large"
+      },
+      {
+        "chance": 0.2,
+        "feature": "naturescanvas:red_cedar_tree"
+      },
+      {
+        "chance": 0.1,
+        "feature": "naturescanvas:red_cedar_tree_medium"
+      },
+      {
+        "chance": 0.1,
+        "feature": "naturescanvas:red_cedar_tree_large"
+      }
+    ]
+  }
+}

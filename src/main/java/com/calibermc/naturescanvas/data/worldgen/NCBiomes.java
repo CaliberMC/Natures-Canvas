@@ -22,23 +22,36 @@ public class NCBiomes {
     private static List<ResourceKey<Biome>> allBiomes = Lists.newArrayList();
     private static List<ResourceKey<Biome>> overworldBiomes = Lists.newArrayList();
 
-    public static final ResourceKey<Biome> RED_CEDAR_FOREST = registerOverworld("red_cedar_forest");
-    public static final ResourceKey<Biome> CONIFEROUS_FOREST = registerOverworld("coniferous_forest");
+    // Old Growth Biomes
+    public static final ResourceKey<Biome> OLD_GROWTH_DOUGLAS_FIR_FOREST = registerOverworld("old_growth_douglas_fir_forest");
+    public static final ResourceKey<Biome> OLD_GROWTH_PONDEROSA_PINE_FOREST = registerOverworld("old_growth_ponderosa_pine_forest");
+    public static final ResourceKey<Biome> OLD_GROWTH_RED_CEDAR_FOREST = registerOverworld("old_growth_red_cedar_forest");
+    public static final ResourceKey<Biome> OLD_GROWTH_CONIFEROUS_FOREST = registerOverworld("old_growth_coniferous_forest");
+
+    // Forest Biomes
     public static final ResourceKey<Biome> DOUGLAS_FIR_FOREST = registerOverworld("douglas_fir_forest");
     public static final ResourceKey<Biome> LODGEPOLE_PINE_FOREST = registerOverworld("lodgepole_pine_forest");
     public static final ResourceKey<Biome> PONDEROSA_PINE_FOREST = registerOverworld("ponderosa_pine_forest");
+    public static final ResourceKey<Biome> RED_CEDAR_FOREST = registerOverworld("red_cedar_forest");
     public static final ResourceKey<Biome> SUBALPINE_FIR_FOREST = registerOverworld("subalpine_fir_forest");
-
+    public static final ResourceKey<Biome> CONIFEROUS_FOREST = registerOverworld("coniferous_forest");
 
     public static void bootstrap(BootstapContext<Biome> context) {
         HolderGetter<ConfiguredWorldCarver<?>> carverGetter = context.lookup(Registries.CONFIGURED_CARVER);
         HolderGetter<PlacedFeature> placedFeatureGetter = context.lookup(Registries.PLACED_FEATURE);
 
-        registerBiome(context, RED_CEDAR_FOREST, NCOverworldBiomes.redCedarForest(placedFeatureGetter, carverGetter));
+        // Old Growth Biomes
+        registerBiome(context, OLD_GROWTH_CONIFEROUS_FOREST, NCOverworldBiomes.oldGrowthConiferousForest(placedFeatureGetter, carverGetter));
+        registerBiome(context, OLD_GROWTH_DOUGLAS_FIR_FOREST, NCOverworldBiomes.oldGrowthDouglasFirForest(placedFeatureGetter, carverGetter));
+        registerBiome(context, OLD_GROWTH_PONDEROSA_PINE_FOREST, NCOverworldBiomes.oldGrowthPonderosaPineForest(placedFeatureGetter, carverGetter));
+        registerBiome(context, OLD_GROWTH_RED_CEDAR_FOREST, NCOverworldBiomes.oldGrowthRedCedarForest(placedFeatureGetter, carverGetter));
+
+        // Forest Biomes
         registerBiome(context, CONIFEROUS_FOREST, NCOverworldBiomes.coniferousForest(placedFeatureGetter, carverGetter));
         registerBiome(context, DOUGLAS_FIR_FOREST, NCOverworldBiomes.douglasFirForest(placedFeatureGetter, carverGetter));
         registerBiome(context, LODGEPOLE_PINE_FOREST, NCOverworldBiomes.lodgepolePineForest(placedFeatureGetter, carverGetter));
         registerBiome(context, PONDEROSA_PINE_FOREST, NCOverworldBiomes.ponderosaPineForest(placedFeatureGetter, carverGetter));
+        registerBiome(context, RED_CEDAR_FOREST, NCOverworldBiomes.redCedarForest(placedFeatureGetter, carverGetter));
         registerBiome(context, SUBALPINE_FIR_FOREST, NCOverworldBiomes.subalpineFirForest(placedFeatureGetter, carverGetter));
     }
 

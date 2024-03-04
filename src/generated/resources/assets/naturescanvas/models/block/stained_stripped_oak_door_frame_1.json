@@ -1,8 +1,3 @@
 {
-  "parent": "caliberlib:block/templates/door_frame_1",
-  "textures": {
-    "bottom": "naturescanvas:block/stained_stripped_oak_wood",
-    "side": "naturescanvas:block/stained_stripped_oak_wood",
-    "top": "naturescanvas:block/stained_stripped_oak_wood"
-  }
+  "parent": "caliberlib:block/templates/door_frame_1"
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "caliberlib:block/templates/eighth_top",
+  "textures": {
+    "bottom": "naturescanvas:block/pine_planks",
+    "side": "naturescanvas:block/pine_planks",
+    "top": "naturescanvas:block/pine_planks"
+  }
+}

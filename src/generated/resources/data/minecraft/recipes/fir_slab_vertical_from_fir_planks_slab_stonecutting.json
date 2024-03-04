@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "naturescanvas:fir_slab"
+  },
+  "result": "naturescanvas:fir_slab_vertical"
+}

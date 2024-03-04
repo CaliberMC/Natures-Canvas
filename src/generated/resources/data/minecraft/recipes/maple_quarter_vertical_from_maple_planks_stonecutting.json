@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 5,
+  "ingredient": {
+    "item": "naturescanvas:maple_planks"
+  },
+  "result": "naturescanvas:maple_quarter_vertical"
+}

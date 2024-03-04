@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "naturescanvas:fir_planks"
+  },
+  "result": "naturescanvas:fir_balustrade"
+}

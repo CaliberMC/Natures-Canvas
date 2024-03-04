@@ -4,7 +4,7 @@
     "default": "naturescanvas:lodgepole_pine_tree",
     "features": [
       {
-        "chance": 0.4,
+        "chance": 0.1,
         "feature": "naturescanvas:lodgepole_pine_tree_medium"
       }
     ]

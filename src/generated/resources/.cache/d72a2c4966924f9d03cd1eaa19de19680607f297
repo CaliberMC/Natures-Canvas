@@ -1,2 +1,22 @@
-// 1.20.1	2024-02-21T18:24:52.7345052	Tags for minecraft:item mod id naturescanvas
-f07d48ff94634b4a6a41d93e3bcfeb7ff2a4602a data/minecraft/tags/items/logs_that_burn.json
+// 1.20.1	2024-03-04T00:57:44.8443134	Tags for minecraft:item mod id naturescanvas
+8f3f5a21b1518d0d1be95544a332827740a00499 data/forge/tags/items/ores.json
+3d5eaf4dac4b235fef5131c4bf145142094592e7 data/forge/tags/items/ores_in_ground/deepslate.json
+b13209ce8a1ad14f97e2d4bb62ba361ae0a239c8 data/forge/tags/items/ores_in_ground/stone.json
+2d5a97a893dc2640ae9ada797d3b32f4ee0fdf83 data/forge/tags/items/sand.json
+0ee003f6bdd8ee1d9de78f7798544d021420b1dd data/minecraft/tags/items/dampens_vibrations.json
+2f0c819946bfcec8150593069b40809d7ff571ba data/minecraft/tags/items/hoes.json
+91218b977859e59208903f26d1298de3ae8bccb8 data/minecraft/tags/items/leaves.json
+e0d4c2e4e2e9f725d5cf82c3377d7b3a59eab4d6 data/minecraft/tags/items/logs_that_burn.json
+3028fac460e238c7f5bf779a10424240aa11202b data/minecraft/tags/items/non_flammable_wood.json
+7b6ec1ba3fd063c4568554a35b86c5fb72df5273 data/minecraft/tags/items/pickaxes.json
+f1d85e63e2c109e7c5493d1ff1edab07648c8cf4 data/minecraft/tags/items/planks.json
+2d5a97a893dc2640ae9ada797d3b32f4ee0fdf83 data/minecraft/tags/items/sand.json
+ffc453a3cb0c8908715a1701d4a5a742c3815213 data/minecraft/tags/items/shovels.json
+28baa76371105300a5377983b2d2c0a4ef046ce3 data/minecraft/tags/items/slabs.json
+2d5a97a893dc2640ae9ada797d3b32f4ee0fdf83 data/minecraft/tags/items/smelts_to_glass.json
+303a5c64551167b1bef00438cc3055b256a58c2a data/minecraft/tags/items/stairs.json
+a5499e371cdadcd04923e71d24d259af3bb0aa6e data/minecraft/tags/items/stone_bricks.json
+8e2bc86ab578a6d3d3525bca0b5672343a6af098 data/minecraft/tags/items/stone_crafting_materials.json
+1a8dd578a2c539bedd85ccf1a23d3fb3ea46629f data/minecraft/tags/items/swords.json
+7a28b60a627c8401f1f7b0b559f359d18a6be23e data/minecraft/tags/items/wooden_fences.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/items/wooden_pressure_plates.json

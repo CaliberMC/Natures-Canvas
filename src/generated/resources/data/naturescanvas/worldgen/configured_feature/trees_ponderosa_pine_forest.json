@@ -4,12 +4,8 @@
     "default": "naturescanvas:pine_tree",
     "features": [
       {
-        "chance": 0.3,
-        "feature": "naturescanvas:pine_tree_medium"
-      },
-      {
         "chance": 0.1,
-        "feature": "naturescanvas:pine_tree_large"
+        "feature": "naturescanvas:pine_tree_medium"
       }
     ]
   }

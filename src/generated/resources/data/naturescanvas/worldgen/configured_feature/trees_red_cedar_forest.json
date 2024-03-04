@@ -4,7 +4,7 @@
     "default": "naturescanvas:red_cedar_tree",
     "features": [
       {
-        "chance": 0.3,
+        "chance": 0.1,
         "feature": "naturescanvas:red_cedar_tree_medium"
       }
     ]

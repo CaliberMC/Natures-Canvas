@@ -23,23 +23,28 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 public class NCVegetationFeatures {
 
 
+    // Vegetation
     public static final ResourceKey<ConfiguredFeature<?, ?>> PATCH_FERN = NCFeatureUtils.registerKey("patch_fern");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_RED_CEDAR_FOREST = NCFeatureUtils.registerKey("trees_red_cedar_forest");
+
+    // Old Growth Forests
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_OLD_GROWTH_DOUGLAS_FIR_FOREST = NCFeatureUtils.registerKey("trees_old_growth_douglas_fir_forest");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_OLD_GROWTH_PONDEROSA_PINE_FOREST = NCFeatureUtils.registerKey("trees_old_growth_ponderosa_pine_forest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_OLD_GROWTH_RED_CEDAR_FOREST = NCFeatureUtils.registerKey("trees_old_growth_red_cedar_forest");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_OLD_GROWTH_NORTHERN_CONIFEROUS_FOREST = NCFeatureUtils.registerKey("trees_old_growth_northern_coniferous_forest");
+    //    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_OLD_GROWTH_SOUTHERN_CONIFEROUS_FOREST = NCFeatureUtils.registerKey("trees_old_growth_southern_coniferous_forest");
+
+    // Forests
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_DOUGLAS_FIR_FOREST = NCFeatureUtils.registerKey("trees_douglas_fir_forest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_LODGEPOLE_PINE_FOREST = NCFeatureUtils.registerKey("trees_lodgepole_pine_forest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_PONDEROSA_PINE_FOREST = NCFeatureUtils.registerKey("trees_ponderosa_pine_forest");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_RED_CEDAR_FOREST = NCFeatureUtils.registerKey("trees_red_cedar_forest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_SUBALPINE_FIR_FOREST = NCFeatureUtils.registerKey("trees_subalpine_fir_forest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_NORTHERN_CONIFEROUS_FOREST = NCFeatureUtils.registerKey("trees_northern_coniferous_forest");
 //    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_SOUTHERN_CONIFEROUS_FOREST = NCFeatureUtils.registerKey("trees_southern_coniferous_forest");
+
 //    public static final ResourceKey<ConfiguredFeature<?, ?>> TREES_TAIGA_FOREST = NCFeatureUtils.registerKey("trees_taiga_forest");
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> pContext) {
-
         HolderGetter<PlacedFeature> placedFeatureGetter = pContext.lookup(Registries.PLACED_FEATURE);
-
-        final Holder<PlacedFeature> RED_CEDAR_TREE = placedFeatureGetter.getOrThrow(NCTreePlacement.RED_CEDAR_TREE);
-        final Holder<PlacedFeature> RED_CEDAR_TREE_MEDIUM = placedFeatureGetter.getOrThrow(NCTreePlacement.RED_CEDAR_TREE_MEDIUM);
-        final Holder<PlacedFeature> RED_CEDAR_TREE_LARGE = placedFeatureGetter.getOrThrow(NCTreePlacement.RED_CEDAR_TREE_LARGE);
 
         final Holder<PlacedFeature> DOUGLAS_FIR_TREE = placedFeatureGetter.getOrThrow(NCTreePlacement.DOUGLAS_FIR_TREE);
         final Holder<PlacedFeature> DOUGLAS_FIR_TREE_MEDIUM = placedFeatureGetter.getOrThrow(NCTreePlacement.DOUGLAS_FIR_TREE_MEDIUM);
@@ -52,17 +57,33 @@ public class NCVegetationFeatures {
         final Holder<PlacedFeature> PONDEROSA_PINE_TREE_MEDIUM = placedFeatureGetter.getOrThrow(NCTreePlacement.PONDEROSA_PINE_TREE_MEDIUM);
         final Holder<PlacedFeature> PONDEROSA_PINE_TREE_LARGE = placedFeatureGetter.getOrThrow(NCTreePlacement.PONDEROSA_PINE_TREE_LARGE);
 
+        final Holder<PlacedFeature> RED_CEDAR_TREE = placedFeatureGetter.getOrThrow(NCTreePlacement.RED_CEDAR_TREE);
+        final Holder<PlacedFeature> RED_CEDAR_TREE_MEDIUM = placedFeatureGetter.getOrThrow(NCTreePlacement.RED_CEDAR_TREE_MEDIUM);
+        final Holder<PlacedFeature> RED_CEDAR_TREE_LARGE = placedFeatureGetter.getOrThrow(NCTreePlacement.RED_CEDAR_TREE_LARGE);
+
         final Holder<PlacedFeature> SUBALPINE_FIR_TREE = placedFeatureGetter.getOrThrow(NCTreePlacement.SUBALPINE_FIR_TREE);
         final Holder<PlacedFeature> SUBALPINE_FIR_TREE_MEDIUM = placedFeatureGetter.getOrThrow(NCTreePlacement.SUBALPINE_FIR_TREE_MEDIUM);
 
+        // Vegetation
         register(pContext, NCVegetationFeatures.PATCH_FERN, Feature.RANDOM_PATCH, FeatureUtils.simplePatchConfiguration(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(Blocks.FERN))));
-        register(pContext, NCVegetationFeatures.TREES_RED_CEDAR_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(RED_CEDAR_TREE_MEDIUM, 0.3f)), RED_CEDAR_TREE));
-        register(pContext, NCVegetationFeatures.TREES_OLD_GROWTH_RED_CEDAR_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(RED_CEDAR_TREE, 0.2f), new WeightedPlacedFeature(RED_CEDAR_TREE_LARGE, 0.5f)), RED_CEDAR_TREE_MEDIUM));
-        register(pContext, NCVegetationFeatures.TREES_DOUGLAS_FIR_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(DOUGLAS_FIR_TREE_MEDIUM, 0.3f), new WeightedPlacedFeature(DOUGLAS_FIR_TREE_LARGE, 0.1f)), DOUGLAS_FIR_TREE));
-        register(pContext, NCVegetationFeatures.TREES_LODGEPOLE_PINE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(LODGEPOLE_PINE_TREE_MEDIUM, 0.4f)), LODGEPOLE_PINE_TREE));
-        register(pContext, NCVegetationFeatures.TREES_PONDEROSA_PINE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(PONDEROSA_PINE_TREE_MEDIUM, 0.3f), new WeightedPlacedFeature(PONDEROSA_PINE_TREE_LARGE, 0.1f)), PONDEROSA_PINE_TREE));
-        register(pContext, NCVegetationFeatures.TREES_SUBALPINE_FIR_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(new WeightedPlacedFeature(SUBALPINE_FIR_TREE_MEDIUM, 0.1f)), SUBALPINE_FIR_TREE));
-        register(pContext, NCVegetationFeatures.TREES_NORTHERN_CONIFEROUS_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+
+        // Old Growth Forests
+        register(pContext, NCVegetationFeatures.TREES_OLD_GROWTH_DOUGLAS_FIR_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(DOUGLAS_FIR_TREE_MEDIUM, 0.3f),
+                new WeightedPlacedFeature(DOUGLAS_FIR_TREE_LARGE, 0.1f)),
+                DOUGLAS_FIR_TREE));
+
+        register(pContext, NCVegetationFeatures.TREES_OLD_GROWTH_PONDEROSA_PINE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(PONDEROSA_PINE_TREE_MEDIUM, 0.3f),
+                new WeightedPlacedFeature(PONDEROSA_PINE_TREE_LARGE, 0.1f)),
+                PONDEROSA_PINE_TREE));
+
+        register(pContext, NCVegetationFeatures.TREES_OLD_GROWTH_RED_CEDAR_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(RED_CEDAR_TREE, 0.2f),
+                new WeightedPlacedFeature(RED_CEDAR_TREE_LARGE, 0.5f)),
+                RED_CEDAR_TREE_MEDIUM));
+
+        register(pContext, NCVegetationFeatures.TREES_OLD_GROWTH_NORTHERN_CONIFEROUS_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
                 new WeightedPlacedFeature(DOUGLAS_FIR_TREE_MEDIUM, 0.3f),
                 new WeightedPlacedFeature(DOUGLAS_FIR_TREE_LARGE, 0.1f),
                 new WeightedPlacedFeature(PONDEROSA_PINE_TREE, 0.3f),
@@ -71,6 +92,35 @@ public class NCVegetationFeatures {
                 new WeightedPlacedFeature(RED_CEDAR_TREE, 0.2f),
                 new WeightedPlacedFeature(RED_CEDAR_TREE_MEDIUM, 0.1f),
                 new WeightedPlacedFeature(RED_CEDAR_TREE_LARGE, 0.1f)),
+                DOUGLAS_FIR_TREE));
+
+        // Forests
+        register(pContext, NCVegetationFeatures.TREES_DOUGLAS_FIR_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(DOUGLAS_FIR_TREE_MEDIUM, 0.1f)),
+                DOUGLAS_FIR_TREE));
+
+        register(pContext, NCVegetationFeatures.TREES_LODGEPOLE_PINE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(LODGEPOLE_PINE_TREE_MEDIUM, 0.1f)),
+                LODGEPOLE_PINE_TREE));
+
+        register(pContext, NCVegetationFeatures.TREES_PONDEROSA_PINE_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(PONDEROSA_PINE_TREE_MEDIUM, 0.1f)),
+                PONDEROSA_PINE_TREE));
+
+        register(pContext, NCVegetationFeatures.TREES_RED_CEDAR_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(RED_CEDAR_TREE_MEDIUM, 0.1f)),
+                RED_CEDAR_TREE));
+
+        register(pContext, NCVegetationFeatures.TREES_SUBALPINE_FIR_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(SUBALPINE_FIR_TREE_MEDIUM, 0.1f)),
+                SUBALPINE_FIR_TREE));
+
+        register(pContext, NCVegetationFeatures.TREES_NORTHERN_CONIFEROUS_FOREST, Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(ImmutableList.of(
+                new WeightedPlacedFeature(DOUGLAS_FIR_TREE_MEDIUM, 0.1f),
+                new WeightedPlacedFeature(PONDEROSA_PINE_TREE, 0.2f),
+                new WeightedPlacedFeature(PONDEROSA_PINE_TREE_MEDIUM, 0.1f),
+                new WeightedPlacedFeature(RED_CEDAR_TREE, 0.2f),
+                new WeightedPlacedFeature(RED_CEDAR_TREE_MEDIUM, 0.1f)),
                 DOUGLAS_FIR_TREE));
     }
 

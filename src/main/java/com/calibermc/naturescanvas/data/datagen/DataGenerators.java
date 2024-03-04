@@ -27,19 +27,21 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        // BlockStates, Loot and Models
-        generator.addProvider(event.includeClient(), new NCBlockStateProvider(generator, existingFileHelper));
-        generator.addProvider(event.includeClient(), new NCItemModelProvider(generator, existingFileHelper));
-
-        generator.addProvider(event.includeServer(), new ModLootTableProvider(generator, NCBlockLootTables::new));
         generator.addProvider(event.includeServer(), new NCRecipeProvider(generator));
         generator.addProvider(event.includeServer(), new MiscRecipeProvider(generator));
         generator.addProvider(event.includeServer(), new ItemRecipeProvider(generator));
-        generator.addProvider(event.includeServer(), new NCGlobalLootModifiers(packOutput));
-        generator.addProvider(event.includeServer(), new NCWorldGenProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModLootTableProvider(generator, NCBlockLootTables::new));
+
+        generator.addProvider(event.includeClient(), new NCBlockStateProvider(generator, existingFileHelper));
+        generator.addProvider(event.includeClient(), new NCItemModelProvider(generator, existingFileHelper));
 
         NCBlockTagProvider blockTagGenerator = generator.addProvider(event.includeServer(), new NCBlockTagProvider(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new NCItemTagProvider(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
+
+        generator.addProvider(event.includeServer(), new NCGlobalLootModifiers(packOutput));
+        generator.addProvider(event.includeServer(), new NCWorldGenProvider(packOutput, lookupProvider));
+
+
 
     }
 }

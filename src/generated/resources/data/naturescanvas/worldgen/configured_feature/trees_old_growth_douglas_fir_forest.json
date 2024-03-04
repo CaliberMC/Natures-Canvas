@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "naturescanvas:douglas_fir_tree",
+    "features": [
+      {
+        "chance": 0.3,
+        "feature": "naturescanvas:douglas_fir_tree_medium"
+      },
+      {
+        "chance": 0.1,
+        "feature": "naturescanvas:douglas_fir_tree_large"
+      }
+    ]
+  }
+}
